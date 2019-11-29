@@ -1,0 +1,6 @@
+/*
+  Calculate font size base screen's size(width).
+*/
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}

@@ -1,0 +1,68 @@
+/*
+  * css4 variables
+ */
+:root {
+  --color-primary: #3880ff;
+  --color-primary-rgb: 56,128,255;
+  --color-primary-font: #ffffff;
+  --color-primary-font-rgb: 255,255,255;
+  --color-primary-shade: #3171e0;
+  --color-primary-tint: #4c8dff;
+
+  --color-secondary: #0cd1e8;
+  --color-secondary-rgb: 12,209,232;
+  --color-secondary-font: #ffffff;
+  --color-secondary-font-rgb: 255,255,255;
+  --color-secondary-shade: #0bb8cc;
+  --color-secondary-tint: #24d6ea;
+
+  --color-tertiary: #7044ff;
+  --color-tertiary-rgb: 112,68,255;
+  --color-tertiary-font: #ffffff;
+  --color-tertiary-font-rgb: 255,255,255;
+  --color-tertiary-shade: #633ce0;
+  --color-tertiary-tint: #7e57ff;
+
+  --color-success: #10dc60;
+  --color-success-rgb: 16,220,96;
+  --color-success-font: #ffffff;
+  --color-success-font-rgb: 255,255,255;
+  --color-success-shade: #0ec254;
+  --color-success-tint: #28e070;
+
+  --color-danger: #f04141;
+  --color-danger-rgb: 245,61,61;
+  --color-danger-font: #ffffff;
+  --color-danger-font-rgb: 255,255,255;
+  --color-danger-shade: #d33939;
+  --color-danger-tint: #f25454;
+
+  --color-dark: #222428;
+  --color-dark-rgb: 34,34,34;
+  --color-dark-font: #ffffff;
+  --color-dark-font-rgb: 255,255,255;
+  --color-dark-shade: #1e2023;
+  --color-dark-tint: #383a3e;
+
+  --color-light: #f4f5f8;
+  --color-light-rgb: 244,244,244;
+  --color-light-font: #000000;
+  --color-light-font-rgb: 0,0,0;
+  --color-light-shade: #d7d8da;
+  --color-light-tint: #f5f6f9;
+
+  --color-font: #000;
+
+  --f-black: 'Roboto-Blacki', sans-serif;
+  --f-black-italic: 'Roboto-BlackItalic', sans-serif;
+  --f-bold: 'Roboto-Bold', sans-serif;
+  --f-bold-italic: 'Roboto-BoldItalic', sans-serif;
+  --f-italic: 'Roboto-Italic', sans-serif;
+  --f-light: 'Roboto-Light', sans-serif;
+  --f-light-italic: 'Roboto-LightItalic', sans-serif;
+  --f-medium: 'Roboto-Medium', sans-serif;
+  --f-medium-italic: 'Roboto-MediumItalic', sans-serif;
+  --f-regular: 'Roboto-Regular', sans-serif;
+  --f-thin: 'Roboto-Thin', sans-serif;
+  --f-thin-italic: 'Roboto-ThinItalic', sans-serif;
+}

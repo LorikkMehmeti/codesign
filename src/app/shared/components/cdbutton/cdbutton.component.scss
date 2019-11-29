@@ -1,0 +1,68 @@
+.cd-btn {
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  letter-spacing: -.41px;
+  line-height: 15px;
+  transition: background 300ms ease;
+  height: 50px;
+  min-height: 50px;
+}
+
+.cd-btn-block {
+  display: block;
+}
+
+.cd-btn-inline {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
+  color: black;
+  max-width: 300px;
+}
+
+$classes: primary, secondary, tertiary, success, danger, dark, light;
+
+@each $class in $classes {
+  .cd-btn-#{$class} {
+    &:not(.cd-outline), & {
+      background: var(--color-#{$class});
+      color: var(--color-#{$class}-font);
+
+      &:active {
+        background: var(--color-#{$class}-tint);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-#{$class}-shade);
+        }
+      }
+    }
+
+    .cd-btn-icon {
+      svg {
+        fill: var(--color-#{$class}-font) !important;
+      }
+    }
+
+    &.cd-btn-outline {
+      background: transparent;
+      border: 2px solid var(--color-#{$class});
+      color: var(--color-font);
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-#{$class});
+          color: var(--color-#{$class}-font);
+        }
+      }
+    }
+
+  }
+}
+
+
+.cd-btn-icon {
+  margin-right: 10px;
+}
+

@@ -7,6 +7,7 @@ import {ForgotPasswordComponent} from './forgot-password/forgot-password.compone
 import {GuestRoutingModule} from './guest-routing.module';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {ConfirmRegistrationComponent} from './confirm-registration/confirm-registration.component';
+import {CdbuttonComponent} from '../shared/components';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,10 @@ import {ConfirmRegistrationComponent} from './confirm-registration/confirm-regis
     ConfirmRegistrationComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
+    CdbuttonComponent,
     GuestComponent
   ],
-  exports: [],
+  exports: [CdbuttonComponent],
   imports: [
     CommonModule,
     GuestRoutingModule,

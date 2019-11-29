@@ -6,3 +6,41 @@
   -webkit-user-select: none;
   user-select: none;
 }
+
+/*
+  Mixin for fluid.
+  First parameter requires the property of css,
+  second parameter requires the minimum-width device,
+  third parameter requires the maximum-width device,
+  fourth parameter requires the minimum-size for text,
+  fifth parameter requires the maximum-size for text.
+ */
+@mixin fluid($property, $min-vw, $max-vw, $min-size, $max-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-size);
+  $u4: unit($max-size);
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      #{$property}: $min-size!important;
+      @media screen and (min-width: $min-vw) {
+        #{$property}: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}))!important;
+      }
+      @media screen and (min-width: $max-vw) {
+        #{$property}: $max-size!important;
+      }
+    }
+  }
+}
+
+/*
+  Mixin for font-face.
+ */
+@mixin font_face($font-family, $url) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$url}.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}

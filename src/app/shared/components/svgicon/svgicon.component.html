@@ -1,0 +1,5 @@
+<div class="d-inline-block ct-icon" [ngStyle]="{'width.px': size, 'height.px': size}">
+  <svg [attr.id]="idName" [ngClass]="className" [attr.fill]="fillColor" [attr.title]="icon">
+    <use [attr.xlink:href]="'/assets/images/icons/'+fileName+'.svg#'+ icon"/>
+  </svg>
+</div>

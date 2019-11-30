@@ -41,6 +41,7 @@
     font-family: '#{$font-family}';
     src: url('#{$url}.ttf') format('truetype');
     font-weight: normal;
+    font-display: swap;
     font-style: normal;
   }
 }

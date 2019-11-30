@@ -1,5 +1,5 @@
 $list: Blacki, BlackItalic, Bold, BoldItalic, Italic, Light, LightItalic, Medium, MediumItalic, Thin, ThinItalic, Regular;
-
+$plist: Blacki, Bold, Regular;
 h1, h2, h3, h4, h5, h6, span, p, a, b, strong, i, link, ul, li {
   margin: 0;
   list-style: none;
@@ -9,4 +9,8 @@ h1, h2, h3, h4, h5, h6, span, p, a, b, strong, i, link, ul, li {
 
 @each $font in $list {
   @include font_face('Roboto-#{$font}', '~assets/fonts/Roboto-#{$font}');
+}
+
+@each $font in $plist {
+  @include font_face('PlayfairDisplay-#{$font}', '~assets/fonts/PlayfairDisplay-#{$font}');
 }

@@ -80,7 +80,8 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
           }
         }
       }
-      &:active{
+
+      &:active {
         color: var(--color-#{$class}-font);
 
         .cd-btn-icon svg {
@@ -88,7 +89,6 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
         }
       }
     }
-
   }
 }
 

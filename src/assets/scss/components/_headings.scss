@@ -1,23 +1,35 @@
 .heading {
   letter-spacing: -.41px;
-  font-family: var(--f-p-black);
   text-transform: capitalize;
+  font-family: var(--f-p-black);
 }
 
 .heading-headline {
   //font-family: var(--f-black);
   @include fluid('font-size', 320px, 1920px, 30px, 60px);
   @include fluid('line-height', 320px, 1920px, 31px, 61px);
+
+  &.font-roboto {
+    font-family: var(--f-black);
+  }
 }
 
 .heading-title {
   //font-family: var(--f-bold);
   @include fluid('font-size', 320px, 1920px, 26px, 54px);
   @include fluid('line-height', 320px, 1920px, 31px, 61px);
+
+  &.font-roboto {
+    font-family: var(--f-bold);
+  }
 }
 
 .heading-subtitle {
   //font-family: var(--f-medium);
   @include fluid('font-size', 320px, 1920px, 22px, 48px);
   @include fluid('line-height', 320px, 1920px, 31px, 61px);
+
+  &.font-roboto {
+    font-family: var(--f-medium);
+  }
 }

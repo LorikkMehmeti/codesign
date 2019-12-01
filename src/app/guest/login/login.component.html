@@ -1,15 +1,31 @@
+<cd-header></cd-header>
 <div class="container">
   <p>login works!</p>
   <h1 class="heading heading-headline">{{'HELLO' | translate}}</h1>
   <h1 class="heading heading-title">{{'SignIn.facebook' | translate}}</h1>
   <h1 class="heading heading-subtitle">-Wanderlust</h1>
-  <cd-button [text]="'Download'"></cd-button>
+  <cd-button [text]="'Download'" [classNames]="'cd-btn-inline cd-btn-small cd-btn-danger'"></cd-button>
   <cd-button
     [showIcon]="false"
     [textBtn]="true"
     [classNames]="'cd-btn-block cd-btn-primary'"
-    text="{{'SignIn.facebook' | translate}}">
+    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">
   </cd-button>
+
+  <cd-button
+    [showIcon]="false"
+    [textBtn]="true"
+    [classNames]="'cd-btn-block cd-btn-secondary'"
+    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">
+  </cd-button>
+
+  <cd-button
+    [showIcon]="false"
+    [textBtn]="true"
+    [classNames]="'cd-btn-inline cd-btn-tertiary'"
+    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">
+  </cd-button>
+
   <cd-button
     [showIcon]="true"
     [textBtn]="false"
@@ -17,3 +33,5 @@
   </cd-button>
 
 </div>
+
+<cd-footer></cd-footer>

@@ -2,5 +2,31 @@
   "HELLO": "Halo",
   "SignIn": {
     "facebook": "Mit Facebook anmelden"
+  },
+  "footer": {
+    "mainPages": {
+      "title": "Hauptseiten",
+      "home": "Startseite",
+      "login": "Einloggen",
+      "signUp": "Anmelden",
+      "forgotPassword": "Passwort vergessen"
+    },
+    "company": {
+      "title": "Unternehmen",
+      "about": "Über das Unternehmen",
+      "team": "Mannschaft",
+      "careers": "Karriere",
+      "companyShop": "Firmengeschäft"
+    },
+    "follow": {
+      "title": "Folgen"
+    },
+    "policies": {
+      "title": "Richtlinien",
+      "privacy": "Datenschutz-Bestimmungen",
+      "safe": "Sichere Politik",
+      "userGuide": "Benutzerhandbuch",
+      "terms": "Geschäftsbedingungen"
+    }
   }
 }

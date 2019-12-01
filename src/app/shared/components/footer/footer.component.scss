@@ -1,0 +1,48 @@
+.cd-footer-grid {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-column-gap: 5px;
+  grid-row-gap: 15px;
+  grid-template-rows: auto;
+  align-items: flex-start;
+
+  @media only screen and (max-width: 580px) {
+    & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.footer-heading {
+  font-family: var(--f-medium);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer-column {
+  letter-spacing: .2px;
+
+  li {
+    margin-top: 10px;
+    letter-spacing: -.41px;
+  }
+}
+
+.footer-link {
+  text-decoration: none;
+  color: var(--font-color-footer);
+  appearance: none;
+  text-transform: capitalize;
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-font);
+    }
+  }
+
+  &:active {
+    background: transparent;
+    color: var(--color-font);
+  }
+}

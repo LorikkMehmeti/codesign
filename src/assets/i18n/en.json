@@ -2,5 +2,31 @@
   "HELLO": "hello",
   "SignIn": {
     "facebook": "Sign in with Facebook"
+  },
+  "footer": {
+    "mainPages": {
+      "title": "Main Pages",
+      "home": "Home",
+      "login": "Login",
+      "signUp": "Sign Up",
+      "forgotPassword": "Forgot Password"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About company",
+      "team": "Team",
+      "careers": "Careers",
+      "companyShop": "Company Shop"
+    },
+    "follow": {
+      "title": "Follow"
+    },
+    "policies": {
+      "title": "Policies",
+      "privacy": "Privacy policy",
+      "safe": "Safe policy",
+      "userGuide": "User Guide",
+      "terms": "Terms & Conditions"
+    }
   }
 }

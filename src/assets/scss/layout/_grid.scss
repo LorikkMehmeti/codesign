@@ -3,3 +3,8 @@
   padding: 0 5px;
   margin: 0 auto;
 }
+
+.cd-footer-grid {
+  @include fluid('padding-top', 320px, 1920px, 20px, 80px);
+  @include fluid('padding-bottom', 320px, 1920px, 20px, 80px);
+}

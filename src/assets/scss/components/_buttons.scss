@@ -1,0 +1,79 @@
+$classes: primary, secondary, tertiary, success, danger, dark, light;
+
+@each $class in $classes {
+  .cd-btn-#{$class} {
+    cursor: pointer;
+    &:not(.cd-outline), & {
+      background: var(--color-#{$class});
+      color: var(--color-#{$class}-font)!important;
+      border: 1px solid var(--color-#{$class});
+
+      svg{
+        fill: var(--color-#{$class}-font);
+      }
+
+      &:active {
+        background: var(--color-#{$class}-tint);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-#{$class}-shade);
+        }
+      }
+    }
+
+    .cd-btn-icon {
+      svg {
+        fill: var(--color-#{$class}-font) !important;
+      }
+    }
+
+    &.cd-btn-outline {
+      background: transparent;
+      //margin: 40px;
+      box-shadow: 0 0 0 1px var(--color-#{$class});
+      color: var(--color-font);
+      border: 0px solid;
+
+      .cd-btn-icon {
+        svg {
+          fill: var(--color-#{$class}) !important;
+        }
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-#{$class});
+          color: var(--color-#{$class}-font);
+
+          .cd-btn-icon svg {
+            fill: var(--color-#{$class}-font) !important;
+          }
+        }
+      }
+
+      &:active {
+        color: var(--color-#{$class}-font);
+
+        .cd-btn-icon svg {
+          fill: var(--color-#{$class}-font) !important;
+        }
+      }
+    }
+  }
+}
+
+.btn__join {
+  margin-top: 2px;
+  vertical-align: middle;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #4a8bfc;
+  letter-spacing: -.03em;
+  font-family: var(--f-medium);
+  //box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+  margin-left: 16px;
+  color: #fff;
+  display: inline-block;
+}

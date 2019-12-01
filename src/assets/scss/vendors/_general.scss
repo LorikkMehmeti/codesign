@@ -1,11 +1,10 @@
-.cd-btn, .heading {
+body {
+  background: var(--bg-page);
+  color: var(--color-page);
+}
+
+[class*="cd-btn"], .heading, cd {
   @include user-touch();
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
 

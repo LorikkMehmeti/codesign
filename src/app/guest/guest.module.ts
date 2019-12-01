@@ -7,7 +7,7 @@ import {ForgotPasswordComponent} from './forgot-password/forgot-password.compone
 import {GuestRoutingModule} from './guest-routing.module';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {ConfirmRegistrationComponent} from './confirm-registration/confirm-registration.component';
-import {CdbuttonComponent, SvgIconComponent} from '../shared/components';
+import {CdbuttonComponent, SvgIconComponent, FooterComponent, HeaderComponent} from '../shared/components';
 import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
@@ -18,6 +18,8 @@ import {TranslateModule} from '@ngx-translate/core';
     ResetPasswordComponent,
     ForgotPasswordComponent,
     CdbuttonComponent,
+    FooterComponent,
+    HeaderComponent,
     SvgIconComponent,
     GuestComponent
   ],

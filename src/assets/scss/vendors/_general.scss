@@ -3,8 +3,14 @@ body {
   color: var(--color-page);
 }
 
-[class*="cd-btn"], .heading, cd {
+[class*="cd-btn"], .heading{
   @include user-touch();
 }
 
+.position-relative {
+  position: relative;
+}
 
+.position-absolute {
+  position: absolute;
+}

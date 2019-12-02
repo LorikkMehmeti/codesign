@@ -29,9 +29,34 @@
   <cd-button
     [showIcon]="true"
     [textBtn]="false"
-    [classNames]="'btn-svg-icon cd-btn-outline cd-btn-dark'">
+    [classNames]="'btn-svg-icon cd-btn-outline cd-btn-light'">
   </cd-button>
 
 </div>
 
+<div [@openClose]="isOpen ? true : false" class="popup-login">
+  <div class="position-relative">
+    <h1 class="heading-sub" style="font-family: 'Roboto-Blacki';text-transform: uppercase">Welcome to Codesign</h1>
+    <p style="margin-top: 10px;">
+      Showcase your work. Find new inspiration, hand-picked just for you.
+    </p>
+    <div class="display-flex">
+      <cd-button [showIcon]="false"
+                 [text]="'Sign up with email'"
+                 [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"
+                 borderRadius="60"></cd-button>
+      <cd-button [showIcon]="true"
+                 [textBtn]="false"
+                 [classNames]="'cd-btn-inline cd-btn-small icon-only cd-btn-primary font-medium ml-2'"
+                 borderRadius="60" iconSize="18" iconName="icon-google-logo" title="Coming soon"></cd-button>
+      <cd-button [showIcon]="true"
+                 [textBtn]="false"
+                 [classNames]="'cd-btn-inline cd-btn-small icon-only cd-btn-primary font-medium ml-2'"
+                 borderRadius="60" iconSize="18" iconName="icon-google-logo" title="Coming soon"></cd-button>
+    </div>
+    <div class="position-absolute popup--close_btn" (click)="togglePopUp()">
+      <svg-icon fileName="icons" icon="icon-close" fillColor="var(--color-font)" size="22"></svg-icon>
+    </div>
+  </div>
+</div>
 <cd-footer></cd-footer>

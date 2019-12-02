@@ -16,6 +16,7 @@ export class CdbuttonComponent implements OnInit {
   @Input() iconName ?= 'cloud';
   @Input() maxWidth = false;
   @Input() borderRadius ?: number;
+  @Input() iconSize ?= 20;
 
 
   constructor() {

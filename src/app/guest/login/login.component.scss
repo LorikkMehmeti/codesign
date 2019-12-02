@@ -1,0 +1,31 @@
+.popup-login {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px 20px 20px 20px;
+  background: var(--popup-bg);
+  border-radius: 10px;
+  font-weight: 100;
+  //box-shadow: 0 3px 8px rgba(255, 255, 255, .2);
+  @media only screen and (max-width: 568px) {
+    left: 10px;
+  }
+}
+
+.popup--close_btn {
+  right: -10px;
+  top: -25px;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  &:active {
+    opacity: .8;
+  }
+}

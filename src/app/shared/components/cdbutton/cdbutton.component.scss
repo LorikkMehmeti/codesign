@@ -3,7 +3,6 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
 .cd-btn {
   margin: 8px 0px;
   cursor: pointer;
-  color: white;
   text-align: center;
   letter-spacing: -.41px;
   line-height: 15px;
@@ -120,6 +119,14 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
   min-height: 35px;
   height: 35px;
   font-size: 14px;
+
+  &.icon-only {
+    width: 35px;
+
+    .cd-btn-icon {
+      margin: 0;
+    }
+  }
 }
 
 .cd-btn-icon {

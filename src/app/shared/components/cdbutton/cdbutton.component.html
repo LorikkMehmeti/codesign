@@ -1,7 +1,7 @@
 <a class="cd-btn" [ngClass]="classNames" [style.borderRadius.px]="borderRadius">
   <div class="flex-center">
     <div *ngIf="showIcon" class="cd-btn-icon">
-      <div class="d-inline-block ct-icon" [ngStyle]="{'width.px': '20', 'height.px': '20'}">
+      <div class="d-inline-block ct-icon" [ngStyle]="{'width.px': iconSize, 'height.px': iconSize}">
         <svg>
           <use [attr.xlink:href]="'/assets/images/icons/icons.svg#' + iconName"/>
         </svg>

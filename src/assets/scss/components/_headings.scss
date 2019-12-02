@@ -33,3 +33,13 @@
     font-family: var(--f-medium);
   }
 }
+
+.heading-sub {
+  //font-family: var(--f-medium);
+  @include fluid('font-size', 320px, 1920px, 18px, 40px);
+  @include fluid('line-height', 320px, 1920px, 19px, 41px);
+
+  &.font-roboto {
+    font-family: var(--f-medium);
+  }
+}

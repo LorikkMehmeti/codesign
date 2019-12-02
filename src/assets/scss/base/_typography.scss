@@ -4,6 +4,9 @@ h1, h2, h3, h4, h5, h6, span, p, a, b, strong, i, link, ul, li {
   margin: 0;
   list-style: none;
   padding: 0;
+}
+
+body {
   font-family: var(--f-regular);
 }
 
@@ -13,4 +16,16 @@ h1, h2, h3, h4, h5, h6, span, p, a, b, strong, i, link, ul, li {
 
 @each $font in $plist {
   @include font_face('PlayfairDisplay-#{$font}', '~assets/fonts/PlayfairDisplay-#{$font}');
+}
+
+.font-black {
+  font-family: var(--f-bold);
+}
+
+.font-medium {
+  font-family: var(--f-medium);
+}
+
+.font-bold {
+  font-family: var(--f-bold);
 }

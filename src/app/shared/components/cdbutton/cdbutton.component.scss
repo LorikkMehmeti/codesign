@@ -84,7 +84,7 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
       background: transparent;
       //margin: 40px;
       box-shadow: 0 0 0 1px var(--color-#{$class});
-      color: var(--color-font);
+      color: var(--color-font) !important;
       border: 0px solid;
 
       .cd-btn-icon {
@@ -96,7 +96,7 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
       @media (hover: hover) {
         &:hover {
           background: var(--color-#{$class});
-          color: var(--color-#{$class}-font);
+          color: var(--color-#{$class}-font) !important;
 
           .cd-btn-icon svg {
             fill: var(--color-#{$class}-font) !important;
@@ -111,6 +111,31 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
           fill: var(--color-#{$class}-font) !important;
         }
       }
+    }
+  }
+}
+
+.cd-btn-social {
+  background: transparent;
+  box-shadow: 0 0 0 1px var(--bg-social-btn);
+  color: var(--color-font);
+  @media (hover: hover) {
+    &:hover {
+      background: var(--bg-social-btn);
+      color: var(--color-font-invert) !important;
+
+      .cd-btn-icon svg {
+        fill: var(--color-font-invert) !important;
+      }
+    }
+  }
+
+  &:active {
+    background: var(--bg-social-btn);
+    color: var(--color-font-invert)!important;
+
+    .cd-btn-icon svg {
+      fill: var(--color-font-invert) !important;
     }
   }
 }

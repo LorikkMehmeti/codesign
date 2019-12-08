@@ -1,62 +1,112 @@
 <cd-header></cd-header>
-<div class="container">
-  <p>login works!</p>
-  <h1 class="heading heading-headline">{{'HELLO' | translate}}</h1>
-  <h1 class="heading heading-title">{{'SignIn.facebook' | translate}}</h1>
-  <h1 class="heading heading-subtitle">-Wanderlust</h1>
-  <cd-button [text]="'Download'" [classNames]="'cd-btn-inline cd-btn-small cd-btn-danger'"></cd-button>
-  <cd-button
-    [showIcon]="false"
-    [textBtn]="true"
-    [classNames]="'cd-btn-block cd-btn-primary'"
-    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">
-  </cd-button>
+<!--<img class="image&#45;&#45;login" src="../../../assets/images/mask.png" height="100%" style="position:absolute;top:0;bottom:0;" alt="">-->
+<div class="container login-container">
+  <!--  <p>login works!</p>-->
+  <!--  <h1 class="heading heading-headline">{{'HELLO' | translate}}</h1>-->
+  <!--  <h1 class="heading heading-title">{{'SignIn.facebook' | translate}}</h1>-->
+  <!--  <h1 class="heading heading-subtitle">-Wanderlust</h1>-->
+  <!--  <cd-button [text]="'Download'" [classNames]="'cd-btn-inline cd-btn-small cd-btn-danger'"></cd-button>-->
+  <!--  <cd-button-->
+  <!--    [showIcon]="false"-->
+  <!--    [textBtn]="true"-->
+  <!--    [classNames]="'cd-btn-block cd-btn-primary'"-->
+  <!--    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">-->
+  <!--  </cd-button>-->
 
-  <cd-button
-    [showIcon]="false"
-    [textBtn]="true"
-    [classNames]="'cd-btn-block cd-btn-secondary'"
-    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">
-  </cd-button>
+  <!--  <cd-button-->
+  <!--    [showIcon]="false"-->
+  <!--    [textBtn]="true"-->
+  <!--    [classNames]="'cd-btn-block cd-btn-secondary'"-->
+  <!--    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">-->
+  <!--  </cd-button>-->
 
-  <cd-button
-    [showIcon]="false"
-    [textBtn]="true"
-    [classNames]="'cd-btn-inline cd-btn-tertiary'"
-    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">
-  </cd-button>
+  <!--  <cd-button-->
+  <!--    [showIcon]="false"-->
+  <!--    [textBtn]="true"-->
+  <!--    [classNames]="'cd-btn-inline cd-btn-tertiary'"-->
+  <!--    text="{{'SignIn.facebook' | translate}}" [maxWidth]="true">-->
+  <!--  </cd-button>-->
 
-  <cd-button
-    [showIcon]="true"
-    [textBtn]="false"
-    [classNames]="'btn-svg-icon cd-btn-outline cd-btn-light'">
-  </cd-button>
+  <!--  <cd-button-->
+  <!--    [showIcon]="true"-->
+  <!--    [textBtn]="false"-->
+  <!--    [classNames]="'btn-svg-icon cd-btn-outline cd-btn-light'">-->
+  <!--  </cd-button>-->
 
-</div>
+  <div class="grid-login">
+    <div class="form-container" style="text-align: center;">
+      <form [formGroup]="test">
+        <cd-button
+          [showIcon]="true"
+          iconName="icon-google-logo"
+          [textBtn]="true"
+          [classNames]="'cd-btn-block cd-btn-outline cd-btn-social'"
+          text="{{'SignIn.google' | translate}}" [maxWidth]="true">
+        </cd-button>
+        <div class="display-flex a-items-center j-space-between or-form-hr">
+          <hr>
+          <p>or</p>
+          <hr>
+        </div>
+        <div class="cd-form-group">
+          <input type="text" class="cd__input input__small" placeholder="Username or email" formControlName="lmao"
+                 [ngClass]="{
+      'form-valid': test.controls.lmao.valid && test.controls.lmao.dirty,
+      'form-invalid': lmao.invalid && test.touched && test.controls.lmao.dirty}">
+        </div>
+        <div class="cd-form-group">
+          <input type="password" class="cd__input input__small" placeholder="Password" formControlName="title"
+                 [ngClass]="{
+      'form-valid': title.valid && title?.value?.length >= 10 ,
+      'form-invalid': title.invalid && title.touched && title.dirty,
+      'form-warning': title?.value?.length < 10 && title.touched && title.dirty && title.valid}">
+          <p class="text_left" style="padding:4px;"
+             *ngIf="title?.value?.length < 10 && title.touched && title.dirty && title.valid">
+            We should warn
+          </p>
+        </div>
+        <div class="display-flex a-items-center j-space-between">
+          <a class="mt-2 mb-2 font-size_14 cd-link">Forgot Password ?</a>
+          <a class="mt-2 mb-2 font-size_14 cd-link" routerLink="/register">Sign up Now</a>
+        </div>
+        <cd-button
+          [showIcon]="false"
+          [textBtn]="true"
+          [classNames]="'cd-btn-block cd-btn-primary'"
+          text="{{'SignIn.signIn' | translate}}" [maxWidth]="true">
+        </cd-button>
 
-<div [@openClose]="isOpen ? true : false" class="popup-login">
-  <div class="position-relative">
-    <h1 class="heading-sub" style="font-family: 'Roboto-Blacki';text-transform: uppercase">Welcome to Codesign</h1>
-    <p style="margin-top: 10px;">
-      Showcase your work. Find new inspiration, hand-picked just for you.
-    </p>
-    <div class="display-flex">
-      <cd-button [showIcon]="false"
-                 [text]="'Sign up with email'"
-                 [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"
-                 borderRadius="60"></cd-button>
-      <cd-button [showIcon]="true"
-                 [textBtn]="false"
-                 [classNames]="'cd-btn-inline cd-btn-small icon-only cd-btn-primary font-medium ml-2'"
-                 borderRadius="60" iconSize="18" iconName="icon-google-logo" title="Coming soon"></cd-button>
-      <cd-button [showIcon]="true"
-                 [textBtn]="false"
-                 [classNames]="'cd-btn-inline cd-btn-small icon-only cd-btn-primary font-medium ml-2'"
-                 borderRadius="60" iconSize="18" iconName="icon-google-logo" title="Coming soon"></cd-button>
-    </div>
-    <div class="position-absolute popup--close_btn" (click)="togglePopUp()">
-      <svg-icon fileName="icons" icon="icon-close" fillColor="var(--color-font)" size="22"></svg-icon>
+        <p class="text_left font-size_12 mt-2 mb-2">This page is protected by reCAPTCHA and subject to the
+          <a class="cd-link">Google Privacy Policy</a> and <a class="cd-link">Terms of service</a></p>
+      </form>
     </div>
   </div>
+
 </div>
-<cd-footer></cd-footer>
+
+<!--<div [@openClose]="isOpen ? true : false" class="popup-login">-->
+<!--  <div class="position-relative">-->
+<!--    <h1 class="heading-sub" style="font-family: 'Roboto-Blacki';text-transform: uppercase">Welcome to Codesign</h1>-->
+<!--    <p style="margin-top: 10px;">-->
+<!--      Showcase your work. Find new inspiration, hand-picked just for you.-->
+<!--    </p>-->
+<!--    <div class="display-flex">-->
+<!--      <cd-button [showIcon]="false"-->
+<!--                 [text]="'Sign up with email'"-->
+<!--                 [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"-->
+<!--                 borderRadius="60"></cd-button>-->
+<!--      <cd-button [showIcon]="true"-->
+<!--                 [textBtn]="false"-->
+<!--                 [classNames]="'cd-btn-inline cd-btn-small icon-only cd-btn-primary font-medium ml-2'"-->
+<!--                 borderRadius="60" iconSize="18" iconName="icon-google-logo" title="Coming soon"></cd-button>-->
+<!--      <cd-button [showIcon]="true"-->
+<!--                 [textBtn]="false"-->
+<!--                 [classNames]="'cd-btn-inline cd-btn-small icon-only cd-btn-primary font-medium ml-2'"-->
+<!--                 borderRadius="60" iconSize="18" iconName="icon-google-logo" title="Coming soon"></cd-button>-->
+<!--    </div>-->
+<!--    <div class="position-absolute popup&#45;&#45;close_btn" (click)="togglePopUp()">-->
+<!--      <svg-icon fileName="icons" icon="icon-close" fillColor="var(&#45;&#45;color-font)" size="22"></svg-icon>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<cd-footer></cd-footer>-->

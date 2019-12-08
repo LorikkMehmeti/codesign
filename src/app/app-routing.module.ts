@@ -8,16 +8,11 @@ const routes: Routes = [
     loadChildren: './guest/guest.module#GuestModule'
     // canActivate: [GuestGuard]
   },
-  // {
-  //   path: 'account',
-  //   loadChildren: './account/account.module#AccountModule'
-  //   // canActivate: [AccountGuard]
-  // },
-  // {
-  //   path: 'member',
-  //   loadChildren: './member/member.module#MemberModule'
-  //   // canActivate: [MemberGuard]
-  // }
+  {
+    path: '',
+    loadChildren: './member/member.module#MemberModule'
+    // canActivate: [MemberGuard]
+  }
   // {
   //   path: 'logout',
   //   component: LogoutComponent

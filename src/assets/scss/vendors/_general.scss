@@ -3,7 +3,7 @@ body {
   color: var(--color-page);
 }
 
-[class*="cd-btn"], .heading{
+[class*="cd-btn"], .heading, .cd-link, *::placeholder, .inputGroup{
   @include user-touch();
 }
 

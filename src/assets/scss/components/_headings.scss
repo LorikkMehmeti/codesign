@@ -43,3 +43,10 @@
     font-family: var(--f-medium);
   }
 }
+
+.login_headline-welcome {
+  font-family: var(--f-eina-regular);
+  letter-spacing: -2.4px;
+  @include fluid('font-size', 320px, 1300px, 30px, 46px);
+  @include fluid('line-height', 320px, 1300px, 40px, 64px);
+}

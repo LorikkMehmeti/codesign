@@ -1,10 +1,44 @@
 .container {
-  max-width: 1300px;
-  padding: 0 5px;
+  max-width: 1200px;
+  padding: 0 10px;
   margin: 0 auto;
 }
 
 .cd-footer-grid {
   @include fluid('padding-top', 320px, 1920px, 20px, 80px);
   @include fluid('padding-bottom', 320px, 1920px, 20px, 80px);
+}
+
+.login-container {
+  height: calc(100% - 130px);
+}
+
+.grid-login {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  align-items: center;
+  @media only screen and (max-width: 800px) {
+    & .login--welcome_text {
+      display: none;
+    }
+  }
+
+  .heading-holder {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .logo {
+    max-width: 70px;
+  }
+  .image--login {
+    display: none;
+  }
 }

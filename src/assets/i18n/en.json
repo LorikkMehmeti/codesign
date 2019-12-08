@@ -1,7 +1,12 @@
 {
   "HELLO": "hello",
   "SignIn": {
-    "facebook": "Sign in with Facebook"
+    "signIn": "Sign In",
+    "facebook": "Sign in with Facebook",
+    "google": "Sign in with Google"
+  },
+  "SignUp": {
+    "signUp": "Sign Up"
   },
   "footer": {
     "mainPages": {

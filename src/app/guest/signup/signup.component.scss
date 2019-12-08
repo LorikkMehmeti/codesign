@@ -1,0 +1,57 @@
+.rdo {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  background-color: #606062;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), inset 0 -1px 1px rgba(0, 0, 0, 0.15);
+  transition: all 0.15s ease;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 6px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--header-color);
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  & + span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 2px;
+    margin-left: 6px;
+  }
+}
+
+.forms {
+  user-select: none;
+
+  label {
+    display: inline-block;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+
+  input[type="radio"]:checked + .rdo {
+    background: var(--color-primary);
+  }
+
+  input[type="radio"]:checked + .rdo:after {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.15s ease;
+  }
+}

@@ -1,3 +1,9 @@
 *:focus {
   outline: none;
 }
+
+a {
+  color: var(--color-font);
+  text-decoration: none;
+  cursor: pointer;
+}

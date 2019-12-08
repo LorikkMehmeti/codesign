@@ -9,6 +9,7 @@ import {ResetPasswordComponent} from './reset-password/reset-password.component'
 import {ConfirmRegistrationComponent} from './confirm-registration/confirm-registration.component';
 import {CdbuttonComponent, SvgIconComponent, FooterComponent, HeaderComponent} from '../shared/components';
 import {TranslateModule} from '@ngx-translate/core';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,11 @@ import {TranslateModule} from '@ngx-translate/core';
     SvgIconComponent,
     GuestComponent
   ],
-  exports: [CdbuttonComponent],
+  exports: [CdbuttonComponent, HeaderComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     GuestRoutingModule,
     TranslateModule,
   ]

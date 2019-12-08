@@ -1,10 +1,12 @@
 .cd-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   min-height: 60px;
   height: 60px;
   background: var(--header-color);
   margin-bottom: 40px;
+  z-index: 88;
 }
 
 .header__guest {

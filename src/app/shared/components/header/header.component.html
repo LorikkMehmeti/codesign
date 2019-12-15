@@ -1,4 +1,4 @@
-<div class="cd-header">
+<div class="cd-header" [ngClass]="{'header_margin': marginHeader, 'border_bottom': borderBottom}">
   <div class="container header__guest display-flex a-items-center j-space-between">
     <div class="logo">
       <div class="logo__header">
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="search-bar">
-      <div class="search__input display-flex a-items-center" style="position:relative;">
+      <div class="search__input" style="position:relative;">
         <div class="display-flex a-items-center j-space-between">
           <div class="input_s">
             <input type="text" placeholder="Search for shots, designers, developers">
@@ -19,18 +19,21 @@
             <svg-icon fileName="icons" icon="icon-search" size="16"></svg-icon>
           </div>
         </div>
-<!--        <div-->
-<!--          style="position: absolute;top:calc(100% + 10px);width:100%;left:0;right:0;height:300px;background:#c1c1c1;z-index: 44;"-->
-<!--        >-->
+        <!--        <div-->
+        <!--          style="position: absolute;top:calc(100% + 10px);width:100%;left:0;right:0;height:300px;background:#c1c1c1;z-index: 44;"-->
+        <!--        >-->
 
-<!--        </div>-->
+        <!--        </div>-->
       </div>
     </div>
     <div class="buttons-guest">
-<!--      <cd-button [showIcon]="false" classNames="cd-btn-inline" [maxWidth]="false" text="Login"></cd-button>-->
-      <cd-button [showIcon]="false" borderRadius="4" [text]="'Login'" [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'"></cd-button>
-      <cd-button [showIcon]="false" [text]="'Register'" [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'" style="margin-left:4px;"></cd-button>
-<!--      <cd-button [showIcon]="false" [classNames]="'cd-btn-inline cd-btn-primary'" text="Sign Up"></cd-button>-->
+      <!--      <cd-button [showIcon]="false" classNames="cd-btn-inline" [maxWidth]="false" text="Login"></cd-button>-->
+      <cd-button [showIcon]="false" borderRadius="4" [text]="'Login'"
+                 [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/login"></cd-button>
+      <cd-button [showIcon]="false" [text]="'Register'"
+                 [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"
+                 style="margin-left:4px;" routerLink="/register"></cd-button>
+      <!--      <cd-button [showIcon]="false" [classNames]="'cd-btn-inline cd-btn-primary'" text="Sign Up"></cd-button>-->
     </div>
   </div>
 </div>

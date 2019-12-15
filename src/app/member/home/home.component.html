@@ -1,1 +1,106 @@
-<cd-header></cd-header>
+<cd-header [borderBottom]="true"></cd-header>
+
+
+<div style="position:relative">
+  <div class="filter" style="background:var(--header-color);margin-bottom: 30px;">
+    <div class="container">
+      <div class="display-grid filters-shots grid__filter">
+        <div class="position-relative">
+          <p class="filter-label text_uppercase font-size_12">Timeframe</p>
+          <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open': toggleTable === 1}" (click)="onToggleTable(1)">
+            <span>Recent</span>
+          </div>
+          <ul class="dropdown_menu_links">
+            <li class="filter-option">Recent</li>
+            <li class="filter-option">Not Recent</li>
+            <li class="filter-option">Popular</li>
+          </ul>
+        </div>
+        <div class="position-relative">
+          <p class="filter-label text_uppercase font-size_12">Sort By</p>
+          <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open': toggleTable === 2}" (click)="onToggleTable(2)">
+            <span>Relevant</span>
+          </div>
+          <ul class="dropdown_menu_links">
+            <li class="filter-option">Relevant</li>
+            <li class="filter-option">Most appreciated</li>
+            <li class="filter-option">Most downloaded</li>
+          </ul>
+        </div>
+        <div class="position-relative">
+          <p class="filter-label text_uppercase font-size_12">Made with</p>
+          <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open': toggleTable === 3}" (click)="onToggleTable(3)">
+            <span>All apps</span>
+          </div>
+          <ul class="dropdown_menu_links">
+            <li class="filter-option display-flex a-items-center">
+              <svg-icon fileName="icons" icon="icon-adobe-xd" size="14"></svg-icon>
+              <span class="ml-2">Adobe XD</span>
+            </li>
+            <li class="filter-option display-flex a-items-center">
+              <svg-icon fileName="icons" icon="icon-figma" size="14"></svg-icon>
+              <span class="ml-2">Figma</span>
+            </li>
+            <li class="filter-option display-flex a-items-center">
+              <svg-icon fileName="icons" icon="icon-sketch" size="14"></svg-icon>
+              <span class="ml-2">Sketch</span>
+            </li>
+            <li class="filter-option display-flex a-items-center">
+              <svg-icon fileName="icons" icon="icon-photoshop" size="14"></svg-icon>
+              <span class="ml-2">Photoshop</span>
+            </li>
+            <li class="filter-option display-flex a-items-center">
+              <svg-icon fileName="icons" icon="icon-rgb" size="14"></svg-icon>
+              <span class="ml-2">Other tools</span>
+            </li>
+          </ul>
+        </div>
+        <div class="position-relative">
+          <p class="filter-label text_uppercase font-size_12">Grid Columns</p>
+          <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open': toggleTable === 4}" (click)="onToggleTable(4)">
+            <span>Big column</span>
+          </div>
+          <ul class="dropdown_menu_links text_center overflow-hidden">
+            <div class="display-flex a-items-center grid__columns">
+              <li class="filter-option flex-1" (click)="toggleColumns(true)">
+                <svg-icon fileName="icons" icon="icon-grid" size="20" fillColor="var(--color-font)"></svg-icon>
+              </li>
+              <li class="filter-option flex-1 text_center d-inline-block" (click)="toggleColumns(false)">
+                <svg-icon fileName="icons" [icon]="'icon-grid'" [size]="'30'" fillColor="var(--color-font)" className="d-inline-block"></svg-icon>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="grid_posts" [ngClass]="{'grid-four-columns': classColumns}">
+      <div class="grid-item" *ngFor="let p of items; let i = index">
+        <div class="image-grid">
+          <img [src]="p.img" width="100%" height="100%" style="object-fit: cover;" alt="">
+          <cd-button
+            [showIcon]="true"
+            [textBtn]="false"
+            [iconSize]="16"
+            [iconName]="'icon-heart'"
+            [classNames]="'btn-svg-icon bookmark_button'">
+          </cd-button>
+        </div>
+        <div class="display-flex a-items-center j-space-between bottom_post">
+          <div class="display-flex w-100">
+            <div class="avatar-image">
+              <img [src]="'http://source.unsplash.com/random/5' + i + 'x5' + i " width="100%" height="100%"
+                   style="object-fit: cover;" alt="">
+            </div>
+            <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_16'">
+              <p class="cd-link card-title" style="font-family: var(--f-bold);">{{p.title}}</p>
+              <a class="cd-link" style="font-size: 12px;opacity: .7;">{{p.name}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<cd-footer></cd-footer>

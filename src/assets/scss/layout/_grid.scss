@@ -1,7 +1,13 @@
-.container {
-  max-width: 1200px;
+.container, .container-fluid {
   padding: 0 10px;
   margin: 0 auto;
+}
+
+.container {
+  max-width: 1200px;
+}
+.container-fluid {
+  max-width: 1300px;
 }
 
 .cd-footer-grid {
@@ -40,5 +46,120 @@
   }
   .image--login {
     display: none;
+  }
+}
+
+.grid_posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: minmax(200px, 250px);
+  grid-column-gap: 30px;
+  grid-row-gap: 10px;
+
+  &:not(.grid-four-columns) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: minmax(250px, 250px);
+
+    .grid-item .image-grid {
+      height: 200px !important;
+    }
+
+    .grid-item .bottom_post {
+      height: calc(100% - 200px) !important;
+    }
+  }
+
+  &.grid-four-columns {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: minmax(200px, 200px);
+
+    .grid-item .image-grid {
+      height: 150px !important;
+    }
+
+    .grid-item .bottom_post {
+      height: calc(100% - 150px) !important;
+    }
+  }
+
+  .grid-item {
+    transition: all 200ms ease !important;
+    cursor: pointer;
+    position: relative;
+  }
+
+  @media (hover: hover) {
+    .bookmark_button {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 200ms linear;
+    }
+
+    .grid-item:hover {
+      .bookmark_button {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 200ms linear;
+      }
+
+      .image-grid img {
+        opacity: .9;
+      }
+    }
+  }
+
+  .card-title {
+    @include fluid('max-width', 320px, 1300px, 260px, 380px);
+    color: var(--color-primary);
+    width: 100%;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-primary-shade);
+      }
+    }
+
+    &:active {
+      color: var(--color-primary-shade);
+    }
+  }
+
+  .image-grid {
+    border-radius: 4px;
+    overflow: hidden;
+
+    img {
+      transition: opacity 200ms ease;
+    }
+  }
+
+  @media only screen and (max-width: 580px) {
+    & {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.text_card {
+  width: calc(100% - 26px);
+}
+
+.design-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  @include fluid('grid-gap', 800px, 1300px, 30px, 90px);
+  @media only screen and (max-width: 1024px) {
+    & {
+      display: block !important;
+    }
+    & .design-image {
+      width: 100%;
+      height: 90%;
+    }
   }
 }

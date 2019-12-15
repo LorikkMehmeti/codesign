@@ -10,11 +10,13 @@ import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from '../shared/components/header/header.component';
 // import {SearchComponent} from './search/search.component';
 import {GuestModule} from '../guest/guest.module';
+import { DesignComponent } from './design/design.component';
 
 @NgModule({
   declarations: [
     MemberComponent,
     HomeComponent,
+    DesignComponent,
   ],
   imports: [
     CommonModule,

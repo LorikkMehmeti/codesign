@@ -5,8 +5,15 @@
   min-height: 60px;
   height: 60px;
   background: var(--header-color);
-  margin-bottom: 40px;
   z-index: 88;
+
+  &.header_margin {
+    margin-bottom: 40px;
+  }
+
+  &.border_bottom {
+    border-bottom: 1px solid var(--border-header);
+  }
 }
 
 .header__guest {

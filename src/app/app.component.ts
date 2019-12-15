@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(window.document.body.attributes);
     this.multiLang.initLanguage();
   }
 }

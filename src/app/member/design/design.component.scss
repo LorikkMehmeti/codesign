@@ -1,0 +1,20 @@
+.buttons-design {
+  grid-template-columns: 2fr .2fr;
+  grid-gap: 10px;
+}
+
+.design__data-info {
+  opacity: .7;
+  font-family: var(--f-bold);
+  font-weight: normal;
+
+  svg-icon {
+    line-height: 12px;
+  }
+
+  .info_design {
+    //border-bottom: 1px solid black;
+    padding: 15px 0 ;
+  }
+}
+

@@ -3,12 +3,13 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
 @each $class in $classes {
   .cd-btn-#{$class} {
     cursor: pointer;
+
     &:not(.cd-outline), & {
       background: var(--color-#{$class});
-      color: var(--color-#{$class}-font)!important;
+      color: var(--color-#{$class}-font) !important;
       border: 1px solid var(--color-#{$class});
 
-      svg{
+      svg {
         fill: var(--color-#{$class}-font);
       }
 
@@ -76,4 +77,27 @@ $classes: primary, secondary, tertiary, success, danger, dark, light;
   margin-left: 16px;
   color: #fff;
   display: inline-block;
+}
+
+
+.cd-btn.bookmark_button {
+  min-height: 30px !important;;
+  height: 30px !important;;
+  padding: 0 !important;
+  max-width: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  background: var(--color-primary);
+  transition: all 200ms ease;
+
+  svg {
+    fill: var(--color-primary-font);
+  }
+
+  .cd-btn-icon {
+    line-height: 28px;
+  }
 }

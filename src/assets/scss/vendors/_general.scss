@@ -3,7 +3,7 @@ body {
   color: var(--color-page);
 }
 
-[class*="cd-btn"], .heading, .cd-link, *::placeholder, .inputGroup{
+[class*="cd-btn"], .heading, .cd-link, *::placeholder, .inputGroup, .dropdown-menu_neue, .dropdown_menu_links, img {
   @include user-touch();
 }
 
@@ -13,4 +13,22 @@ body {
 
 .position-absolute {
   position: absolute;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.like-button {
+  color: var(--color-danger);
+  fill: var(--color-danger);
+
+  @media (hover: hover) {
+    &:hover {
+    }
+  }
 }

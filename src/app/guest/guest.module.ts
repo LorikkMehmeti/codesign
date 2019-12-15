@@ -24,7 +24,7 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
     SvgIconComponent,
     GuestComponent
   ],
-  exports: [CdbuttonComponent, HeaderComponent],
+    exports: [CdbuttonComponent, HeaderComponent, FooterComponent, SvgIconComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

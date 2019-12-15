@@ -1,0 +1,54 @@
+<cd-header></cd-header>
+<div class="container-fluid position-relative">
+  <div class="design-grid mt-2">
+    <div class="design-image" style="width: 95%; margin:0 auto;">
+      <img src="https://cdn.dribbble.com/users/895215/screenshots/4079090/preview.png" width="100%"
+           style="object-fit: cover;" alt="">
+
+    </div>
+    <div class="info-image">
+      <div>
+        <h1 class="heading heading-sub mt-2 mb-2">—Zeino - Software App Landing Page</h1>
+        <span class="cd-link font-size_12">Design by Lorik Mehmeti</span>
+        <p class="font-size_14" style="margin-top: 30px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Accusantium asperiores atque dolor eligendi facilis
+          ipsa iste iure quis quo repellat, reprehenderit, sit sunt totam? Eaque hic laboriosam molestiae nihil
+          sit. </p>
+
+        <div class="buttons-design display-grid">
+          <cd-button
+            [showIcon]="false"
+            [textBtn]="true"
+            [classNames]="'cd-btn-block cd-btn-primary'"
+            text="Download files" [maxWidth]="true">
+          </cd-button>
+          <cd-button
+            [showIcon]="true"
+            [textBtn]="false"
+            [iconName]="!liked ? 'icon-heart': 'icon-heart-fill'"
+            [classNames]="'btn-svg-icon btn-small like-button'" (click)="liked = !liked"
+            [title]="!liked ? 'Like this design':'Unlike this design'">
+          </cd-button>
+        </div>
+        <div class="design__data-info">
+          <div class="info_design display-flex a-items-center">
+            <svg-icon fileName="icons" icon="icon-heart" size="18" fillColor="var(--color-font)"></svg-icon>
+            <p class="font-size_12">716 likes</p>
+          </div>
+          <div class="info_design display-flex a-items-center">
+            <svg-icon fileName="icons" icon="icon-comment" size="18" fillColor="var(--color-font)"></svg-icon>
+            <p class="font-size_12">9 comments</p>
+          </div>
+          <div class="info_design display-flex a-items-center">
+            <svg-icon fileName="icons" icon="icon-download" size="18" fillColor="var(--color-font)"></svg-icon>
+            <p class="font-size_12">410 downloads</p>
+          </div>
+          <div class="info_design display-flex a-items-center">
+            <svg-icon fileName="icons" icon="icon-calendar" size="18" fillColor="var(--color-font)"></svg-icon>
+            <p class="font-size_12">12 June 2019</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@
 .container {
   max-width: 1200px;
 }
+
 .container-fluid {
   max-width: 1300px;
 }
@@ -79,6 +80,14 @@
 
     .grid-item .bottom_post {
       height: calc(100% - 150px) !important;
+    }
+
+    &.search-grid {
+      grid-auto-rows: minmax(180px, 180px);
+
+      .grid-item .image-grid {
+        height: 170px!important;
+      }
     }
   }
 

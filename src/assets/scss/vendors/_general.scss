@@ -7,6 +7,10 @@ body {
   @include user-touch();
 }
 
+.no-touch {
+  @include user-touch();
+}
+
 .position-relative {
   position: relative;
 }
@@ -30,5 +34,62 @@ body {
   @media (hover: hover) {
     &:hover {
     }
+  }
+}
+
+.image-preview {
+  background: var(--header-color);
+  border: 1px solid var(--color-font);
+  height: 520px;
+  padding: 10px;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.dropzone_cover {
+  height: 100% !important;
+  background: var(--bg-page) !important;
+  color: var(--color-font) !important;
+}
+
+
+.ngx_dropzone {
+  min-height: 80px !important;
+  max-height: 100px !important;
+  background: var(--bg-page)!important;
+  //background: rgba(var(--color-primary-rgb), .1) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-font) !important;
+}
+
+.files_drag {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 60px !important;
+  background: transparent !important;
+  transition: background 400ms ease;
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(var(--color-primary-rgb), .07)!important;
+    }
+  }
+}
+
+.ngx-image_preview {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
+  margin: 0 !important;
+
+  img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important;
   }
 }

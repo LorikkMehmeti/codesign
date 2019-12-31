@@ -3,6 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {MemberComponent} from './member.component';
 import {HomeComponent} from './home/home.component';
 import {DesignComponent} from './design/design.component';
+import {ProfileComponent} from './profile/profile.component';
+import {SearchComponent} from './search/search.component';
+import {UploadComponent} from './posts/upload/upload.component';
+import {EditComponent} from './posts/edit/edit.component';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +25,22 @@ const appRoutes: Routes = [
       {
         path: 'design',
         component: DesignComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'search',
+        component: SearchComponent
+      },
+      {
+        path: 'post/create',
+        component: UploadComponent
+      },
+      {
+        path: 'post/edit',
+        component: EditComponent
       }
     ]
   }

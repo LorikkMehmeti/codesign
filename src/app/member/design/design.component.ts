@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-design',
@@ -9,10 +10,31 @@ export class DesignComponent implements OnInit {
 
   liked = false;
 
-  constructor() { }
+  constructor(private toast: ToastrService) {
+  }
 
   ngOnInit() {
-    console.log(window.matchMedia('(prefers-color-scheme)'));
   }
+
+  toastR() {
+    const activeToast = this.toast.error('Congratulations, Your message was sent successfully', 'error', {
+      toastClass: 'errori hahah',
+    });
+    activeToast.toastRef.componentInstance.type = 'error';
+    activeToast.toastRef.componentInstance.toastActive = true;
+  }
+
+  downloadSomething() {
+    const atoast = this.toast.show('Downloading now your files', 'Success');
+    atoast.toastRef.componentInstance.type = 'success';
+
+    // setTimeout(() => {
+    //   const link = document.createElement('a');
+    //   link.download = 'filename';
+    //   link.href = 'assets/images/icons8-sad-100.png';
+    //   link.click();
+    // }, 2000);
+  }
+
 
 }

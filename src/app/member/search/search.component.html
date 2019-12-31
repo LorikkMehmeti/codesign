@@ -1,0 +1,32 @@
+<cd-header marginHeader="true"></cd-header>
+<div class="container">
+  <p class="font-size_18 results-text">Results for <span class="font-bold">Snapchat</span></p>
+
+  <div class="tabs-segment-search display-grid no-touch">
+    <div class="tab-segment-button tab-segment-button_active pointer_link">Projects</div>
+    <div class="tab-segment-button ml-2 link pointer_link">Users</div>
+  </div>
+
+  <div class="grid_posts grid-four-columns mt-2">
+    <div class="grid-item" *ngFor="let p of [0,1,2,3,4,5,6,7,8,9,10,11,12]; let i = index">
+      <!--        <div style="background:purple;height:220px;">-->
+
+      <!--        </div>-->
+      <div class="image-grid">
+        <img [src]="'https://cdn.dribbble.com/users/2046029/screenshots/9097023/media/0ae2070640de27bf5f8f534cd48ae7a8.png'" width="100%" height="100%" style="object-position: top; object-fit: cover;" alt="">
+<!--        <cd-button-->
+<!--          [showIcon]="true"-->
+<!--          [textBtn]="false"-->
+<!--          [iconSize]="16"-->
+<!--          [iconName]="'icon-heart'"-->
+<!--          [classNames]="'btn-svg-icon bookmark_button'">-->
+<!--        </cd-button>-->
+      </div>
+      <div class="mt-2 flex-1 text_card font-size_14">
+        <p class="cd-link card-title" style="font-family: var(--f-bold);">Snapchat</p>
+        <a class="cd-link" style="font-size: 12px;opacity: .7;">yeezus</a>
+      </div>
+    </div>
+  </div>
+</div>
+<cd-footer></cd-footer>

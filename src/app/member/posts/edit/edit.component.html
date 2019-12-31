@@ -1,0 +1,55 @@
+<cd-header marginHeader="true"></cd-header>
+<div class="container">
+  <form>
+    <div class="form-grid display-grid">
+      <div class="image-preview">
+        <ngx-dropzone class="w-100 h-100 dropzone_cover" (change)="preview($event)">
+          <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+          <ngx-dropzone-image-preview class="ngx-image_preview" ngProjectAs="ngx-dropzone-preview" [removable]="true"
+                                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+          </ngx-dropzone-image-preview>
+        </ngx-dropzone>
+      </div>
+      <div class="inputs-group">
+        <label for="project_name" class="d-inline-block mb-2 pointer_link font-size_14">Project Title</label>
+        <div class="cd-form-group">
+          <input type="text" autocomplete="off" class="cd__input input__small" id="project_name"
+                 placeholder="Type your project title" formControlName="lmao">
+        </div>
+        <label for="" class="d-inline-block mb-2 pointer_link font-size_14">Project Description</label>
+        <div class="cd-form-group textarea_input">
+          <textarea class="cd__input input__small" placeholder="Type your project description"
+                    formControlName="lmao"></textarea>
+        </div>
+
+        <div class="cd-form-group">
+          <ngx-dropzone class="w-100 h-100 ngx_dropzone" (change)="preview($event)" id="files_zip">
+            <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+            <ngx-dropzone-preview class="files_drag" *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+              <ngx-dropzone-label>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     width="40px"
+                     viewBox="0 0 80 80"
+                     style=" fill:#000000;"><path fill="#dbb065" d="M2.5 71.5L2.5 8.5 23.793 8.5 29.793 14.5 77.5 14.5 77.5 71.5z"></path><path fill="#967a44" d="M23.586,9l5.707,5.707L29.586,15H30h47v56H3V9H23.586 M24,8H2v64h76V14H30L24,8L24,8z"></path><g><path fill="#f5ce85" d="M2.5 71.5L2.5 18.5 24.151 18.5 30.151 14.5 77.5 14.5 77.5 71.5z"></path><path fill="#967a44" d="M77,15v56H3V19h21h0.303l0.252-0.168L30.303,15H77 M78,14H30l-6,4H2v54h76V14L78,14z"></path></g></svg>
+
+              </ngx-dropzone-label>
+            </ngx-dropzone-preview>
+          </ngx-dropzone>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="footer-form_submit" style="display:none;">
+  <div class="display-grid footer_content text_center">
+    <cd-button [showIcon]="false" borderRadius="4" [text]="'Cancel'"
+               [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'"></cd-button>
+    <cd-button
+      [showIcon]="false"
+      [textBtn]="true"
+      [classNames]="'cd-btn-block font-medium cd-btn-primary cd-btn-small'"
+      text="Create your project" [maxWidth]="true" borderRadius="8">
+    </cd-button>
+  </div>
+</div>

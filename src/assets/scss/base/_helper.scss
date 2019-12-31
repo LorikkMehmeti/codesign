@@ -10,5 +10,12 @@ body, html {
 .avatar-image {
   width: 16px;
   height: 16px;
+  background: white;
+  border-radius: 50%!important;
+  overflow: hidden;
+}
+
+.pointer_link {
+  cursor: pointer;
 }
 

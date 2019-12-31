@@ -17,10 +17,11 @@
 
         <div class="buttons-design display-grid">
           <cd-button
-            [showIcon]="false"
+            [showIcon]="true"
             [textBtn]="true"
+            borderRadius="100"
             [classNames]="'cd-btn-block cd-btn-primary'"
-            text="Download files" [maxWidth]="true">
+            text="Download files" [maxWidth]="true" (click)="downloadSomething()">
           </cd-button>
           <cd-button
             [showIcon]="true"
@@ -52,3 +53,4 @@
     </div>
   </div>
 </div>
+

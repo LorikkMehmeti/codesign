@@ -11,17 +11,28 @@ import {HeaderComponent} from '../shared/components/header/header.component';
 // import {SearchComponent} from './search/search.component';
 import {GuestModule} from '../guest/guest.module';
 import { DesignComponent } from './design/design.component';
-
+import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
+import { UploadComponent } from './posts/upload/upload.component';
+import { EditComponent } from './posts/edit/edit.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 @NgModule({
   declarations: [
     MemberComponent,
     HomeComponent,
     DesignComponent,
+    ProfileComponent,
+    SearchComponent,
+    UploadComponent,
+    EditComponent,
   ],
   imports: [
     CommonModule,
     MemberRoutingModule,
     GuestModule,
+    NgxDropzoneModule
+    // FormsModule,
+    // ReactiveFormsModule,
   ]
 })
 export class MemberModule {

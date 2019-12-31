@@ -1,0 +1,30 @@
+.results-text {
+  font-family: var(--f-light);
+}
+
+.tabs-segment-search {
+  margin-top: 30px;
+  grid-template-columns: repeat(2, minmax(80px, 100px));
+  grid-gap: 5px;
+}
+
+.tab-segment-button {
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  transition: background 300ms ease;
+  &.tab-segment-button_active{
+    background: #303030;
+    //background: var(--header-color);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: #303030;
+    }
+  }
+
+  &:active {
+    background: #303030;
+  }
+}

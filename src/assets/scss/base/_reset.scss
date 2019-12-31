@@ -1,0 +1,33 @@
+
+.toast-success {
+  div {
+    background: green !important;
+  }
+}
+
+
+.toast_container {
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  //width: 280px;
+  margin: 0 auto;
+  //max-width: 280px;
+  @include fluid('max-width', 320px, 1300px, 310px, 450px);
+  //max-width: 300px;
+  //padding: 10px;
+  //background: var(--bg-social-btn);
+  color: var(--color-font);
+
+  p {
+    @include fluid('font-size', 320px, 1300px, 12px, 14px);
+    font-family: var(--f-bold);
+    font-weight: 100;
+  }
+
+  small {
+    font-family: var(--f-light);
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,31 @@
+.profile_side {
+  margin-left: 25px;
+}
+
+.profile_username {
+  font-size: 30px;
+  font-family: var(--f-eina-semibold);
+}
+
+.profile_name {
+  margin-top: 6px;
+  font-size: 16px;
+  opacity: .4;
+}
+
+.profile_type, .profile_name, .profile_bio {
+  font-family: var(--f-eina-regular);
+}
+
+.profile_bio {
+  margin-top: 20px;
+  max-width: 700px;
+}
+
+.tabs-profile {
+  margin-top: 80px;
+}
+
+.profile_type {
+  font-size: 16px;
+}

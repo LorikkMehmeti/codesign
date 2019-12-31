@@ -2,6 +2,44 @@
   @include fluid('width', 320px, 1920px, 200px, 700px);
 }
 
+.textarea_input {
+  min-height: 200px;
+  max-height: 200px;
+}
+
+textarea {
+  resize: none;
+  height: 200px;
+
+  &::-webkit-scrollbar {
+    //background-color: #efeff2;
+    //background-color: var(--scrollbar-background-color);
+    width: 12px;
+    cursor: pointer !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    cursor: pointer !important;
+    background: #c2c2ca;
+    background: var(--scrollbar-thumb-color);
+    //border: 2px solid #efeff2;
+    //border: 2px solid var(--scrollbar-background-color);
+    border-radius: 10px;
+    transition: all 400ms ease;
+  }
+
+  &::-webkit-scrollbar-track {
+    cursor: pointer !important;
+    border-left: 1px solid #eaeaea;
+    border-left: 1px solid var(--scrollbar-border-color);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    cursor: pointer !important;
+    background: var(--scrollbar-thumb-hover-color);
+  }
+}
+
 *::selection {
   /*
     selection
@@ -23,6 +61,7 @@
   @include fluid('margin-bottom', 320px, 1200px, 20px, 40px);
   margin: 40px 0;
   color: var(--bg-social-btn);
+
   hr {
     opacity: .2;
     flex: 4;
@@ -72,5 +111,25 @@
   &.form-valid {
     box-shadow: 0 0 0 1px #21D351;
   }
+}
 
+.form-grid {
+  grid-template-columns: 1.2fr 1fr;
+  grid-gap: 10px;
+}
+
+.footer-form_submit {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-top: 1px solid var(--border-footer);
+  background: var(--bg-page);
+  padding: 0 10px;
+
+  .footer_content {
+    justify-content: end;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 10px;
+  }
 }

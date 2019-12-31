@@ -7,7 +7,8 @@ import {AppComponent} from './app.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { ToastComponent } from './shared/components/toast/toast.component';
+import { ToastrModule } from 'ngx-toastr';
+import {ToastComponent} from './shared/components';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -17,7 +18,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    ToastComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +31,20 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    ToastrModule.forRoot({
+      iconClasses: {
+        error: 'toast-error',
+        info: 'toast-info',
+        success: 'toast-success',
+        warning: 'toast-warning',
+      },
+      preventDuplicates: true,
+      timeOut: 5000,
+      toastComponent: ToastComponent
+    }),
     AppRoutingModule,
   ],
+  entryComponents: [ToastComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

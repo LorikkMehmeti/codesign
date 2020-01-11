@@ -18,7 +18,7 @@ export class DesignComponent implements OnInit {
 
   toastR() {
     const activeToast = this.toast.error('Congratulations, Your message was sent successfully', 'error', {
-      toastClass: 'errori hahah',
+      toastClass: 'errori hahah'
     });
     activeToast.toastRef.componentInstance.type = 'error';
     activeToast.toastRef.componentInstance.toastActive = true;

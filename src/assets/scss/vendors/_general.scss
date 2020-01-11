@@ -40,7 +40,7 @@ body {
 .image-preview {
   background: var(--header-color);
   border: 1px solid var(--color-font);
-  height: 520px;
+  height: 480px;
   padding: 10px;
 
   img {
@@ -70,6 +70,7 @@ body {
   width: 100% !important;
   height: auto !important;
   min-height: 60px !important;
+  justify-content: flex-start!important;
   background: transparent !important;
   transition: background 400ms ease;
 

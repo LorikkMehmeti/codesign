@@ -13,7 +13,9 @@
   opacity: .4;
 }
 
-.profile_type, .profile_name, .profile_bio {
+.profile_type,
+.profile_name,
+.profile_bio {
   font-family: var(--f-eina-regular);
 }
 
@@ -28,4 +30,24 @@
 
 .profile_type {
   font-size: 16px;
+}
+
+.profile_image {
+  min-width: 180px;
+  width: 180px;
+  height: 180px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #fff;
+  overflow: hidden
+}
+
+.top_profile {
+  @media only screen and (max-width: 768px) {
+    & {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
 }

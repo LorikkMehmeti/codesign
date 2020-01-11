@@ -1,5 +1,5 @@
-*:focus {
-  outline: none;
+*:focus, ngx-dropzone:focus, ngx-dropzone-label:focus {
+  outline: none!important;
 }
 
 a {

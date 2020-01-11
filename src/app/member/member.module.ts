@@ -16,6 +16,10 @@ import { SearchComponent } from './search/search.component';
 import { UploadComponent } from './posts/upload/upload.component';
 import { EditComponent } from './posts/edit/edit.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+
+import { NgSelectModule } from '@ng-select/ng-select';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     MemberComponent,
@@ -30,9 +34,10 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     CommonModule,
     MemberRoutingModule,
     GuestModule,
-    NgxDropzoneModule
-    // FormsModule,
-    // ReactiveFormsModule,
+    NgxDropzoneModule,
+    FormsModule,
+    NgSelectModule,
+    ReactiveFormsModule,
   ]
 })
 export class MemberModule {

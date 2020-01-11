@@ -22,12 +22,12 @@
   $u4: unit($max-size);
   @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
     & {
-      #{$property}: $min-size!important;
+      #{$property}: $min-size !important;
       @media screen and (min-width: $min-vw) {
-        #{$property}: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}))!important;
+        #{$property}: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})) !important;
       }
       @media screen and (min-width: $max-vw) {
-        #{$property}: $max-size!important;
+        #{$property}: $max-size !important;
       }
     }
   }
@@ -45,3 +45,27 @@
     font-style: normal;
   }
 }
+
+@mixin scrollbar() {
+  &::-webkit-scrollbar {
+    background-color: #efeff2 !important;
+    background-color: var(--scrollbar-background-color) !important;
+    width: 12px !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #c2c2ca !important;
+    background: var(--scrollbar-thumb-color) !important;
+    border: 2px solid #efeff2 !important;
+    border: 2px solid var(--scrollbar-background-color) !important;
+    border-radius: 10px !important;
+    transition: all 400ms ease !important;
+  }
+  &::-webkit-scrollbar-track {
+    border-left: 1px solid #eaeaea !important;
+    border-left: 1px solid var(--scrollbar-border-color) !important;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover-color) !important;
+  }
+}
+

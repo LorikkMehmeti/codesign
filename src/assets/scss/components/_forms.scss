@@ -10,34 +10,6 @@
 textarea {
   resize: none;
   height: 200px;
-
-  &::-webkit-scrollbar {
-    //background-color: #efeff2;
-    //background-color: var(--scrollbar-background-color);
-    width: 12px;
-    cursor: pointer !important;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    cursor: pointer !important;
-    background: #c2c2ca;
-    background: var(--scrollbar-thumb-color);
-    //border: 2px solid #efeff2;
-    //border: 2px solid var(--scrollbar-background-color);
-    border-radius: 10px;
-    transition: all 400ms ease;
-  }
-
-  &::-webkit-scrollbar-track {
-    cursor: pointer !important;
-    border-left: 1px solid #eaeaea;
-    border-left: 1px solid var(--scrollbar-border-color);
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    cursor: pointer !important;
-    background: var(--scrollbar-thumb-hover-color);
-  }
 }
 
 *::selection {

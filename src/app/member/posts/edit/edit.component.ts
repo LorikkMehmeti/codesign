@@ -10,6 +10,10 @@ export class EditComponent implements OnInit {
 
   public imagePath;
   imgURL: any;
+  people = [
+    'Adobe XD', 'Illustrator', 'Sketch', 'Figma', 'Invision',
+    'Photoshop', 'Affinity', 'Inkscape', 'Other tool'];
+  peopleLoading = false;
 
 
   constructor() {

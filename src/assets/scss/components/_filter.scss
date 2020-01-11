@@ -86,13 +86,13 @@
 [data-theme="dark"] .filter-option {
   &:active {
     //background: var(--color-dark-shade) !important;
-    background: #323232!important;
+    background: #323232 !important;
   }
 
   @media (hover: hover) {
     &:hover {
       //background: var(--color-dark-shade);
-      background: #323232!important;
+      background: #323232 !important;
     }
   }
 }
@@ -103,4 +103,86 @@
     min-height: 34px !important;
     line-height: 44px;
   }
+}
+
+.ng-select_made.ng-select-opened > .ng-select-container {
+  background: var(--header-color);
+}
+
+.ng-select_made.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+  outline: none;
+  border: 1px solid #fff;
+  box-shadow: none;
+}
+
+.ng-select_made,
+.ng-select-container.ng-has-value .ng-value-container .ng-value,
+.ng-select-container.ng-has-value .ng-value-container .ng-input,
+.ng-select_made .ng-select-container .ng-value-container .ng-input > input,
+.ng-select_made.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+  color: var(--color-font) !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked
+.ng-option-label {
+  font-weight: normal;
+  font-family: var(--f-regular);
+}
+
+.ng-select_made .ng-option.ng-option-selected {
+  background: #323232 !important;
+}
+
+
+ng-select, .ng-select_made, .ng-dropdown-panel, .ng-dropdown-panel-items {
+  @include scrollbar;
+}
+
+.ng-select .ng-arrow-wrapper .ng-arrow {
+  display: none !important;
+}
+
+.ng-select .ng-clear-wrapper:hover .ng-clear {
+  color: var(--color-danger);
+}
+
+.ng-select span.ng-arrow-wrapper:before {
+  content: '';
+  width: 10px !important;
+  height: 10px !important;
+  background: url('https://image.flaticon.com/icons/svg/566/566015.svg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  display: inline-block !important;
+}
+
+
+.ng-select_made {
+  @include scrollbar();
+  max-width: 200px;
+  background: var(--header-color) !important;
+
+  &:focus {
+    outline: none;
+  }
+
+  .ng-option {
+    background: var(--header-color) !important;
+    color: var(--color-font) !important;
+
+    @media (hover: hover) {
+      &:hover {
+        background: #323232 !important;
+      }
+    }
+  }
+
+  .ng-select-container {
+    background: var(--header-color);
+  }
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items {
+  max-height: 145px !important;
 }

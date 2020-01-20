@@ -8,6 +8,7 @@ import {MultiLangService} from './shared/services/multi-lang.service';
 })
 export class AppComponent implements OnInit {
   title = 'codesign';
+  hehe = false;
 
   /**
    * @param multiLang as MultiLangService.
@@ -17,5 +18,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.multiLang.initLanguage();
+  }
+
+  setLanguage(lang) {
+    this.multiLang.setLanguage(lang);
   }
 }

@@ -1,7 +1,30 @@
 {
   "HELLO": "Halo",
+  "Login": "Einloggen",
+  "Register": "Registrieren",
+  "Search": "Suchen nach entwurfe, entwerfer, entwickler",
+  "ForgotPassword": "Passwort Vergessen",
   "SignIn": {
-    "facebook": "Mit Facebook anmelden"
+    "signIn": "Anmelden",
+    "facebook": "Mit Facebook anmelden",
+    "google": "Mit Google anmelden"
+  },
+  "SignUp": {
+    "signUp": "Registrieren",
+    "now": "Jetzt Registrieren"
+  },
+  "or": "oder",
+  "Placeholders": {
+    "Login": {
+      "usernameOrEmail": "Benutzername oder E-Mail-Adresse",
+      "Password": "Passwort"
+    }
+  },
+  "reCAPTCHA": {
+    "main": "This page is protected by reCAPTCHA and subject to the",
+    "googlePrivacy": "Google Privacy Policy",
+    "and": "and",
+    "terms": "Terms of service"
   },
   "footer": {
     "mainPages": {

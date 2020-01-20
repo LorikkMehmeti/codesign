@@ -2,7 +2,7 @@
   <div class="flex-center">
     <div *ngIf="showIcon" class="cd-btn-icon">
       <div class="d-inline-block ct-icon" [ngStyle]="{'width.px': iconSize, 'height.px': iconSize}">
-        <svg>
+        <svg [attr.fill]="fillColor">
           <use [attr.xlink:href]="'/assets/images/icons/icons.svg#' + iconName"/>
         </svg>
       </div>

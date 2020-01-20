@@ -7,7 +7,8 @@
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   padding: 20px 0;
   grid-gap: 30px;
-
+  position: relative;
+  z-index: 94;
   .grid__filter-item {
     position: relative;
   }
@@ -42,7 +43,7 @@
 
   @media (hover: hover) {
     &:hover {
-      background: #323232;
+      background: var(--_hover);
     }
   }
 }
@@ -66,33 +67,24 @@
   position: relative;
   cursor: pointer;
 
+  svg-icon {
+    line-height: 8px;
+  }
   span {
     line-height: 13px;
   }
 }
 
-[data-theme="light"] .filter-option {
-  &:active {
-    background: var(--color-light-tint);
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      background: var(--color-light-tint);
-    }
-  }
-}
-
-[data-theme="dark"] .filter-option {
+.filter-option {
   &:active {
     //background: var(--color-dark-shade) !important;
-    background: #323232 !important;
+    background: var(--_hover);
   }
 
   @media (hover: hover) {
     &:hover {
       //background: var(--color-dark-shade);
-      background: #323232 !important;
+      background: var(--_hover);
     }
   }
 }

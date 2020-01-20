@@ -45,17 +45,19 @@
         </cd-button>
         <div class="display-flex a-items-center j-space-between or-form-hr">
           <hr>
-          <p>or</p>
+          <p>{{'or' | translate}}</p>
           <hr>
         </div>
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="Username or email" formControlName="lmao"
+          <input type="text" class="cd__input input__small"
+                 [placeholder]="'Placeholders.Login.usernameOrEmail' | translate" formControlName="lmao"
                  [ngClass]="{
       'form-valid': test.controls.lmao.valid && test.controls.lmao.dirty,
       'form-invalid': lmao.invalid && test.touched && test.controls.lmao.dirty}">
         </div>
         <div class="cd-form-group">
-          <input type="password" class="cd__input input__small" placeholder="Password" formControlName="title"
+          <input type="password" class="cd__input input__small"
+                 [placeholder]="'Placeholders.Login.Password' | translate" formControlName="title"
                  [ngClass]="{
       'form-valid': title.valid && title?.value?.length >= 10 ,
       'form-invalid': title.invalid && title.touched && title.dirty,
@@ -66,8 +68,8 @@
           </p>
         </div>
         <div class="display-flex a-items-center j-space-between">
-          <a class="mt-2 mb-2 font-size_14 cd-link">Forgot Password ?</a>
-          <a class="mt-2 mb-2 font-size_14 cd-link" routerLink="/register">Sign up Now</a>
+          <a class="mt-2 mb-2 font-size_14 cd-link">{{'ForgotPassword' | translate}} ?</a>
+          <a class="mt-2 mb-2 font-size_14 cd-link" routerLink="/register">{{'SignUp.now' | translate}}</a>
         </div>
         <cd-button
           [showIcon]="false"
@@ -76,8 +78,11 @@
           text="{{'SignIn.signIn' | translate}}" [maxWidth]="true">
         </cd-button>
 
-        <p class="text_left font-size_12 mt-2 mb-2">This page is protected by reCAPTCHA and subject to the
-          <a class="cd-link">Google Privacy Policy</a> and <a class="cd-link">Terms of service</a></p>
+        <p class="text_left font-size_12 mt-2 mb-2">
+          {{'reCAPTCHA.main' | translate}}
+          <a class="cd-link">{{'reCAPTCHA.googlePrivacy' | translate}}</a>
+          {{'reCAPTCHA.and' | translate}}
+          <a class="cd-link">{{'reCAPTCHA.terms' | translate}}</a></p>
       </form>
     </div>
   </div>

@@ -17,6 +17,7 @@ export class CdbuttonComponent implements OnInit {
   @Input() maxWidth = false;
   @Input() borderRadius ?: number;
   @Input() iconSize ?= 20;
+  @Input() fillColor: string;
 
 
   constructor() {

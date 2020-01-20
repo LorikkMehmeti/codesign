@@ -64,9 +64,9 @@ textarea {
   //font-family: var(--f-light);var
   transition: box-shadow 200ms ease;
 
-  //&:focus{
-  //  box-shadow: 0 0 0 0.2rem rgba(255,255,255,.2);
-  //}
+  &:focus{
+    box-shadow: 0 0 0 0.2rem rgba(255,255,255,.2);
+  }
 
   &.input-radius {
     border-radius: 10px;

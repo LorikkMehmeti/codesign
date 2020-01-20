@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   classColumns = true;
-  private items = [
+  items = [
     {
       id: 1,
       name: 'CHEUKLUN LO | 老焯麟',

@@ -86,7 +86,7 @@
       grid-auto-rows: minmax(180px, 180px);
 
       .grid-item .image-grid {
-        height: 170px!important;
+        height: 170px !important;
       }
     }
   }
@@ -95,6 +95,9 @@
     transition: all 200ms ease !important;
     cursor: pointer;
     position: relative;
+    &.grid_item_showed{
+      animation: opacity 300ms ease;
+    }
   }
 
   @media (hover: hover) {
@@ -125,6 +128,11 @@
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     cursor: pointer;
+    font-family: var(--f-bold);
+
+    &.card-title_skeleton {
+      min-height: 20px;
+    }
 
     @media (hover: hover) {
       &:hover {
@@ -134,6 +142,17 @@
 
     &:active {
       color: var(--color-primary-shade);
+    }
+  }
+
+  .card-link {
+    opacity: .7;
+    position: relative;
+    display: inline-block;
+
+    &.card-link_skeleton {
+      width: 50%;
+      min-height: 10px;
     }
   }
 

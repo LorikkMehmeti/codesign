@@ -13,7 +13,7 @@
       <div class="search__input" style="position:relative;">
         <div class="display-flex a-items-center j-space-between">
           <div class="input_s">
-            <input type="text" placeholder="Search for shots, designers, developers">
+            <input type="text" [placeholder]="'Search' | translate">
           </div>
           <div class="btn__search">
             <svg-icon fileName="icons" icon="icon-search" size="12" fillColor="var(--color-font)"></svg-icon>
@@ -28,11 +28,13 @@
     </div>
     <div class="buttons-guest">
       <!--      <cd-button [showIcon]="false" classNames="cd-btn-inline" [maxWidth]="false" text="Login"></cd-button>-->
-      <cd-button [showIcon]="false" borderRadius="4" [text]="'Login'"
+      <cd-button [showIcon]="false" borderRadius="4" [text]="'Login' | translate"
                  [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/login"></cd-button>
-      <cd-button [showIcon]="false" [text]="'Register'"
-                 [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"
-                 style="margin-left:4px;" routerLink="/register"></cd-button>
+      <cd-button [showIcon]="false" [text]="'Register' | translate"
+                 [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium ml-2'"
+                 routerLink="/register"></cd-button>
+      <cd-button [showIcon]="true" borderRadius="4" [textBtn]="false" [iconName]="switch ? 'icon-moon-fill':'icon-moon-outline'" fillColor="var(--color-primary)"
+                 [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium ml-2'" (click)="switchMode()"></cd-button>
       <!--      <cd-button [showIcon]="false" [classNames]="'cd-btn-inline cd-btn-primary'" text="Sign Up"></cd-button>-->
     </div>
   </div>

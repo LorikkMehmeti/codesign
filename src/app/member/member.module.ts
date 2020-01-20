@@ -19,6 +19,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SkeletonComponent} from '../shared/components';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SearchComponent,
     UploadComponent,
     EditComponent,
+    SkeletonComponent,
   ],
   imports: [
     CommonModule,

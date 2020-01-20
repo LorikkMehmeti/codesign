@@ -1,12 +1,30 @@
 {
   "HELLO": "hello",
+  "Login": "Login",
+  "Register": "Register",
+  "Search": "Search for shots, designers, developers",
+  "ForgotPassword": "Forgot Password",
   "SignIn": {
     "signIn": "Sign In",
     "facebook": "Sign in with Facebook",
     "google": "Sign in with Google"
   },
   "SignUp": {
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "now": "Sign Up Now"
+  },
+  "or": "or",
+  "Placeholders": {
+    "Login": {
+      "usernameOrEmail": "Username or email",
+      "Password": "Password"
+    }
+  },
+  "reCAPTCHA": {
+    "main": "This page is protected by reCAPTCHA and subject to the",
+    "googlePrivacy": "Google Privacy Policy",
+    "and": "and",
+    "terms": "Terms of service"
   },
   "footer": {
     "mainPages": {

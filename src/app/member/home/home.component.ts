@@ -7,8 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   classColumns = false;
-
-  private items = [
+  items = [
     {
       id: 1,
       name: 'CHEUKLUN LO | 老焯麟',
@@ -77,11 +76,27 @@ export class HomeComponent implements OnInit {
     },
   ];
   toggleTable = -1;
+  moreItems = [];
+  yesOrNo = [
+    'Yes',
+    'No',
+    'Hell yeah',
+    'Ew no',
+    'Bruh what are you waiting for',
+    'Don`t try it',
+    'Try it',
+    'She has a boyfriend, no',
+    'why not',
+    'boy lmao no'
+  ];
 
   constructor() {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.moreItems = this.items.sort(() => Math.random() - 0.5);
+    }, 3000);
   }
 
   toggleColumns(type) {

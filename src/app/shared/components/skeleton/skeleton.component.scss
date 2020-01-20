@@ -1,0 +1,12 @@
+.SKELETON_component {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to left, var(--header-color) 0%, var(--header-color) 100%);
+  animation: skeleton 500ms infinite linear;
+  mix-blend-mode: overlay;
+}

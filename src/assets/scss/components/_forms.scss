@@ -16,7 +16,8 @@ textarea {
   /*
     selection
    */
-  //background: rgba(var(--header-color), .7);
+  background: rgba(var(--color-primary-rgb), .7);
+  color: rgba(var(--color-primary-font-rgb));
 }
 
 .cd-form-group {

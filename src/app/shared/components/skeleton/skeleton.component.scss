@@ -6,7 +6,9 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background: var(--header-color);
+  background: -webkit-linear-gradient(to left, var(--header-color) 0%, var(--header-color) 100%);
+  background: -moz-linear-gradient(to left, var(--header-color) 0%, var(--header-color) 100%);
   background: linear-gradient(to left, var(--header-color) 0%, var(--header-color) 100%);
   animation: skeleton 500ms infinite linear;
-  mix-blend-mode: overlay;
 }

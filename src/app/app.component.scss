@@ -1,0 +1,36 @@
+.dropdown_LANG {
+  bottom: 10px;
+  left: 10px;
+  min-width: 100px;
+  background: var(--color-tertiary);
+}
+
+.dropdown_title_LANG {
+  color: var(--color-tertiary-font);
+}
+
+.dropdown_title_LANG, .dropdown_button_LANG {
+  padding: 10px 0;
+}
+
+.buttons_LANG {
+}
+
+.dropdown_buttons_LANG {
+  bottom: calc(100% + 40px);
+  background: var(--color-tertiary);
+  color: var(--color-tertiary-font);
+  box-shadow: 0 0 0 1px var(--color-tertiary);
+
+  &, & .dropdown_button_LANG {
+    width: 100%;
+  }
+
+  .dropdown_button_LANG {
+    @media (hover: hover) {
+      &:hover{
+        background: var(--color-tertiary-shade);
+      }
+    }
+  }
+}

@@ -1,12 +1,12 @@
 <router-outlet></router-outlet>
-<div style="position:fixed;bottom: 10px;right:10px;width:150px;background:white;">
-  <div style="color: var(--color-font-invert);position:relative;height:30px;" (click)="hehe = !hehe">
-    Choose language
+<div class="font-size_14 position-fixed dropdown_LANG text_center">
+  <div class="position-relative pointer_link dropdown_title_LANG" (click)="toggleLang()">
+    <span>Language</span>
   </div>
-  <div class="position-relative" *ngIf="hehe">
-    <div class="font-size_14" style="position:absolute;bottom: calc(100% + 35px);width: 100%;background: white;color: var(--color-font-invert)">
-      <div style="padding:10px; width:100%;" (click)="setLanguage('en')">english</div>
-      <div style="padding:10px; width:100%;" (click)="setLanguage('de')">german</div>
+  <div class="position-relative buttons_LANG" *ngIf="dropdownlang">
+    <div class="font-size_14 position-absolute dropdown_buttons_LANG">
+      <div class="dropdown_button_LANG pointer_link" (click)="setLanguage('en')">English</div>
+      <div class="dropdown_button_LANG pointer_link" (click)="setLanguage('de')">German</div>
     </div>
   </div>
 </div>

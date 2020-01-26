@@ -1,0 +1,39 @@
+.not_found-container {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  height: 200px;
+  background: var(--header-color);
+  border: 1px solid var(--_hover);
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .top_container {
+    height: 28px;
+    width: 100%;
+    border-bottom: 1px solid var(--_hover);
+  }
+
+  .content_not-found {
+    align-items: flex-start;
+    padding: 20px 30px;
+  }
+}
+
+.text_message-404 {
+  margin-left: 35px;
+  font-family: var(--f-italic);
+}
+
+.code_error {
+  margin-left: 35px;
+  margin-top: 10px;
+  font-size: 11px;
+}
+
+.not_found-padding {
+  padding: 10px 0;
+}

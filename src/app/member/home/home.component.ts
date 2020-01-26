@@ -77,18 +77,6 @@ export class HomeComponent implements OnInit {
   ];
   toggleTable = -1;
   moreItems = [];
-  yesOrNo = [
-    'Yes',
-    'No',
-    'Hell yeah',
-    'Ew no',
-    'Bruh what are you waiting for',
-    'Don`t try it',
-    'Try it',
-    'She has a boyfriend, no',
-    'why not',
-    'boy lmao no'
-  ];
 
   constructor() {
   }

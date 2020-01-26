@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {NotfoundComponent} from './shared/components';
 
 
 const routes: Routes = [
@@ -12,15 +13,15 @@ const routes: Routes = [
     path: '',
     loadChildren: './member/member.module#MemberModule'
     // canActivate: [MemberGuard]
-  }
+  },
   // {
   //   path: 'logout',
   //   component: LogoutComponent
   // },
-  // {
-  //   path: '**',
-  //   component: NotFoundComponent
-  // }
+  {
+    path: '**',
+    component: NotfoundComponent
+  }
 ];
 
 

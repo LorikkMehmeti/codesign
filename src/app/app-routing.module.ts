@@ -6,12 +6,12 @@ import {NotfoundComponent} from './shared/components';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './guest/guest.module#GuestModule'
+    loadChildren: './guest/guest.module#GuestModule',
     // canActivate: [GuestGuard]
   },
   {
     path: '',
-    loadChildren: './member/member.module#MemberModule'
+    loadChildren: './member/member.module#MemberModule',
     // canActivate: [MemberGuard]
   },
   // {

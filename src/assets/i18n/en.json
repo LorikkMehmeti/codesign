@@ -18,6 +18,9 @@
     "Login": {
       "usernameOrEmail": "Username or email",
       "Password": "Password"
+    },
+    "Register": {
+      "email": "Email address"
     }
   },
   "reCAPTCHA": {

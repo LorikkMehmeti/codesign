@@ -34,55 +34,55 @@
   <!--  </cd-button>-->
 
   <div class="grid-login">
-    <div class="form-container" style="text-align: center;">
+    <div class="form-container text_center">
       <form [formGroup]="registerForm">
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="First name" formControlName="lmao"
+          <input type="text" class="cd__input input__small" placeholder="First name" formControlName="firstName"
                  [ngClass]="{
-      'form-valid': registerForm.controls.lmao.valid && registerForm.controls.lmao.dirty,
-      'form-invalid': lmao.invalid && registerForm.touched && registerForm.controls.lmao.dirty}">
+      'form-valid': firstName.valid && firstName.dirty && firstName.touched,
+      'form-invalid': firstName.invalid && firstName.touched && firstName.dirty}">
         </div>
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="Last name" formControlName="lmao"
+          <input type="text" class="cd__input input__small" placeholder="Last name" formControlName="lastName"
                  [ngClass]="{
-      'form-valid': registerForm.controls.lmao.valid && registerForm.controls.lmao.dirty,
-      'form-invalid': lmao.invalid && registerForm.touched && registerForm.controls.lmao.dirty}">
+      'form-valid': lastName.valid && (lastName.dirty && lastName.touched),
+      'form-invalid': lastName.invalid && lastName.touched && lastName.dirty}">
         </div>
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="Username" formControlName="lmao"
+          <input type="text" class="cd__input input__small" placeholder="Username" formControlName="username"
                  [ngClass]="{
-      'form-valid': registerForm.controls.lmao.valid && registerForm.controls.lmao.dirty,
-      'form-invalid': lmao.invalid && registerForm.touched && registerForm.controls.lmao.dirty}">
+      'form-valid': username.valid && (username.dirty && username.touched),
+      'form-invalid': username.invalid && username.touched && username.dirty}">
         </div>
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="Email" formControlName="lmao"
+          <input type="text" class="cd__input input__small" placeholder="Email" formControlName="email"
                  [ngClass]="{
-      'form-valid': registerForm.controls.lmao.valid && registerForm.controls.lmao.dirty,
-      'form-invalid': lmao.invalid && registerForm.touched && registerForm.controls.lmao.dirty}">
+      'form-valid': email.valid && (email.touched && email.dirty),
+      'form-invalid': email.invalid && email.touched && email.dirty}">
         </div>
         <div class="cd-form-group">
-          <input type="password" class="cd__input input__small" placeholder="Password" formControlName="title"
+          <input type="password" class="cd__input input__small" placeholder="Password" formControlName="password"
                  [ngClass]="{
-      'form-valid': title.valid && title?.value?.length >= 10 ,
-      'form-invalid': title.invalid && title.touched && title.dirty,
-      'form-warning': title?.value?.length < 10 && title.touched && title.dirty && title.valid}">
-          <p class="text_left" style="padding:4px;"
-             *ngIf="title?.value?.length < 10 && title.touched && title.dirty && title.valid">
-            We should warn
-          </p>
+      'form-valid': password.valid && password?.value?.length >= 10 && (password.touched && password.dirty),
+      'form-invalid': password.invalid && password.touched && password.dirty,
+      'form-warning': password?.value?.length < 8 && password.touched && password.dirty && password.valid}">
+<!--          <p class="text_left" style="padding:4px;"-->
+<!--             *ngIf="password?.value?.length < 10 && password.touched && password.dirty && password.valid">-->
+<!--            We should warn-->
+<!--          </p>-->
         </div>
-        <div style="margin: 20px 0;">
-          <div class="text_left" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(60px, 1fr));grid-gap:10px;">
+        <div class="mt-2 mb-2">
+          <div class="text_left radio_grid">
             <div class="forms">
-              <label for="rdo1">
-                <input type="radio" id="rdo1" name="radio">
+              <label for="type">
+                <input type="radio" id="type" formControlName="type" value="0" [checked]="false">
                 <span class="rdo"></span>
                 <span>Designer</span>
               </label>
             </div>
             <div class="forms">
-              <label for="rdo2">
-                <input type="radio" id="rdo2" name="radio" checked>
+              <label for="t">
+                <input type="radio" id="t" formControlName="type" value="1" [checked]="true">
                 <span class="rdo"></span>
                 <span>Developer</span>
               </label>
@@ -91,6 +91,7 @@
 
         </div>
         <cd-button
+          (click)="onSubmit()"
           [showIcon]="false"
           [textBtn]="true"
           [classNames]="'cd-btn-block cd-btn-primary'"

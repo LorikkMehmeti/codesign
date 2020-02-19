@@ -65,8 +65,8 @@ textarea {
   //font-family: var(--f-light);var
   transition: box-shadow 200ms ease;
 
-  &:focus{
-    box-shadow: 0 0 0 0.2rem rgba(255,255,255,.2);
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-font-rgba), .2);
   }
 
   &.input-radius {
@@ -78,15 +78,15 @@ textarea {
   }
 
   &.form-invalid {
-    box-shadow: 0 0 0 1px #FF4331;
+    box-shadow: 0 0 0 .2rem rgba(#FF4331, .5);
   }
 
   &.form-warning {
-    box-shadow: 0 0 0 1px #FFA000;
+    box-shadow: 0 0 0 .2rem rgba(#FFA000, .5);
   }
 
   &.form-valid {
-    box-shadow: 0 0 0 1px #21D351;
+    box-shadow: 0 0 0 .2rem rgba(#21D351, .5);
   }
 }
 
@@ -109,4 +109,10 @@ textarea {
     grid-template-columns: repeat(2, auto);
     grid-gap: 10px;
   }
+}
+
+.radio_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-gap: 10px;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -15,30 +15,62 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-    }, 3000);
-
     this.initForm();
   }
 
   private initForm(): void {
     this.registerForm = new FormGroup({
-      lmao: new FormControl(null, [
+      firstName: new FormControl(null, [
         // Validators.minLength(2),
         // Validators.pattern
       ]),
-      title: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(4),
+      lastName: new FormControl(null, [
+        // Validators.minLength(2),
+        // Validators.pattern
+      ]),
+      username: new FormControl(null, [
+        // Validators.minLength(2),
+        // Validators.pattern
+      ]),
+      email: new FormControl(null, [
+        // Validators.minLength(2),
+        // Validators.pattern
+      ]),
+      password: new FormControl(null, [
+        Validators.minLength(8),
+        // Validators.pattern
+      ]),
+      type: new FormControl(1, [
+        Validators.required
       ])
     }, {updateOn: 'blur'});
   }
 
-  get title() {
-    return this.registerForm.get('title');
+  get firstName() {
+    return this.registerForm.get('firstName');
   }
 
-  get lmao() {
-    return this.registerForm.get('lmao');
+  get lastName() {
+    return this.registerForm.get('lastName');
+  }
+
+  get username() {
+    return this.registerForm.get('username');
+  }
+
+  get email() {
+    return this.registerForm.get('email');
+  }
+
+  get password() {
+    return this.registerForm.get('password');
+  }
+
+  get type() {
+    return this.registerForm.get('type');
+  }
+
+  onSubmit() {
+    console.log(this.registerForm.value);
   }
 }

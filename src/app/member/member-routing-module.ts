@@ -7,6 +7,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {SearchComponent} from './search/search.component';
 import {UploadComponent} from './posts/upload/upload.component';
 import {EditComponent} from './posts/edit/edit.component';
+import {AccountConfirmationComponent} from './account-confirmation/account-confirmation.component';
 
 const appRoutes: Routes = [
   {
@@ -41,6 +42,10 @@ const appRoutes: Routes = [
       {
         path: 'post/edit',
         component: EditComponent
+      },
+      {
+        path: 'account-confirmation',
+        component: AccountConfirmationComponent
       }
     ]
   }

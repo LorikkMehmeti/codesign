@@ -15,7 +15,7 @@
 <!--  </div>-->
 <!--</div>-->
 
-<div class="toast_container error-toast" *ngIf="type === 'error'">
+<div class="toast_container error-toast" *ngIf="type && type === 'error'">
   <div class="display-flex a-items-center w-100 h-100 error-toast">
     <div class="toast_image">
       <svg id="sad-emoticon-square-face-with-closed-eyes" width="55" height="55" viewBox="0 0 46.47 46.47">
@@ -26,14 +26,13 @@
       </svg>
     </div>
     <div class="flash-info">
-      <p class="" style="font-weight: normal;font-family: var(--f-p-bold);">Oh no, something went wrong while uploading
-        your file</p>
+      <p class="message-toast">{{message}}</p>
       <small>Please try again</small>
     </div>
   </div>
 </div>
 
-<div class="toast_container success-toast" *ngIf="type === 'success'">
+<div class="toast_container success-toast" *ngIf="type && type === 'success'">
   <div class="display-flex a-items-center w-100 h-100">
     <div class="toast_image">
       <svg id="wink-emoticon-of-rounded-square-face" width="55" height="55" viewBox="0 0 46.47 46.47">
@@ -44,8 +43,8 @@
       </svg>
     </div>
     <div class="flash-info">
-      <p class="" style="font-weight: normal;font-family: var(--f-p-bold);">{{message}}</p>
-      <small class="">Please try again</small>
+      <p class="message-toast">{{message}}</p>
+      <small class="">Redirecting to homepage</small>
     </div>
   </div>
 </div>

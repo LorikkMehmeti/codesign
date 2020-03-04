@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../shared/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -77,11 +78,17 @@ export class HomeComponent implements OnInit {
   ];
   toggleTable = -1;
   moreItems = [];
+  auth = this.authenticationService.loggedIn();
 
-  constructor() {
+
+  constructor(private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
+    if (!this.auth) {
+      console.log('hhh so login ');
+      return;
+    }
     setTimeout(() => {
       this.moreItems = this.items.sort(() => Math.random() - 0.5);
     }, 3000);

@@ -1,0 +1,18 @@
+.card_confirmation {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--header-color);
+  height: 300px;
+  box-sizing: border-box;
+  padding: 20px 20px 0 20px;
+  border-radius: 20px;
+}
+
+.desc_card-confirmation, .email_card-confirmation {
+  margin-top: 30px;
+}
+
+.email_card-confirmation {
+  font-family: var(--f-medium);
+  color: var(--color-primary);
+}

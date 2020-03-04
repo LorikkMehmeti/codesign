@@ -8,6 +8,10 @@
 .display-flex {
   display: flex !important;
 
+  &.flex-column {
+    flex-direction: column;
+  }
+
   &.j-space-between {
     justify-content: space-between;
   }
@@ -47,5 +51,9 @@
 
 .display-grid {
   display: grid !important;
+}
+
+.display-none {
+  display: none;
 }
 

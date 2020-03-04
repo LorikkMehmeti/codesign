@@ -35,7 +35,7 @@
 
   <div class="grid-login">
     <div class="form-container" style="text-align: center;">
-      <form [formGroup]="test">
+      <form [formGroup]="login" (ngSubmit)="onSubmit()">
         <cd-button
           [showIcon]="true"
           iconName="icon-google-logo"
@@ -50,28 +50,29 @@
         </div>
         <div class="cd-form-group">
           <input type="text" class="cd__input input__small"
-                 [placeholder]="'Placeholders.Login.usernameOrEmail' | translate" formControlName="lmao"
-                 [ngClass]="{
-      'form-valid': test.controls.lmao.valid && test.controls.lmao.dirty,
-      'form-invalid': lmao.invalid && test.touched && test.controls.lmao.dirty}">
+                 [placeholder]="'Placeholders.Login.usernameOrEmail' | translate" formControlName="username">
+<!--                 [ngClass]="{-->
+<!--      'form-valid': username.valid && username.dirty,-->
+<!--      'form-invalid': login.invalid && login.touched && username.dirty}"-->
         </div>
         <div class="cd-form-group">
           <input type="password" class="cd__input input__small"
-                 [placeholder]="'Placeholders.Login.Password' | translate" formControlName="title"
-                 [ngClass]="{
-      'form-valid': title.valid && title?.value?.length >= 10 ,
-      'form-invalid': title.invalid && title.touched && title.dirty,
-      'form-warning': title?.value?.length < 10 && title.touched && title.dirty && title.valid}">
-          <p class="text_left" style="padding:4px;"
-             *ngIf="title?.value?.length < 10 && title.touched && title.dirty && title.valid">
-            We should warn
-          </p>
+                 [placeholder]="'Placeholders.Login.Password' | translate" formControlName="password">
+<!--                 [ngClass]="{-->
+<!--      'form-valid': password.valid && password?.value?.length >= 10 ,-->
+<!--      'form-invalid': password.invalid && password.touched && password.dirty,-->
+<!--      'form-warning': password?.value?.length < 10 && password.touched && password.dirty && password.valid}"-->
+<!--          <p class="text_left" style="padding:4px;"-->
+<!--             *ngIf="password?.value?.length < 10 && password.touched && password.dirty && password.valid">-->
+<!--            We should warn-->
+<!--          </p>-->
         </div>
         <div class="display-flex a-items-center j-space-between">
-          <a class="mt-2 mb-2 font-size_14 cd-link">{{'ForgotPassword' | translate}} ?</a>
+          <a class="mt-2 mb-2 font-size_14 cd-link" routerLink="/forgot-password">{{'ForgotPassword' | translate}} ?</a>
           <a class="mt-2 mb-2 font-size_14 cd-link" routerLink="/register">{{'SignUp.now' | translate}}</a>
         </div>
         <cd-button
+          (click)="onSubmit()"
           [showIcon]="false"
           [textBtn]="true"
           [classNames]="'cd-btn-block cd-btn-primary'"

@@ -1,23 +1,28 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {NotfoundComponent} from './shared/components';
-
+import {NotfoundComponent, LogoutComponent} from './shared/components';
+import {GuestGuard} from './shared/guards/guest.guard';
+import {MemberGuard} from './shared/guards/member.guard';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './guest/guest.module#GuestModule',
-    // canActivate: [GuestGuard]
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: '',
-    loadChildren: './member/member.module#MemberModule',
-    // canActivate: [MemberGuard]
+    loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule),
+    canActivate: [GuestGuard]
   },
-  // {
-  //   path: 'logout',
-  //   component: LogoutComponent
-  // },
+  {
+    path: '',
+    loadChildren: () => import('./member/member.module').then(m => m.MemberModule),
+    canActivate: [MemberGuard]
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
+  },
   {
     path: '**',
     component: NotfoundComponent
@@ -28,7 +33,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      routes
+      routes,  {scrollPositionRestoration: 'enabled'}
     )
   ],
   exports: [RouterModule]

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   @Input() borderBottom = false;
   switch = false;
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }

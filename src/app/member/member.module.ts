@@ -20,6 +20,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SkeletonComponent} from '../shared/components';
+import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {SkeletonComponent} from '../shared/components';
     UploadComponent,
     EditComponent,
     SkeletonComponent,
+    AccountConfirmationComponent,
   ],
   imports: [
     CommonModule,

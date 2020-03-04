@@ -4,11 +4,15 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
+import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ToastrModule } from 'ngx-toastr';
 import {ToastComponent, NotfoundComponent} from './shared/components';
+import {CookieService} from 'ngx-cookie-service';
+import { LogoutComponent } from './shared/components/logout/logout.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -18,7 +22,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     ToastComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
   ],
   entryComponents: [ToastComponent],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

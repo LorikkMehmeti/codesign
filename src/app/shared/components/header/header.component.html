@@ -28,11 +28,17 @@
     </div>
     <div class="buttons-guest">
       <!--      <cd-button [showIcon]="false" classNames="cd-btn-inline" [maxWidth]="false" text="Login"></cd-button>-->
-      <cd-button [showIcon]="false" borderRadius="4" [text]="'Login' | translate"
-                 [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/login"></cd-button>
-      <cd-button [showIcon]="false" [text]="'Register' | translate"
-                 [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium ml-2'"
-                 routerLink="/register"></cd-button>
+      <ng-template [ngIf]="authenticationService.loggedIn()">
+        <cd-button [showIcon]="false" borderRadius="4" [text]="'Logout'"
+                   [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/logout"></cd-button>
+      </ng-template>
+      <ng-template [ngIf]="!authenticationService.loggedIn()">
+        <cd-button [showIcon]="false" borderRadius="4" [text]="'Login' | translate"
+                   [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/login"></cd-button>
+        <cd-button [showIcon]="false" [text]="'Register' | translate"
+                   [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium ml-2'"
+                   routerLink="/register"></cd-button>
+      </ng-template>
       <cd-button [showIcon]="true" borderRadius="4" [textBtn]="false" [iconName]="switch ? 'icon-moon-fill':'icon-moon-outline'" fillColor="var(--color-primary)"
                  [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium ml-2'" (click)="switchMode()"></cd-button>
       <!--      <cd-button [showIcon]="false" [classNames]="'cd-btn-inline cd-btn-primary'" text="Sign Up"></cd-button>-->

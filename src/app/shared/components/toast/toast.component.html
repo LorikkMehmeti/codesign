@@ -49,19 +49,35 @@
   </div>
 </div>
 
-<div class="toast_container success-toast" *ngIf="type === 'warning'">
+<div class="toast_container warning-toast" *ngIf="type === 'warning'">
   <div class="display-flex a-items-center w-100 h-100">
     <div class="toast_image">
-      <svg id="wink-emoticon-of-rounded-square-face" width="55" height="55" viewBox="0 0 46.47 46.47">
-        <g>
-          <path
-            d="M31.562 6.321a6.202 6.202 0 1 1 12.403.001 6.202 6.202 0 0 1-12.403-.001zM.23 31.646a3 3 0 0 1 2.769-4.152 3.003 3.003 0 0 1 2.771 1.852c2.776 6.685 9.655 11.004 17.523 11.004 7.689 0 14.527-4.321 17.421-11.012a3 3 0 0 1 5.506 2.383C42.377 40.608 33.377 46.35 23.292 46.35 12.994 46.349 3.94 40.576.23 31.646zM3.492 6.368c0-.338.036-.668.089-.992.476 2.93 3.008 5.166 6.065 5.166a6.148 6.148 0 0 0 6.067-5.166c.052.324.087.654.087.992 0 3.4-2.756 6.156-6.154 6.156a6.157 6.157 0 0 1-6.154-6.156z"/>
-        </g>
+      <svg xmlns="http://www.w3.org/2000/svg" width="55" height="57" viewBox="0 0 135 140" fill="#000">
+        <rect y="42.4064" width="15" height="55.1871" rx="6">
+          <animate attributeName="height" begin="0.5s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+          <animate attributeName="y" begin="0.5s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+        <rect x="30" y="0.935493" width="15" height="138.129" rx="6">
+          <animate attributeName="height" begin="0.25s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+          <animate attributeName="y" begin="0.25s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+        <rect x="60" width="15" height="105.187" rx="6" y="17.4065">
+          <animate attributeName="height" begin="0s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+          <animate attributeName="y" begin="0s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+        <rect x="90" y="0.935493" width="15" height="138.129" rx="6">
+          <animate attributeName="height" begin="0.25s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+          <animate attributeName="y" begin="0.25s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+        <rect x="120" y="42.4064" width="15" height="55.1871" rx="6">
+          <animate attributeName="height" begin="0.5s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+          <animate attributeName="y" begin="0.5s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
       </svg>
     </div>
     <div class="flash-info">
       <p class="" style="font-weight: normal;font-family: var(--f-p-bold);">{{message}}</p>
-      <small class="">Please try again</small>
+      <small class="">{{title}}</small>
     </div>
   </div>
 </div>

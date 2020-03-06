@@ -98,3 +98,11 @@ body {
     object-position: top !important;
   }
 }
+
+.unset-css {
+  all: unset;
+}
+
+._home-section {
+  @include fluid('padding-right', 540px, 1400px, 10px, 80px);
+}

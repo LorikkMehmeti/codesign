@@ -35,12 +35,16 @@
 
   <div class="grid-login">
     <div class="form-container text_center">
-      <form [formGroup]="registerForm">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="cd-form-group">
           <input type="text" class="cd__input input__small" placeholder="First name" formControlName="firstName"
                  [ngClass]="{
       'form-valid': firstName.valid && firstName.dirty && firstName.touched,
       'form-invalid': firstName.invalid && firstName.touched && firstName.dirty}">
+          <p class="text_left" style="padding:4px;"
+             *ngIf="firstName.touched && firstName.dirty && firstName.invalid && firstName.errors.pattern">
+            We should warn
+          </p>
         </div>
         <div class="cd-form-group">
           <input type="text" class="cd__input input__small" placeholder="Last name" formControlName="lastName"
@@ -66,16 +70,16 @@
       'form-valid': password.valid && password?.value?.length >= 10 && (password.touched && password.dirty),
       'form-invalid': password.invalid && password.touched && password.dirty,
       'form-warning': password?.value?.length < 8 && password.touched && password.dirty && password.valid}">
-<!--          <p class="text_left" style="padding:4px;"-->
-<!--             *ngIf="password?.value?.length < 10 && password.touched && password.dirty && password.valid">-->
-<!--            We should warn-->
-<!--          </p>-->
+          <!--          <p class="text_left" style="padding:4px;"-->
+          <!--             *ngIf="password?.value?.length < 10 && password.touched && password.dirty && password.valid">-->
+          <!--            We should warn-->
+          <!--          </p>-->
         </div>
         <div class="mt-2 mb-2">
           <div class="text_left radio_grid">
             <div class="forms">
               <label for="type">
-                <input type="radio" id="type" formControlName="type" value="0" [checked]="false">
+                <input type="radio" id="type" formControlName="type" value="2" [checked]="false">
                 <span class="rdo"></span>
                 <span>Designer</span>
               </label>
@@ -90,13 +94,14 @@
           </div>
 
         </div>
-        <cd-button
-          (click)="onSubmit()"
-          [showIcon]="false"
-          [textBtn]="true"
-          [classNames]="'cd-btn-block cd-btn-primary'"
-          text="{{'SignUp.signUp' | translate}}" [maxWidth]="true">
-        </cd-button>
+        <button class="unset-css w-100" type="submit">
+          <cd-button
+            [showIcon]="false"
+            [textBtn]="true"
+            [classNames]="'cd-btn-block cd-btn-primary'"
+            text="{{'SignUp.signUp' | translate}}" [maxWidth]="true">
+          </cd-button>
+        </button>
 
         <cd-button
           [showIcon]="false"

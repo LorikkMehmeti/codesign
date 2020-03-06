@@ -19,20 +19,22 @@ export class AuthenticationService {
 
     const headerOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         Authorization: authorizationData
       })
     };
 
-    // const body = {
-    //   username: userName,
-    //   password: pass
-    // };
+    const body = {
+      username: userName,
+      password: pass
+    };
 
-    const body = new HttpParams()
-      .set('username', userName)
-      .set('password', pass);
 
+    // const body = new HttpParams()
+    //   .set('username', userName)
+    //   .set('password', pass);
+
+    console.log(body);
     const url = `${environment.url}/login`;
     return this.http.post<any>(url, body, headerOptions)
       .pipe(map((res: any) => {

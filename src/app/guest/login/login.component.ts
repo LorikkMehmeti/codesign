@@ -37,24 +37,20 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.togglePopUp();
-    }, 3000);
-
     this.initForm();
   }
 
   private initForm(): void {
     this.login = new FormGroup({
       username: new FormControl(null, [
-        // Validators.minLength(2),
+        Validators.required
         // Validators.pattern(email + '?' + username)
       ]),
       password: new FormControl(null, [
         Validators.required,
-        Validators.minLength(4),
+        // Validators.minLength(4),
       ])
-    }, {updateOn: 'blur'});
+    });
   }
 
   get username() {
@@ -70,6 +66,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   getUser() {
@@ -80,9 +77,13 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     const loginData = this.login.value;
+    if (!this.login.valid) {
+      console.log('nope');
+      return;
+    }
     this.subscription = this.authenticationService
-      .login(loginData.username, loginData.password)
-      .subscribe(response => {
+      .login(this.username.value, this.password.value)
+      .subscribe((response: any) => {
         // window.location.reload();
         if (!response.success) {
           const activeToast = this.toast.error(`${response.error}`, 'error', {

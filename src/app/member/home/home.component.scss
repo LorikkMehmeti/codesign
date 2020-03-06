@@ -1,4 +1,17 @@
 .avatar-image {
-  border-radius: 50%!important;
+  border-radius: 50% !important;
   overflow: hidden;
+}
+
+.home_container {
+  margin-bottom: 10px;
+  padding: 18px 0;
+
+  &:nth-of-type(even) {
+    background: var(--home-container);
+  }
+}
+
+._home-section {
+  max-width: 300px;
 }

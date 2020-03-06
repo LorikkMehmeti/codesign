@@ -139,76 +139,92 @@
 </div>
 
 <div class="position-relative" *ngIf="!auth">
-  <div class="container">
-    <div class="heading heading-title">Newest releases</div>
-    <div class="grid_posts grid-four-columns mt-2 mb-2">
-      <div class="grid-item" *ngFor="let p of [0,1,2,3]">
-        <div class="image-grid position-relative">
-          <cd-skeleton></cd-skeleton>
-        </div>
-        <div class="display-flex a-items-center j-space-between bottom_post">
-          <div class="display-flex w-100">
-            <div class="avatar-image position-relative">
+  <div class="container_">
+    <div class="home_container">
+      <div class="container">
+        <div class="heading heading-title">Newest releases</div>
+        <div class="grid_posts grid-four-columns mt-2 mb-2">
+          <div class="grid-item" *ngFor="let p of [0,1,2,3]">
+            <div class="image-grid position-relative">
               <cd-skeleton></cd-skeleton>
             </div>
-            <div class="ml-2 flex-1 text_card">
-              <p class="position-relative cd-link card-title card-title_skeleton">
-                <cd-skeleton></cd-skeleton>
-              </p>
-              <a class="cd-link font-size_12 position-relative d-inline-block card-link card-link_skeleton">
-                <cd-skeleton></cd-skeleton>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="heading heading-title">Most Popular</div>
-    <div class="display-flex">
-      <div>
-        asdasdasdakjsdkasdasd asd
-      </div>
-      <div class="grid_posts grid-four-columns mt-2 mb-2 flex-1">
-        <div class="grid-item" *ngFor="let p of [0,1,2]">
-          <div class="image-grid position-relative">
-            <cd-skeleton></cd-skeleton>
-          </div>
-          <div class="display-flex a-items-center j-space-between bottom_post">
-            <div class="display-flex w-100">
-              <div class="avatar-image position-relative">
-                <cd-skeleton></cd-skeleton>
-              </div>
-              <div class="ml-2 flex-1 text_card">
-                <p class="position-relative cd-link card-title card-title_skeleton">
+            <div class="display-flex a-items-center j-space-between bottom_post">
+              <div class="display-flex w-100">
+                <div class="avatar-image position-relative">
                   <cd-skeleton></cd-skeleton>
-                </p>
-                <a class="cd-link font-size_12 position-relative d-inline-block card-link card-link_skeleton">
-                  <cd-skeleton></cd-skeleton>
-                </a>
+                </div>
+                <div class="ml-2 flex-1 text_card">
+                  <p class="position-relative cd-link card-title card-title_skeleton">
+                    <cd-skeleton></cd-skeleton>
+                  </p>
+                  <a class="cd-link font-size_12 position-relative d-inline-block card-link card-link_skeleton">
+                    <cd-skeleton></cd-skeleton>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="heading heading-title">Featured shots</div>
-    <div class="grid_posts grid-four-columns mt-2 mb-2">
-      <div class="grid-item" *ngFor="let p of [0,1,2,3]">
-        <div class="image-grid position-relative">
-          <cd-skeleton></cd-skeleton>
+    <div class="home_container">
+      <div class="container">
+        <div class="heading heading-title">Most Popular</div>
+        <div class="display-flex">
+          <div class="_home-section">
+            <p class="mt-2">Watch most popular shots on this web application</p>
+
+            <cd-button [showIcon]="false" [text]="'See more'"
+                       [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium mt-4'"
+                       routerLink="/register"></cd-button>
+          </div>
+          <div class="grid_posts grid-four-columns mt-2 mb-2 flex-1">
+            <div class="grid-item" *ngFor="let p of [0,1,2]">
+              <div class="image-grid position-relative">
+                <cd-skeleton></cd-skeleton>
+              </div>
+              <div class="display-flex a-items-center j-space-between bottom_post">
+                <div class="display-flex w-100">
+                  <div class="avatar-image position-relative">
+                    <cd-skeleton></cd-skeleton>
+                  </div>
+                  <div class="ml-2 flex-1 text_card">
+                    <p class="position-relative cd-link card-title card-title_skeleton">
+                      <cd-skeleton></cd-skeleton>
+                    </p>
+                    <a class="cd-link font-size_12 position-relative d-inline-block card-link card-link_skeleton">
+                      <cd-skeleton></cd-skeleton>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="display-flex a-items-center j-space-between bottom_post">
-          <div class="display-flex w-100">
-            <div class="avatar-image position-relative">
+      </div>
+    </div>
+    <div class="home_container">
+      <div class="container">
+        <div class="heading heading-title">Featured shots</div>
+        <div class="grid_posts grid-four-columns mt-2 mb-2">
+          <div class="grid-item" *ngFor="let p of [0,1,2,3]">
+            <div class="image-grid position-relative">
               <cd-skeleton></cd-skeleton>
             </div>
-            <div class="ml-2 flex-1 text_card">
-              <p class="position-relative cd-link card-title card-title_skeleton">
-                <cd-skeleton></cd-skeleton>
-              </p>
-              <a class="cd-link font-size_12 position-relative d-inline-block card-link card-link_skeleton">
-                <cd-skeleton></cd-skeleton>
-              </a>
+            <div class="display-flex a-items-center j-space-between bottom_post">
+              <div class="display-flex w-100">
+                <div class="avatar-image position-relative">
+                  <cd-skeleton></cd-skeleton>
+                </div>
+                <div class="ml-2 flex-1 text_card">
+                  <p class="position-relative cd-link card-title card-title_skeleton">
+                    <cd-skeleton></cd-skeleton>
+                  </p>
+                  <a class="cd-link font-size_12 position-relative d-inline-block card-link card-link_skeleton">
+                    <cd-skeleton></cd-skeleton>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

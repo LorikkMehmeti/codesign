@@ -86,7 +86,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     if (!this.auth) {
-      console.log('hhh so login ');
       return;
     }
     setTimeout(() => {

@@ -34,7 +34,7 @@
 <!--    </cd-button>-->
 
   <div class="grid-login">
-    <div class="form-container" style="text-align: center;">
+    <div class="form-container text_center">
       <form [formGroup]="login" (ngSubmit)="onSubmit()">
         <cd-button
           [showIcon]="true"
@@ -71,13 +71,14 @@
           <a class="mt-2 mb-2 font-size_14 cd-link" routerLink="/forgot-password">{{'ForgotPassword' | translate}} ?</a>
           <a class="mt-2 mb-2 font-size_14 cd-link" routerLink="/register">{{'SignUp.now' | translate}}</a>
         </div>
-        <cd-button
-          (click)="onSubmit()"
-          [showIcon]="false"
-          [textBtn]="true"
-          [classNames]="'cd-btn-block cd-btn-primary'"
-          text="{{'SignIn.signIn' | translate}}" [maxWidth]="true">
-        </cd-button>
+        <button type="submit" class="unset-css w-100">
+          <cd-button
+            [showIcon]="false"
+            [textBtn]="true"
+            [classNames]="'cd-btn-block cd-btn-primary'"
+            text="{{'SignIn.signIn' | translate}}" [maxWidth]="true">
+          </cd-button>
+        </button>
 
         <p class="text_left font-size_12 mt-2 mb-2">
           {{'reCAPTCHA.main' | translate}}

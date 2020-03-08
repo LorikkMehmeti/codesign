@@ -106,7 +106,6 @@ export class SignupComponent implements OnInit {
     return;
     this.userService.registerUser(body).subscribe((res: any) => {
       if (res.success) {
-        console.log(res);
         this.activeToast = this.toast.show(`Register is done`, 'success', {
           toastClass: 'success_TOAST'
         });

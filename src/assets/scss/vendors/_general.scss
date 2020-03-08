@@ -3,7 +3,7 @@ body {
   color: var(--color-page);
 }
 
-[class*="cd-btn"], .heading, .cd-link, *::placeholder, .inputGroup, .dropdown-menu_neue, .dropdown_menu_links, img {
+[class*="cd-btn"], .heading, .cd-link, .cd-footer-grid, *::placeholder, .inputGroup, .dropdown-menu_neue, .dropdown_menu_links, img, .right_submenu {
   @include user-touch();
 }
 
@@ -29,6 +29,10 @@ body {
 
 .no-padding {
   padding: 0 !important;
+}
+
+.object-cover {
+  object-fit: cover;
 }
 
 .like-button {

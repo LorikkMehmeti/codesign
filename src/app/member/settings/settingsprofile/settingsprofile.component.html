@@ -1,0 +1,27 @@
+<form action="" [formGroup]="account" (ngSubmit)="updateInfo()">
+  <ng-template [ngIf]="user">
+    <div class="cd-form-group">
+      <label for="first-name" class="filter-label font-size_14 mb-2 d-inline-block">First Name</label>
+      <input type="text" id="first-name" class="cd__input input__small"
+             [placeholder]="'First Name'" formControlName="first_name">
+    </div>
+    <div class="cd-form-group">
+      <label for="first-name" class="filter-label font-size_14 mb-2 d-inline-block">Last Name</label>
+      <input type="text" id="last-name" class="cd__input input__small"
+             [placeholder]="'Last Name'" formControlName="last_name">
+    </div>
+    <div class="cd-form-group">
+      <label for="username" class="filter-label font-size_14 mb-2 d-inline-block">Username</label>
+      <input type="text" id="username" class="cd__input input__small"
+             [placeholder]="'Username'" autocomplete="off" formControlName="username" readonly>
+      <small class="font-size_12 mb-2 d-inline-block ml-2">Your Codesign URL: https://www.codesign.com/lorikk</small>
+    </div>
+
+   <div class="text_right">
+     <button type="submit" class="unset-css">
+       <cd-button [showIcon]="false" [text]="'Save changes'"
+                  [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"></cd-button>
+     </button>
+   </div>
+  </ng-template>
+</form>

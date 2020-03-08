@@ -1,0 +1,8 @@
+::ng-deep {
+  & .cd-header {
+    margin-bottom: 30px!important;
+  }
+  & cd-footer {
+    display: none;
+  }
+}

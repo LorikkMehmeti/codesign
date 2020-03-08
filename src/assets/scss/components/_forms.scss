@@ -12,6 +12,10 @@ textarea {
   height: 200px;
 }
 
+.label{
+
+}
+
 *::selection {
   /*
     selection
@@ -64,6 +68,11 @@ textarea {
   font-family: var(--f-regular) !important;
   //font-family: var(--f-light);var
   transition: box-shadow 200ms ease;
+
+  &[disabled] {
+    opacity: .6;
+    cursor: no-drop;
+  }
 
   &:focus {
     box-shadow: 0 0 0 0.2rem rgba(var(--color-font-rgba), .2);

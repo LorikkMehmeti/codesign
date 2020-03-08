@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./skeleton.component.scss']
 })
 export class SkeletonComponent implements OnInit {
-
+  @Input() height?: number;
   constructor() { }
 
   ngOnInit() {

@@ -103,7 +103,11 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigate(['/home']);
         }
       }, (error) => {
-        throw(error);
+        const activeToast = this.toast.error(`Service unavailable`, 'Error 503', {
+          toastClass: 'error_TOAST'
+        });
+        activeToast.toastRef.componentInstance.type = 'error';
+        activeToast.toastRef.componentInstance.toastActive = true;
       });
   }
 

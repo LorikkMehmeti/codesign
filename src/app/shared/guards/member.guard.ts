@@ -23,14 +23,19 @@ export class MemberGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
+    console.log(next);
+
     /* TODO change this or do better */
     // @ts-ignore
-    if (next._routerState.url.indexOf('/home') !== -1) {
+    if (next.url.indexOf('home') !== -1 || next.url.indexOf('profile' !== -1)) {
       return true;
     }
+    // if (next._routerState.url.indexOf('/home') !== -1) {
+    //   return true;
+    // }
+
     this.http.get(`${environment.url}/details`).subscribe((res: any) => {
-      this.user = res.success;
-      console.log(this.user);
+      this.user = res.data;
       const email =  this.user.email_verified_at;
       if (email === null || email === '' || email === undefined) {
         this.router.navigate(['/account-confirmation']);

@@ -21,6 +21,12 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SkeletonComponent} from '../shared/components';
 import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SettingsprofileComponent } from './settings/settingsprofile/settingsprofile.component';
+import {TranslateModule} from '@ngx-translate/core';
+import { WorkComponent } from './settings/work/work.component';
+import { AccountSettingsComponent } from './settings/account-settings/account-settings.component';
+import { PasswordComponent } from './settings/password/password.component';
 
 @NgModule({
   declarations: [
@@ -33,16 +39,22 @@ import { AccountConfirmationComponent } from './account-confirmation/account-con
     EditComponent,
     SkeletonComponent,
     AccountConfirmationComponent,
+    SettingsComponent,
+    SettingsprofileComponent,
+    WorkComponent,
+    AccountSettingsComponent,
+    PasswordComponent,
   ],
-  imports: [
-    CommonModule,
-    MemberRoutingModule,
-    GuestModule,
-    NgxDropzoneModule,
-    FormsModule,
-    NgSelectModule,
-    ReactiveFormsModule,
-  ]
+    imports: [
+        CommonModule,
+        MemberRoutingModule,
+        GuestModule,
+        NgxDropzoneModule,
+        FormsModule,
+        NgSelectModule,
+        ReactiveFormsModule,
+        TranslateModule,
+    ]
 })
 export class MemberModule {
 }

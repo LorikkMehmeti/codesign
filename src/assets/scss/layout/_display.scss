@@ -37,8 +37,16 @@
   flex: 1;
 }
 
+.d-block {
+  display: block;
+}
+
 .d-inline-block {
   display: inline-block !important;
+
+  &.v-middle {
+    vertical-align: middle;
+  }
 }
 
 .w-100 {

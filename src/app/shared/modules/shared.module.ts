@@ -6,7 +6,7 @@ import {HeaderComponent, SkeletonComponent} from '../components';
 
 @NgModule({
   declarations: [
-    SkeletonComponent,
+    // SkeletonComponent,
     // HeaderComponent
   ],
   imports: [

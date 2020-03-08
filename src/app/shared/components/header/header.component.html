@@ -28,19 +28,46 @@
     </div>
     <div class="buttons-guest">
       <!--      <cd-button [showIcon]="false" classNames="cd-btn-inline" [maxWidth]="false" text="Login"></cd-button>-->
-      <ng-template [ngIf]="authenticationService.loggedIn()">
-        <cd-button [showIcon]="false" borderRadius="4" [text]="'Logout'"
-                   [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/logout"></cd-button>
-      </ng-template>
+      <!--      <ng-template [ngIf]="authenticationService.loggedIn()">-->
+      <!--        <cd-button [showIcon]="false" borderRadius="4" [text]="'Logout'"-->
+      <!--                   [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/logout"></cd-button>-->
+      <!--      </ng-template>-->
+      <div class="d-inline-block v-middle position-relative" *ngIf="authenticationService.loggedIn()"
+           (mouseenter)="showMenu = true"
+           (mouseover)="showMenu = true"
+           (mouseleave)="showMenu = false">
+        <a class="font-size_12 profile_avatar display-flex a-items-center j-center">
+          <img class="w-100 h-100 object-cover"
+               [src]="'https://eu.ui-avatars.com/api/?name=Lorik&length=1&rounded=true&format=svg&background=00000000&color=7044ff'" alt="">
+        </a>
+        <div class="right_submenu position-relative" *ngIf="showMenu && user">
+          <div class="sub_menu-header position-absolute overflow-hidden">
+            <a class="text_left font-size_14 sub_menu-header-link" routerLink="/profile">
+              {{user.first_name + ' ' + user.last_name}} | Profile
+            </a>
+            <a class="text_left font-size_14 sub_menu-header-link" routerLink="/settings/account">
+              Account Settings
+            </a>
+            <a class="text_left font-size_14 sub_menu-header-link">
+              Help Center
+            </a>
+            <a class="text_left font-size_14 sub_menu-header-link" routerLink="/logout">
+              Sign Out
+            </a>
+          </div>
+        </div>
+      </div>
       <ng-template [ngIf]="!authenticationService.loggedIn()">
         <cd-button [showIcon]="false" borderRadius="4" [text]="'Login' | translate"
                    [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/login"></cd-button>
         <cd-button [showIcon]="false" [text]="'Register' | translate"
                    [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium ml-2'"
                    routerLink="/register"></cd-button>
+        <cd-button [showIcon]="true" borderRadius="4" [textBtn]="false"
+                   [iconName]="switch ? 'icon-moon-fill':'icon-moon-outline'" fillColor="var(--color-primary)"
+                   [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium ml-2'"
+                   (click)="switchMode()"></cd-button>
       </ng-template>
-      <cd-button [showIcon]="true" borderRadius="4" [textBtn]="false" [iconName]="switch ? 'icon-moon-fill':'icon-moon-outline'" fillColor="var(--color-primary)"
-                 [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium ml-2'" (click)="switchMode()"></cd-button>
       <!--      <cd-button [showIcon]="false" [classNames]="'cd-btn-inline cd-btn-primary'" text="Sign Up"></cd-button>-->
     </div>
   </div>

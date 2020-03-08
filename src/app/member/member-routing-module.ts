@@ -8,6 +8,11 @@ import {SearchComponent} from './search/search.component';
 import {UploadComponent} from './posts/upload/upload.component';
 import {EditComponent} from './posts/edit/edit.component';
 import {AccountConfirmationComponent} from './account-confirmation/account-confirmation.component';
+import {SettingsComponent} from './settings/settings.component';
+import {SettingsprofileComponent} from './settings/settingsprofile/settingsprofile.component';
+import {WorkComponent} from './settings/work/work.component';
+import {AccountSettingsComponent} from './settings/account-settings/account-settings.component';
+import {PasswordComponent} from './settings/password/password.component';
 
 const appRoutes: Routes = [
   {
@@ -46,6 +51,17 @@ const appRoutes: Routes = [
       {
         path: 'account-confirmation',
         component: AccountConfirmationComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        children: [
+          {path: 'account', component: SettingsprofileComponent},
+          {path: 'work', component: WorkComponent},
+          {path: 'password', component: PasswordComponent},
+          {path: 'account-settings', component: AccountSettingsComponent},
+          {path: 'social', component: SettingsComponent},
+        ],
       }
     ]
   }

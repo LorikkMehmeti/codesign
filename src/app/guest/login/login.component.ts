@@ -66,7 +66,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   getUser() {
@@ -91,6 +90,8 @@ export class LoginComponent implements OnInit, OnDestroy {
           });
           activeToast.toastRef.componentInstance.type = 'error';
           activeToast.toastRef.componentInstance.toastActive = true;
+
+          this.password.reset();
         }
 
         if (response.success) {

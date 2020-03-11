@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {withCache} from '@ngneat/cashew';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +22,12 @@ export class UserService {
 
   }
 
-  getAuthUser() {
-    const endpoint = `${this.endpoint}/details`;
+  getAuthUser(includeProfile?: boolean) {
+    const endpoint = `${this.endpoint}/details` + (includeProfile ? '?profile=true' : '');
 
-    return this.http.get(endpoint);
+    return this.http.get(endpoint, withCache({
+      strategy: 'implicit'
+    }));
   }
 
   updateInfo(body) {
@@ -35,5 +39,13 @@ export class UserService {
     const endpoint = `${this.endpoint}/update-password`;
 
     return this.http.post(endpoint, body);
+  }
+
+  isVerified() {
+    const endpoint = `${this.endpoint}/details`;
+    this.getAuthUser().subscribe((res: any) => {
+      const email = res.data.email_verified_at;
+      return email;
+    });
   }
 }

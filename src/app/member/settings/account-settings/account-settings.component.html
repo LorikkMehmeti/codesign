@@ -1,1 +1,15 @@
-<p>account-settings works!</p>
+<form action="" [formGroup]="accountSettings">
+  <ng-template [ngIf]="user">
+    <div class="cd-form-group">
+      <label for="username" class="filter-label font-size_14 mb-2 d-inline-block">Username</label>
+      <input type="text" id="username" class="cd__input input__small"
+             [placeholder]="'Username'" autocomplete="off" formControlName="username" readonly>
+      <small class="font-size_12 mb-2 d-inline-block ml-2">Your Codesign URL: https://www.codesign.com/{{user?.username}}</small>
+    </div>
+    <div class="cd-form-group">
+      <label for="username" class="filter-label font-size_14 mb-2 d-inline-block">Email</label>
+      <input type="text" id="email" class="cd__input input__small"
+             [placeholder]="'Email'" autocomplete="off" formControlName="email" readonly>
+    </div>
+  </ng-template>
+</form>

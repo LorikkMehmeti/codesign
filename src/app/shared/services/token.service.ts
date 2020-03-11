@@ -69,6 +69,7 @@ export class TokenService {
    * delete token.
    */
   deleteToken(): void {
-    this.cookieService.delete('token');
+    this.cookieService.delete('token', '/', 'localhost');
+    this.cookieService.deleteAll('/', '/');
   }
 }

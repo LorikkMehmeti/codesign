@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe((response: any) => {
         // window.location.reload();
         if (!response.success) {
-          const activeToast = this.toast.error(`${response.error}`, 'error', {
+          const activeToast = this.toast.error(`${response.error}`, 'Login error', {
             toastClass: 'error_TOAST'
           });
           activeToast.toastRef.componentInstance.type = 'error';

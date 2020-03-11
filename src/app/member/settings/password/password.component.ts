@@ -59,7 +59,7 @@ export class PasswordComponent implements OnInit {
         this.activeToast.toastRef.componentInstance.toastActive = true;
         this.passwordForm.reset();
       } else {
-        this.activeToast = this.toast.show(`${res.message}`, 'Success');
+        this.activeToast = this.toast.show(`${res.message}`, 'Password error');
 
         this.activeToast.toastRef.componentInstance.type = 'error';
         this.activeToast.toastRef.componentInstance.toastActive = true;

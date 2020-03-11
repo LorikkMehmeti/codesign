@@ -1,6 +1,4 @@
-::ng-deep .cd-header {
-  margin-bottom: 30px!important;
-}
+
 
 ::ng-deep body[data-theme="light"] {
   .top_bar {
@@ -56,7 +54,6 @@
   min-width: 200px;
   max-width: 250px;
   background: var(--home-container);
-
   .side_menu-items {
     padding: 60px 50px;
 

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../shared/services/user/user.service';
 import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   activeToast: any;
 
 
-  constructor(private userService: UserService, private toast: ToastrService) {
+  constructor(private router: Router, private userService: UserService, private toast: ToastrService) {
   }
 
   ngOnInit() {
@@ -87,8 +88,6 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-
-
     const body = {
       first_name: this.capitalize(this.firstName.value),
       last_name: this.capitalize(this.lastName.value),
@@ -97,22 +96,22 @@ export class SignupComponent implements OnInit {
       password: this.password.value,
       type: this.type.value
     };
-    console.log(body);
     this.activeToast = this.toast.show(`Connecting with the server to get you register`, 'Loading', {
       toastClass: 'success_TOAST'
     });
     this.activeToast.toastRef.componentInstance.type = 'warning';
     this.activeToast.toastRef.componentInstance.toastActive = true;
-    return;
     this.userService.registerUser(body).subscribe((res: any) => {
       if (res.success) {
-        this.activeToast = this.toast.show(`Register is done`, 'success', {
+        this.activeToast = this.toast.show(`Register is done`, 'Success', {
           toastClass: 'success_TOAST'
         });
         this.activeToast.toastRef.componentInstance.type = 'success';
         this.activeToast.toastRef.componentInstance.toastActive = true;
 
-        // this.registerForm
+        this.registerForm.reset();
+
+        this.router.navigate(['/login']);
       }
     });
 

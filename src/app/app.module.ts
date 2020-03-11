@@ -4,15 +4,16 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
-import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+import {JwtInterceptor} from './shared/helpers/jwt.interceptor';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { ToastrModule } from 'ngx-toastr';
+import {ToastrModule} from 'ngx-toastr';
 import {ToastComponent, NotfoundComponent} from './shared/components';
 import {CookieService} from 'ngx-cookie-service';
-import { LogoutComponent } from './shared/components/logout/logout.component';
+import {LogoutComponent} from './shared/components/logout/logout.component';
+import {HttpCacheInterceptorModule} from '@ngneat/cashew';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -29,6 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpCacheInterceptorModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -27,7 +27,7 @@
     </div>
     <div class="flash-info">
       <p class="message-toast">{{message}}</p>
-      <small>Please try again</small>
+      <small>{{title || 'Please try again'}}</small>
     </div>
   </div>
 </div>
@@ -44,7 +44,7 @@
     </div>
     <div class="flash-info">
       <p class="message-toast">{{message}}</p>
-      <small class="">Redirecting to homepage</small>
+      <small class="">{{title || 'Success'}}</small>
     </div>
   </div>
 </div>

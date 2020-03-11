@@ -55,9 +55,11 @@ export class LogoutComponent implements OnInit, AfterViewInit {
     const url = `${environment.url}/logout`;
     const getToken = this.tokenService.getToken();
     if (getToken) {
-      this.http.post(url, '').subscribe(res => {
+      this.http.post(url, '').subscribe((res: any) => {
         this.tokenService.deleteToken();
-        this.router.navigate(['/home']);
+        if (res.success) {
+          this.router.navigate(['/home']);
+        }
       });
 
       return;

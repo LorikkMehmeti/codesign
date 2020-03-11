@@ -10,11 +10,16 @@
       <input type="text" id="last-name" class="cd__input input__small"
              [placeholder]="'Last Name'" formControlName="last_name">
     </div>
+
     <div class="cd-form-group">
-      <label for="username" class="filter-label font-size_14 mb-2 d-inline-block">Username</label>
-      <input type="text" id="username" class="cd__input input__small"
-             [placeholder]="'Username'" autocomplete="off" formControlName="username" readonly>
-      <small class="font-size_12 mb-2 d-inline-block ml-2">Your Codesign URL: https://www.codesign.com/lorikk</small>
+      <label for="biography" class="filter-label font-size_14 mb-2 d-inline-block">Biography</label>
+      <textarea formControlName="biography" id="biography" wrap spellcheck="true" class="cd__input input__small w-100 font-size_12" placeholder="A short bio about yourself"></textarea>
+    </div>
+
+    <div class="cd-form-group">
+      <label for="skills" class="filter-label font-size_14 mb-2 d-inline-block">Skills</label>
+      <textarea formControlName="skills" id="skills" wrap spellcheck="true" class="cd__input input__small w-100 font-size_12"
+                placeholder="What tools or languages are you most experienced with? Are you specialized or more of a generalist"></textarea>
     </div>
 
    <div class="text_right">

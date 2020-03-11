@@ -1,13 +1,13 @@
 <!--<cd-header marginHeader="true"></cd-header>-->
 <div class="container">
-  <div class="card_confirmation text_center display-flex flex-column j-space-between">
+  <div *ngIf="user" class="card_confirmation text_center display-flex flex-column j-space-between">
     <div>
       <h1 class="heading heading-subtitle">Just One More Step</h1>
       <p class="desc_card-confirmation">
         Please verify your email address so you can use features on our platform. We've sent a confirmation email to
       </p>
-      <p class="email_card-confirmation">
-        lorikkmehmeti@gmail.com
+      <p class="email_card-confirmation" *ngIf="user">
+        {{user.email}}
       </p>
     </div>
 

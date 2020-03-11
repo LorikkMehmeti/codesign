@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../shared/services/user/user.service';
 import {HttpClient} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
+import {isUndefined} from 'util';
 
 @Component({
   selector: 'app-settingsprofile',
@@ -37,6 +38,8 @@ export class SettingsprofileComponent implements OnInit {
         // Validators.required,
         // Validators.minLength(4),
       ]),
+      biography: new FormControl(null),
+      skills: new FormControl(null)
     });
   }
 
@@ -48,10 +51,17 @@ export class SettingsprofileComponent implements OnInit {
     return this.account.get('last_name');
   }
 
+  get biography() {
+    return this.account.get('biography');
+  }
+
+  get skills() {
+    return this.account.get('skills');
+  }
+
   getUser() {
-    this.userService.getAuthUser().subscribe((res: any) => {
+    this.userService.getAuthUser(true).subscribe((res: any) => {
       this.user = res.data;
-      console.log(this.user);
       this.updateForm();
     });
   }
@@ -62,16 +72,26 @@ export class SettingsprofileComponent implements OnInit {
       this.account.patchValue({
         first_name: user.first_name,
         last_name: user.last_name,
-        username: user.username
+        username: user.username,
+        biography: user.profile.biography,
+        skills: user.profile.skills
       });
     }
   }
 
 
   updateInfo() {
+    const isVerified: any = this.userService.isVerified();
+
+    if (this.account.invalid) {
+      return;
+    }
+
     const body = {
       first_name: this.firstname.value,
-      last_name: this.lastname.value
+      last_name: this.lastname.value,
+      biography: this.biography.value,
+      skills: this.skills.value
     };
 
     this.userService.updateInfo(body).subscribe((res: any) => {
@@ -81,6 +101,14 @@ export class SettingsprofileComponent implements OnInit {
         });
         activeToast.toastRef.componentInstance.type = 'success';
         activeToast.toastRef.componentInstance.toastActive = true;
+      }
+      if (!res.success) {
+        const activeToast = this.toast.show(`Please verify your email before using our platform`, 'Verify email', {
+          toastClass: 'success_TOAST'
+        });
+        activeToast.toastRef.componentInstance.type = 'error';
+        activeToast.toastRef.componentInstance.toastActive = true;
+
       }
     });
   }

@@ -41,6 +41,18 @@ export class UserService {
     return this.http.post(endpoint, body);
   }
 
+  updateWork(body) {
+    const endpoint = `${this.endpoint}/update-work`;
+
+    return this.http.put(endpoint, body);
+  }
+
+  getUserFromUsername(username) {
+    const endpoint = `${this.endpoint}/profile/${username}`;
+
+    return this.http.get(endpoint);
+  }
+
   isVerified() {
     const endpoint = `${this.endpoint}/details`;
     this.getAuthUser().subscribe((res: any) => {

@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {NotfoundComponent, LogoutComponent} from './shared/components';
 import {GuestGuard} from './shared/guards/guest.guard';
-import {MemberGuard} from './shared/guards/member.guard';
 
 const routes: Routes = [
   {
@@ -24,16 +23,22 @@ const routes: Routes = [
     component: LogoutComponent
   },
   {
-    path: '**',
+    path: 'not-found-page',
     component: NotfoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found-page'
   }
 ];
+
+import {MemberGuard} from './shared/guards/member.guard';
 
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      routes,  {scrollPositionRestoration: 'enabled'},
+      routes, {scrollPositionRestoration: 'enabled'},
     )
   ],
   exports: [RouterModule]

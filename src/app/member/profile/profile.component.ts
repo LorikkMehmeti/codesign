@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../shared/services/user/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -77,9 +79,30 @@ export class ProfileComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  username: string;
+  user: any;
+
+  constructor(private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
+  }
 
   ngOnInit() {
+    this.username = this.activatedRoute.snapshot.paramMap.get('username');
+
+    if (this.username) {
+      this.getUserFromUsername(this.username);
+    }
+  }
+
+  getUserFromUsername(username) {
+    this.userService.getUserFromUsername(username).subscribe((res: any) => {
+      if (res.success) {
+        this.user = res.data;
+      }
+
+      if (!res.success) {
+        this.router.navigate(['/not-found-page']);
+      }
+    });
   }
 
 }

@@ -8,8 +8,8 @@
             [src]="'https://eu.ui-avatars.com/api/?name=Lorik&length=1&rounded=true&format=svg&background=00000000&color=7044ff'"
             alt="">
         </div>
-        <div class="user_info ml-4">
-          <h1 class="heading user_info-header">Lorik Mehmeti</h1>
+        <div class="user_info ml-4" *ngIf="user">
+          <h1 class="heading user_info-header">{{user.first_name + ' ' + user.last_name}}</h1>
           <p class="font-size_14 user_info-subtitle">Update your informations and manage your account</p>
         </div>
       </div>

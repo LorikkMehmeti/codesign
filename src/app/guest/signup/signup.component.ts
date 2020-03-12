@@ -79,9 +79,9 @@ export class SignupComponent implements OnInit {
   }
 
 
-  capitalize = (str) => {
+  capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  };
+  }
 
   onSubmit() {
     if (this.registerForm.invalid) {
@@ -96,6 +96,8 @@ export class SignupComponent implements OnInit {
       password: this.password.value,
       type: this.type.value
     };
+
+
     this.activeToast = this.toast.show(`Connecting with the server to get you register`, 'Loading', {
       toastClass: 'success_TOAST'
     });
@@ -112,6 +114,10 @@ export class SignupComponent implements OnInit {
         this.registerForm.reset();
 
         this.router.navigate(['/login']);
+      }
+
+      if (!res.success) {
+
       }
     });
 

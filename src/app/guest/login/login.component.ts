@@ -10,7 +10,6 @@ import {Router} from '@angular/router';
 
 const emailUsernamePattern = /(?:[A-Z\d][A-Z\d_-]{5,10}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})/;
 const username = /(^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$)/;
-const email = /(^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$)/;
 
 @Component({
   selector: 'app-login',
@@ -95,7 +94,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
 
         if (response.success) {
-          const activeToast = this.toast.show(`${response.data.message}`, 'success', {
+          const activeToast = this.toast.show(`${response.data.message}`, 'Success', {
             toastClass: 'success_TOAST'
           });
           activeToast.toastRef.componentInstance.type = 'success';

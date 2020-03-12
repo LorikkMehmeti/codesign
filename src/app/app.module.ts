@@ -30,7 +30,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    HttpCacheInterceptorModule.forRoot(),
+    HttpCacheInterceptorModule.forRoot({
+      ttl: 15000
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

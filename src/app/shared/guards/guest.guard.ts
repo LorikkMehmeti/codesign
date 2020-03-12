@@ -19,7 +19,7 @@ export class GuestGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     // @ts-ignore
-    if (next.url.indexOf('home') !== -1 || next.url.indexOf('confirm-registration' !== -1)) {
+    if (next.url.indexOf('home') !== -1 || next.url.indexOf('confirm-registration') !== -1) {
       return true;
     }
     const loggedIn = this.authenticationService.loggedIn();

@@ -40,8 +40,8 @@
         </a>
         <div class="right_submenu position-relative" *ngIf="showMenu && user">
           <div class="sub_menu-header position-absolute overflow-hidden">
-            <a class="text_left font-size_14 sub_menu-header-link" routerLink="/profile">
-              {{user.first_name + ' ' + user.last_name}} | Profile
+            <a class="text_left font-size_14 sub_menu-header-link" [routerLink]="['','us', user.username]">
+              Profile
             </a>
             <a class="text_left font-size_14 sub_menu-header-link" routerLink="/settings/account">
               Account Settings

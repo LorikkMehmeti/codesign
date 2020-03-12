@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   sub: Subscription;
   user: any;
 
-  constructor(private authenticationService: AuthenticationService,
+  constructor(public authenticationService: AuthenticationService,
               private userService: UserService) {
   }
 

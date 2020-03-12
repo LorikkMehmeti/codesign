@@ -1,25 +1,34 @@
 <!--<cd-header marginHeader="true"></cd-header>-->
-<div class="container">
-  <div class="display-flex top_profile">
+<div class="container" *ngIf="user">
+  <div class="display-flex top_profile w-100">
     <div class="profile_image">
-      <img src="https://peopledotcom.files.wordpress.com/2019/11/kanye-west-4.jpg" width="100%" height="100%" style="object-fit: cover;" alt="">
+      <img src="https://peopledotcom.files.wordpress.com/2019/11/kanye-west-4.jpg" width="100%" height="100%"
+           style="object-fit: cover;" alt="">
     </div>
     <div class="profile_side">
-      <h4 class="profile_username">yeezus</h4>
-      <h5 class="profile_name">Kanye West</h5>
+      <div class="display-flex a-items-center j-space-between">
+        <h4 class="profile_username">{{user?.username}}</h4>
+        <div class="" *ngIf="user?.isMyProfile">
+          <cd-button [showIcon]="false" [text]="'Edit your profile' | translate"
+                     borderRadius="28"
+                     [classNames]="'cd-btn-inline cd-btn-small cd-btn-tertiary font-medium'"
+                     routerLink="/settings/account"></cd-button>
+        </div>
+      </div>
+      <h5 class="profile_name font-size_16">{{user?.first_name + ' ' + user?.last_name}}</h5>
       <p class="profile_bio">
-        Zombie buff. Food fanatic. Devoted beer fan. Web scholar. Tv aficionado. Bacon specialist. Extreme travel
-        practitioner.Zombie buff. Food fanatic. Devoted beer fan. Web scholar. Tv aficionado. Bacon specialist. Extreme
-        travel practitioner.
+        <span *ngIf="user.profile">
+          {{user?.profile?.biography ? user?.profile?.biography : 'No bio available at this moment 🤷‍♀️🤷‍♂️'}}
+        </span>
       </p>
     </div>
   </div>
   <div class="tabs-profile">
     <div class="grid_posts">
       <div class="grid-item" *ngFor="let p of items; let i = index">
-<!--        <div style="background:purple;height:220px;">-->
+        <!--        <div style="background:purple;height:220px;">-->
 
-<!--        </div>-->
+        <!--        </div>-->
         <div class="image-grid">
           <img [src]="p.img" width="100%" height="100%" style="object-position: top; object-fit: cover;" alt="">
           <cd-button

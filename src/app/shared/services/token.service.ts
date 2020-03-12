@@ -54,7 +54,7 @@ export class TokenService {
 
   /**
    *
-   * @returns { string } as any
+   * @returns string  as any
    */
   getToken(): string {
     const token = this.cookieService.get('token');
@@ -69,7 +69,7 @@ export class TokenService {
    * delete token.
    */
   deleteToken(): void {
-    this.cookieService.delete('token', '/', 'localhost');
+    this.cookieService.delete('token', '/', `${environment.whoIsHosting}`);
     this.cookieService.deleteAll('/', '/');
   }
 }

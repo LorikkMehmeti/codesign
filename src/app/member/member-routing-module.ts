@@ -33,7 +33,7 @@ const appRoutes: Routes = [
         component: DesignComponent
       },
       {
-        path: 'profile',
+        path: 'us/:username',
         component: ProfileComponent
       },
       {

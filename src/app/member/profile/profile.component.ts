@@ -86,11 +86,13 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.username = this.activatedRoute.snapshot.paramMap.get('username');
-
-    if (this.username) {
-      this.getUserFromUsername(this.username);
-    }
+    this.activatedRoute.params.subscribe(param => {
+      this.user = undefined;
+      this.username = param.username;
+      if (this.username) {
+        this.getUserFromUsername(this.username);
+      }
+    });
   }
 
   getUserFromUsername(username) {

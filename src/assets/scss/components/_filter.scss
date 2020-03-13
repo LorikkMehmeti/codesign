@@ -123,7 +123,7 @@
 }
 
 .ng-select_made .ng-option.ng-option-selected {
-  background: #323232 !important;
+  background: var(--_hover) !important;
 }
 
 
@@ -165,7 +165,7 @@ ng-select, .ng-select_made, .ng-dropdown-panel, .ng-dropdown-panel-items, .admin
 
     @media (hover: hover) {
       &:hover {
-        background: #323232 !important;
+        background: var(--_hover) !important;
       }
     }
   }

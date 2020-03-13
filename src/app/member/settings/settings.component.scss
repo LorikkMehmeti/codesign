@@ -1,9 +1,9 @@
 
-
 ::ng-deep body[data-theme="light"] {
-  .top_bar {
+  .top_bar, .inputs_settings {
     background: white;
   }
+
 
   .top_bar, .bottom_bar {
     box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.08);
@@ -54,6 +54,7 @@
   min-width: 200px;
   max-width: 250px;
   background: var(--home-container);
+
   .side_menu-items {
     padding: 60px 50px;
 

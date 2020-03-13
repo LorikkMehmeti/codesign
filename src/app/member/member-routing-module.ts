@@ -34,7 +34,8 @@ const appRoutes: Routes = [
       },
       {
         path: 'us/:username',
-        component: ProfileComponent
+        component: ProfileComponent,
+        runGuardsAndResolvers: 'always'
       },
       {
         path: 'search',

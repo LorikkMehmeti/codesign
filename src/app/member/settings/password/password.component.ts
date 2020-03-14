@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../shared/services/user/user.service';
 import {ToastrService} from 'ngx-toastr';
+import {TitleService} from '../../../shared/services/title.service';
 
 @Component({
   selector: 'app-password',
@@ -13,11 +14,13 @@ export class PasswordComponent implements OnInit {
 
   activeToast: any;
 
-  constructor(private userService: UserService, private toast: ToastrService) {
+  constructor(private title: TitleService, private userService: UserService, private toast: ToastrService) {
   }
 
   ngOnInit() {
     this.initForm();
+
+    this.title.setTitle(`Password Settings`);
   }
 
   private initForm(): void {

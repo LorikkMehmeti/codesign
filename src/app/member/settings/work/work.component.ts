@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../shared/services/user/user.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
+import {TitleService} from '../../../shared/services/title.service';
 
 @Component({
   selector: 'app-work',
@@ -18,12 +19,14 @@ export class WorkComponent implements OnInit {
   work: FormGroup;
 
 
-  constructor(private userService: UserService, private toast: ToastrService) {
+  constructor(private title: TitleService, private userService: UserService, private toast: ToastrService) {
   }
 
   ngOnInit() {
     this.initForm();
     this.getUser();
+
+    this.title.setTitle(`Work Settings`);
   }
 
   initForm(): void {

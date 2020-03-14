@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, Title} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
@@ -55,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   entryComponents: [ToastComponent],
   providers: [
+    Title,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

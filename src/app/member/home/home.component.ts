@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../shared/services/authentication.service';
+import {TitleService} from '../../shared/services/title.service';
 
 @Component({
   selector: 'app-home',
@@ -81,10 +82,11 @@ export class HomeComponent implements OnInit {
   auth = this.authenticationService.loggedIn();
 
 
-  constructor(private authenticationService: AuthenticationService) {
+  constructor(private title: TitleService, private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
+    this.title.setTitle(`Home - Codesign`);
     if (!this.auth) {
       return;
     }

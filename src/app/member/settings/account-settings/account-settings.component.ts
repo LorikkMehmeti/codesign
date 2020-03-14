@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../shared/services/user/user.service';
+import {TitleService} from '../../../shared/services/title.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -12,12 +13,14 @@ export class AccountSettingsComponent implements OnInit {
 
   user: any;
 
-  constructor(private userService: UserService) {
+  constructor(private title: TitleService, private userService: UserService) {
   }
 
   ngOnInit() {
     this.initForm();
     this.getUser();
+
+    this.title.setTitle(`Account Settings`);
   }
 
   private initForm(): void {

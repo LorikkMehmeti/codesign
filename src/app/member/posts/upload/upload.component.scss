@@ -1,0 +1,48 @@
+.modal_fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 766;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  max-height: 500px;
+  background: var(--_hover);
+  box-shadow: 0px 0px 14px 0px rgba(var(--color-font-rgba), 0.08);
+  box-sizing: border-box;
+  border-radius: 5px;
+  .items_container {
+    overflow-y: auto;
+    max-height: 340px;
+  }
+  h1, .modal_item {
+    padding: 10px 20px;
+  }
+
+  .modal_item {
+    padding: 15px 20px;
+    transition: all 200ms ease;
+    border-bottom: 1px solid rgba(var(--color-font-rgba), .3);
+    &:first-of-type {
+      border-top: 1px solid rgba(var(--color-font-rgba), .3);
+    }
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    &.modal_item-active {
+      background: var(--bg-page);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background: var(--bg-page);
+      }
+    }
+  }
+}
+
+.modal_fixed.modal_showing ~ .container, .modal_fixed.modal_showing ~ .footer-form_submit {
+  //background: red!important;
+  filter: blur(1px);
+  pointer-events: none;
+}

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../shared/services/user/user.service';
+import {TitleService} from '../../shared/services/title.service';
 
 @Component({
   selector: 'app-profile',
@@ -82,7 +83,10 @@ export class ProfileComponent implements OnInit {
   username: string;
   user: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
+  constructor(private title: TitleService,
+              private activatedRoute: ActivatedRoute,
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -99,6 +103,8 @@ export class ProfileComponent implements OnInit {
     this.userService.getUserFromUsername(username).subscribe((res: any) => {
       if (res.success) {
         this.user = res.data;
+        const user = this.user;
+        this.title.setTitle(`${user.first_name} ${user.last_name} - Codesign`);
       }
 
       if (!res.success) {

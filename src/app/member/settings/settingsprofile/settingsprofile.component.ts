@@ -4,6 +4,7 @@ import {UserService} from '../../../shared/services/user/user.service';
 import {HttpClient} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
 import {isUndefined} from 'util';
+import {TitleService} from '../../../shared/services/title.service';
 
 @Component({
   selector: 'app-settingsprofile',
@@ -15,13 +16,15 @@ export class SettingsprofileComponent implements OnInit {
   account: FormGroup;
   user: any;
 
-  constructor(private userService: UserService, private toast: ToastrService) {
+  constructor(private title: TitleService, private userService: UserService, private toast: ToastrService) {
   }
 
   ngOnInit() {
     this.initForm();
 
     this.getUser();
+
+    this.title.setTitle(`Profile Settings`);
   }
 
   private initForm(): void {
@@ -86,6 +89,8 @@ export class SettingsprofileComponent implements OnInit {
     if (this.account.invalid) {
       return;
     }
+
+
 
     const body = {
       first_name: this.firstname.value,

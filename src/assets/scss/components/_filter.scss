@@ -11,6 +11,10 @@
   z-index: 94;
   .grid__filter-item {
     position: relative;
+    margin-bottom: 4px;
+    &.focused, &:active, &:focus {
+      box-shadow: 0 0 0 0.1rem rgba(var(--color-tertiary-rgb), .3)!important;
+    }
   }
 }
 
@@ -52,7 +56,7 @@
   background: var(--header-color);
   display: none;
   position: absolute;
-  top: calc(100% + 4px);
+  //top: calc(100% + 4px);
   right: 0;
   left: 0;
   z-index: 7777;

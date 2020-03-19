@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   title = 'codesign';
   dropdownlang = false;
   getLanguage;
+  getInlinedSVG;
   /**
    * @param multiLang as MultiLangService.
    */
@@ -19,6 +20,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.multiLang.initLanguage();
     this.getLang();
+
+    this.getInlinedSVG = localStorage.getItem('draft_project');
   }
 
   getLang() {

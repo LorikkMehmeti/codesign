@@ -3,9 +3,9 @@
   <div>
     <div class="top_bar">
       <div class="display-flex a-items-center">
-        <div class="settings_AVATAR display-flex text_center j-center a-items-center">
+        <div class="settings_AVATAR display-flex text_center j-center a-items-center overflow">
           <img
-            [src]="'https://eu.ui-avatars.com/api/?name=Lorik&length=1&rounded=true&format=svg&background=00000000&color=7044ff'"
+            [src]="'https://api.adorable.io/avatars/285/' + user?.username"
             alt="">
         </div>
         <div class="user_info ml-4" *ngIf="user">

@@ -9,7 +9,7 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Timeframe</p>
             <div class="position-relative" (click)="onToggleTable(1)" (mouseleave)="onToggleTable(-1)">
-              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open': toggleTable === 1}">
+              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 1}">
                 <span>Recent</span>
               </div>
               <ul class="dropdown_menu_links">
@@ -22,10 +22,10 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Sort By</p>
             <div class="position-relative" (click)="onToggleTable(2)" (mouseleave)="onToggleTable(-1)">
-              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open': toggleTable === 2}">
+              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 2}">
                 <span>Relevant</span>
               </div>
-              <ul class="dropdown_menu_links">
+              <ul class="dropdown_menu_links" [ngClass]="{'d-block': toggleTable === 2 }">
                 <li class="filter-option">Relevant</li>
                 <li class="filter-option">Most appreciated</li>
                 <li class="filter-option">Most downloaded</li>
@@ -35,7 +35,7 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Made with</p>
             <div class="position-relative" (click)="onToggleTable(3)" (mouseleave)="onToggleTable(-1)">
-              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open': toggleTable === 3}">
+              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 3}">
                 <span>All apps</span>
               </div>
 
@@ -66,7 +66,7 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Grid Columns</p>
             <div class="position-relative d-block" (click)="onToggleTable(4)" (mouseleave)="onToggleTable(-1)">
-              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open': toggleTable === 4}">
+              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 4}">
                 <span>Big column</span>
               </div>
               <ul class="dropdown_menu_links text_center overflow-hidden">

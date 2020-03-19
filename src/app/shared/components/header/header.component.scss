@@ -32,8 +32,12 @@
 
 .search__input {
   background: var(--input-bg);
-  border-radius: 4px;
+  //border-radius: 4px;
   overflow: hidden;
+  transition: box-shadow 150ms ease;
+  &:focus-within {
+    box-shadow: 0 0 0 0.15rem rgba(var(--color-font-rgba), .2);
+  }
 }
 
 .input_s {

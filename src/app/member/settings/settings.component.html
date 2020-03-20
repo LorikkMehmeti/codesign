@@ -3,10 +3,10 @@
   <div>
     <div class="top_bar">
       <div class="display-flex a-items-center">
-        <div class="settings_AVATAR display-flex text_center j-center a-items-center overflow">
+        <div class="settings_AVATAR display-flex text_center j-center a-items-center overflow-hidden" *ngIf="user">
           <img
             [src]="'https://api.adorable.io/avatars/285/' + user?.username"
-            alt="">
+            alt="" class="w-100 h-100 object-cover">
         </div>
         <div class="user_info ml-4" *ngIf="user">
           <h1 class="heading user_info-header">{{user.first_name + ' ' + user.last_name}}</h1>

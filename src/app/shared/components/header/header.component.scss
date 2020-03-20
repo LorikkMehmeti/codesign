@@ -20,6 +20,22 @@
   height: 100%;
 }
 
+.logo_h {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transition: background 200ms ease;
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(var(--color-primary-rgb), .04);
+    }
+  }
+
+  &:focus-within {
+    background: rgba(var(--color-primary-rgb), .04);
+  }
+}
+
 .logo__header {
   width: 28px;
   height: 28px;
@@ -35,6 +51,7 @@
   //border-radius: 4px;
   overflow: hidden;
   transition: box-shadow 150ms ease;
+
   &:focus-within {
     box-shadow: 0 0 0 0.15rem rgba(var(--color-font-rgba), .2);
   }
@@ -56,6 +73,7 @@
 .btn__search {
   cursor: pointer;
   padding: 8px 16px;
+  line-height: 0;
 }
 
 .buttons-guest {
@@ -81,6 +99,7 @@
   width: 28px;
   height: 28px;
   background: var(--home-container);
+
   img {
     width: 100%;
   }
@@ -107,10 +126,12 @@
   z-index: 10;
   background: var(--home-container);
   border-radius: 4px;
+  padding: 20px 0 !important;
 
   &-link {
-    padding: 12px;
+    padding: 12px 25px;
     display: block;
+    vertical-align: middle;
     @media (hover: hover) {
       &:hover {
         background: var(--bg-page);

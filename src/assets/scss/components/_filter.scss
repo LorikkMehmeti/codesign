@@ -9,11 +9,13 @@
   grid-gap: 30px;
   position: relative;
   z-index: 94;
+
   .grid__filter-item {
     position: relative;
     margin-bottom: 4px;
+
     &.focused, &:active, &:focus {
-      box-shadow: 0 0 0 0.1rem rgba(var(--color-tertiary-rgb), .3)!important;
+      box-shadow: 0 0 0 0.1rem rgba(var(--color-tertiary-rgb), .3) !important;
     }
   }
 }
@@ -66,14 +68,20 @@
   }
 }
 
+.filter_grid-option {
+  line-height: 34px!important;
+}
+
 .filter-option {
   padding: 10px 15px;
   position: relative;
   cursor: pointer;
+  font-size: 13px;
 
   svg-icon {
     line-height: 8px;
   }
+
   span {
     line-height: 13px;
   }

@@ -3,15 +3,15 @@
   <div class="display-flex top_profile w-100">
     <div class="profile_image">
       <img [src]="'https://api.adorable.io/avatars/285/' + user?.username" class="object-cover" width="100%" height="100%" draggable="false" alt="">
-<!--      <img src="https://peopledotcom.files.wordpress.com/2019/11/kanye-west-4.jpg" width="100%" height="100%"-->
-<!--           style="object-fit: cover;" alt="">-->
     </div>
     <div class="profile_side flex-1">
       <div class="display-flex a-items-center j-space-between">
         <h4 class="profile_username">{{user?.username}}</h4>
 
         <div class="" *ngIf="user?.isMyProfile">
-          <cd-button [showIcon]="false" [text]="'Edit your profile' | translate"
+          <cd-button [showIcon]="true"
+                     iconName="edit"
+                     [text]="'Edit your profile' | translate"
                      borderRadius="4"
                      [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"
                      routerLink="/settings/account"></cd-button>

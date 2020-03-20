@@ -9,7 +9,7 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Timeframe</p>
             <div class="position-relative" (click)="onToggleTable(1)" (mouseleave)="onToggleTable(-1)">
-              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 1}">
+              <div tabindex="4" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 1}">
                 <span>Recent</span>
               </div>
               <ul class="dropdown_menu_links">
@@ -22,7 +22,7 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Sort By</p>
             <div class="position-relative" (click)="onToggleTable(2)" (mouseleave)="onToggleTable(-1)">
-              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 2}">
+              <div tabindex="5" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 2}">
                 <span>Relevant</span>
               </div>
               <ul class="dropdown_menu_links" [ngClass]="{'d-block': toggleTable === 2 }">
@@ -35,30 +35,30 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Made with</p>
             <div class="position-relative" (click)="onToggleTable(3)" (mouseleave)="onToggleTable(-1)">
-              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 3}">
+              <div tabindex="6" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 3}">
                 <span>All apps</span>
               </div>
 
               <ul class="dropdown_menu_links">
                 <li class="filter-option display-flex a-items-center">
-                  <svg-icon fileName="icons" icon="icon-adobe-xd" size="14"></svg-icon>
-                  <span class="ml-2">Adobe XD</span>
+                  <svg-icon fileName="icons" icon="icon-adobe-xd" size="16"></svg-icon>
+                  <span class="ml-2 font-size_13">Adobe XD</span>
                 </li>
                 <li class="filter-option display-flex a-items-center">
-                  <svg-icon fileName="icons" icon="icon-figma" size="14"></svg-icon>
-                  <span class="ml-2">Figma</span>
+                  <svg-icon fileName="icons" icon="icon-figma" size="16"></svg-icon>
+                  <span class="ml-2 font-size_13">Figma</span>
                 </li>
                 <li class="filter-option display-flex a-items-center">
-                  <svg-icon fileName="icons" icon="icon-sketch" size="14"></svg-icon>
-                  <span class="ml-2">Sketch</span>
+                  <svg-icon fileName="icons" icon="icon-sketch" size="16"></svg-icon>
+                  <span class="ml-2 font-size_13">Sketch</span>
                 </li>
                 <li class="filter-option display-flex a-items-center">
-                  <svg-icon fileName="icons" icon="icon-photoshop" size="14"></svg-icon>
-                  <span class="ml-2">Photoshop</span>
+                  <svg-icon fileName="icons" icon="icon-photoshop" size="16"></svg-icon>
+                  <span class="ml-2 font-size_13">Photoshop</span>
                 </li>
                 <li class="filter-option display-flex a-items-center">
-                  <svg-icon fileName="icons" icon="icon-rgb" size="14"></svg-icon>
-                  <span class="ml-2">Other tools</span>
+                  <svg-icon fileName="icons" icon="icon-rgb" size="16"></svg-icon>
+                  <span class="ml-2 font-size_13">Other tools</span>
                 </li>
               </ul>
             </div>
@@ -66,16 +66,16 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Grid Columns</p>
             <div class="position-relative d-block" (click)="onToggleTable(4)" (mouseleave)="onToggleTable(-1)">
-              <div class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 4}">
+              <div tabindex="7" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 4}">
                 <span>Big column</span>
               </div>
               <ul class="dropdown_menu_links text_center overflow-hidden">
                 <div class="display-flex a-items-center grid__columns">
-                  <li class="filter-option flex-1" (click)="toggleColumns(true)">
-                    <svg-icon fileName="icons" icon="icon-grid" size="20" fillColor="var(--color-font)"></svg-icon>
+                  <li class="filter-option flex-1 filter_grid-option" (click)="toggleColumns(true)">
+                    <svg-icon fileName="icons" [icon]="'three-layout'" size="24" fillColor="var(--color-font)"></svg-icon>
                   </li>
-                  <li class="filter-option flex-1 text_center d-inline-block" (click)="toggleColumns(false)">
-                    <svg-icon fileName="icons" [icon]="'icon-grid'" [size]="'30'" fillColor="var(--color-font)"
+                  <li class="filter-option flex-1 text_center d-inline-block filter_grid-option" (click)="toggleColumns(false)">
+                    <svg-icon fileName="icons" [icon]="'four-layout'" [size]="'24'" fillColor="var(--color-font)"
                               className="d-inline-block"></svg-icon>
                   </li>
                 </div>

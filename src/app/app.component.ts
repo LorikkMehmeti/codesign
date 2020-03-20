@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MultiLangService} from './shared/services/multi-lang.service';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {SafeHtml, DomSanitizer} from '@angular/platform-browser';
+import {withCache} from '@ngneat/cashew';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +14,24 @@ export class AppComponent implements OnInit {
   title = 'codesign';
   dropdownlang = false;
   getLanguage;
-  getInlinedSVG;
+  getInlinedSVG: SafeHtml;
+
   /**
    * @param multiLang as MultiLangService.
    */
-  constructor(private multiLang: MultiLangService) {
+  constructor(private multiLang: MultiLangService, private http: HttpClient, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
     this.multiLang.initLanguage();
     this.getLang();
 
-    this.getInlinedSVG = localStorage.getItem('draft_project');
+    this.http.get('./assets/images/icons/icons.html', {responseType: 'text'}).pipe(map((res: any) => {
+      localStorage.setItem('inline_svg', res);
+    }, withCache())).subscribe((res) => {
+      this.getInlinedSVG = this.sanitizer.bypassSecurityTrustHtml(localStorage.getItem('inline_svg'));
+      // this.svg = this.sanitizer.bypassSecurityTrustHtml
+    });
   }
 
   getLang() {

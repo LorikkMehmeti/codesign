@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../shared/services/authentication.service';
 import {TitleService} from '../../shared/services/title.service';
+import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -82,7 +84,10 @@ export class HomeComponent implements OnInit {
   auth = this.authenticationService.loggedIn();
 
 
-  constructor(private title: TitleService, private authenticationService: AuthenticationService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private title: TitleService,
+              private http: HttpClient,
+              private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
@@ -90,9 +95,19 @@ export class HomeComponent implements OnInit {
     if (!this.auth) {
       return;
     }
-    setTimeout(() => {
+
+    this.activatedRoute.queryParamMap.subscribe((param: any) => {
+      if (param.keys.length > 0) {
+        this.moreItems = this.items.slice(0, 2);
+        console.log(param, param.params);
+
+        return;
+      }
       this.moreItems = this.items.sort(() => Math.random() - 0.5);
-    }, 3000);
+    });
+
+    // setTimeout(() => {
+    // }, 3000);
   }
 
   toggleColumns(type) {

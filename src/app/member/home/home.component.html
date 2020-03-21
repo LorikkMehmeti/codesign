@@ -27,7 +27,8 @@
               </div>
               <ul class="dropdown_menu_links" [ngClass]="{'d-block': toggleTable === 2 }">
                 <li class="filter-option">Relevant</li>
-                <li class="filter-option">Most appreciated</li>
+                <li class="filter-option" [routerLink]="['./']"
+                    [queryParams]="{ sort: 'most_appreciated' }" queryParamsHandling="merge">Most appreciated</li>
                 <li class="filter-option">Most downloaded</li>
               </ul>
             </div>
@@ -44,11 +45,15 @@
                   <svg-icon fileName="icons" icon="icon-adobe-xd" size="16"></svg-icon>
                   <span class="ml-2 font-size_13">Adobe XD</span>
                 </li>
-                <li class="filter-option display-flex a-items-center">
+                <li class="filter-option display-flex a-items-center" [routerLink]="['./']"
+                    [queryParams]="{ filter: 'new' }"
+                    queryParamsHandling="merge">
                   <svg-icon fileName="icons" icon="icon-figma" size="16"></svg-icon>
                   <span class="ml-2 font-size_13">Figma</span>
                 </li>
-                <li class="filter-option display-flex a-items-center">
+                <li class="filter-option display-flex a-items-center" [routerLink]="['./']"
+                    [queryParams]="{ filter: 'jobsesosjonnew' }"
+                    queryParamsHandling="merge">
                   <svg-icon fileName="icons" icon="icon-sketch" size="16"></svg-icon>
                   <span class="ml-2 font-size_13">Sketch</span>
                 </li>
@@ -71,10 +76,10 @@
               </div>
               <ul class="dropdown_menu_links text_center overflow-hidden">
                 <div class="display-flex a-items-center grid__columns">
-                  <li class="filter-option flex-1 filter_grid-option" (click)="toggleColumns(true)">
+                  <li class="filter-option flex-1 filter_grid-option" (click)="toggleColumns(false)">
                     <svg-icon fileName="icons" [icon]="'three-layout'" size="24" fillColor="var(--color-font)"></svg-icon>
                   </li>
-                  <li class="filter-option flex-1 text_center d-inline-block filter_grid-option" (click)="toggleColumns(false)">
+                  <li class="filter-option flex-1 text_center d-inline-block filter_grid-option" (click)="toggleColumns(true)">
                     <svg-icon fileName="icons" [icon]="'four-layout'" [size]="'24'" fillColor="var(--color-font)"
                               className="d-inline-block"></svg-icon>
                   </li>
@@ -90,7 +95,7 @@
     <div class="grid_posts" [ngClass]="{'grid-four-columns': classColumns}">
       <div class="grid-item grid_item_showed" *ngFor="let p of moreItems; let i = index">
         <div class="image-grid position-relative">
-          <img [src]="p.img" width="100%" height="100%" style="object-fit: cover;" alt="">
+          <img [src]="p.img" class="object-cover" width="100%" height="100%" alt="">
           <cd-button
             [showIcon]="true"
             [textBtn]="false"

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'codesign';
   dropdownlang = false;
   getLanguage;
-  getInlinedSVG: SafeHtml;
+  getInlineSVG: SafeHtml;
 
   /**
    * @param multiLang as MultiLangService.
@@ -29,8 +29,7 @@ export class AppComponent implements OnInit {
     this.http.get('./assets/images/icons/icons.html', {responseType: 'text'}).pipe(map((res: any) => {
       localStorage.setItem('inline_svg', res);
     }, withCache())).subscribe((res) => {
-      this.getInlinedSVG = this.sanitizer.bypassSecurityTrustHtml(localStorage.getItem('inline_svg'));
-      // this.svg = this.sanitizer.bypassSecurityTrustHtml
+      this.getInlineSVG = this.sanitizer.bypassSecurityTrustHtml(localStorage.getItem('inline_svg'));
     });
   }
 

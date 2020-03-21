@@ -155,7 +155,8 @@ ng-select, .ng-select_made, .ng-dropdown-panel, .ng-dropdown-panel-items, .admin
   content: '';
   width: 10px !important;
   height: 10px !important;
-  background: url('https://image.flaticon.com/icons/svg/566/566015.svg') !important;
+  display: none;
+  //background: url('https://image.flaticon.com/icons/svg/566/566015.svg') !important;
   background-size: cover !important;
   background-position: center !important;
   display: inline-block !important;

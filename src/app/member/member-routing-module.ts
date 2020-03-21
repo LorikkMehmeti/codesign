@@ -27,6 +27,7 @@ const appRoutes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
+        runGuardsAndResolvers: 'always'
       },
       {
         path: 'design',

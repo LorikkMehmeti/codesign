@@ -47,9 +47,10 @@
         </div>
         <label for="">Select the tool</label>
         <div class="cd-form-group">
-          <ng-select class="mt-2 mb-2 ng-select_made"
+          <ng-select class="mt-2 mb-2 ng-select_made font-size_14"
                      [items]="people"
                      bindLabel="name"
+                     placeholder="Select a tool"
                      formControlName="selected_tool"
                      [searchable]="false"
                      [loading]="peopleLoading">

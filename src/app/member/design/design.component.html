@@ -1,17 +1,16 @@
 <!--<cd-header></cd-header>-->
 <div class="container-fluid position-relative">
-  <div class="design-grid mt-2">
+  <div class="design-grid mt-2" *ngIf="design">
     <div class="design-image">
-      <img src="https://cdn.dribbble.com/users/1253590/screenshots/7221280/media/03e0c431c9196bdb0d32bbe5b030918c.png" width="100%" height="100%" alt="">
+      <img
+        [src]="'http://localhost:8000/images/covers/' + design.cover_image"
+        width="100%" height="100%" alt="">
     </div>
     <div class="info-image">
       <div>
-        <h1 class="heading heading-sub mt-2 mb-2">—Zeino - Software App Landing Page</h1>
-        <span class="cd-link font-size_12">Design by Lorik Mehmeti</span>
-        <p class="font-size_14" style="margin-top: 30px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Accusantium asperiores atque dolor eligendi facilis
-          ipsa iste iure quis quo repellat, reprehenderit, sit sunt totam? Eaque hic laboriosam molestiae nihil
-          sit. </p>
+        <h1 class="heading heading-sub mt-2 mb-2">— {{design.title_project}}</h1>
+        <span class="cd-link font-size_12">Design by {{design.name}}</span>
+        <p class="font-size_14" style="margin-top: 30px;">{{design.desc_project}}</p>
 
         <div class="buttons-design display-grid">
           <cd-button
@@ -19,7 +18,7 @@
             [textBtn]="true"
             borderRadius="6"
             [classNames]="'cd-btn-block cd-btn-primary'"
-            text="Download files" [maxWidth]="true" (click)="downloadSomething()">
+            text="Download files" [maxWidth]="true" (click)="downloadFiles()">
           </cd-button>
           <cd-button
             [showIcon]="true"

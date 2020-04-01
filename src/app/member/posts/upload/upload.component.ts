@@ -16,9 +16,13 @@ export class UploadComponent implements OnInit {
 
   public imagePath;
   imgURL: any;
-  people = [
-    'Adobe XD', 'Illustrator', 'Sketch', 'Figma', 'Invision',
-    'Photoshop', 'Affinity', 'Inkscape', 'Other tool'];
+  tools = [
+    {name: 'Adobe XD', extension: 'adobe-xd'},
+    {name: 'Figma', extension: 'figma'},
+    {name: 'Sketch', extension: 'sketch'},
+    {name: 'Photoshop', extension: 'photoshop'},
+    {name: 'Other tools', extension: 'other'},
+  ];
   peopleLoading = false;
   createShot: any;
   activeToast: any;
@@ -141,8 +145,9 @@ export class UploadComponent implements OnInit {
     const body = {
       title_project: this.titleProject.value,
       desc_project: this.descProject.value,
-      selected_tool: this.selected_tool.value
+      selected_tool: this.selected_tool.value.name
     };
+
 
     if (localStorage.getItem('draft_project')) {
       const project = JSON.parse(localStorage.getItem('draft_project'));
@@ -168,16 +173,17 @@ export class UploadComponent implements OnInit {
       return;
     }
 
+
     const formData = new FormData();
     formData.append('title_project', this.titleProject.value);
     formData.append('desc_project', this.descProject.value);
-    formData.append('tool_project', this.selected_tool.value);
+    formData.append('tool_project', this.selected_tool.value.name);
+    formData.append('slug_tool', this.selected_tool.value.extension);
     formData.append('cover_image', this.imagePreview);
     for (let i = 0; i < this.files.length; i++) {
       formData.append('files[]', this.files[i]);
     }
 
-    console.log(formData);
     this.design.createDesign(formData).subscribe((res: any) => {
       this.uploadedProgress = res.message;
       // this.activeToast = this.toast.show(`We are uploading your design`, 'Uploading');

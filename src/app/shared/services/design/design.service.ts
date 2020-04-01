@@ -35,6 +35,13 @@ export class DesignService {
     );
   }
 
+  getDesign(slug) {
+    const endpoint = `${this.endpoint}/design/${slug}`;
+
+    return this.http.get(endpoint);
+
+  }
+
   downloadDesign(design: string) {
     const endpoint = `${this.endpoint}/download/${design}`;
 

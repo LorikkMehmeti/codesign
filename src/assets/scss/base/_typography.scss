@@ -9,30 +9,39 @@ h1, h2, h3, h4, h5, h6, span, p, a, b, strong, i, link, ul, li,pre {
 
 body {
   font-weight: normal;
-  font-family: var(--f-regular);
+  font-variation-settings: var(--f-regular);
 }
+//
+//@font-face {
+//  font-family: 'Inter', sans-serif;
+//  src: url('../../../assets/fonts/Inter.ttf') format('truetype');
+//  font-weight: normal;
+//  font-display: swap;
+//  font-style: normal;
+//}
+@include font_face('Inter', '~assets/fonts/Inter');
+@include font_face('PlayfairDisplay', '~assets/fonts/PlayfairDisplay');
 
-@each $font in $list {
-  @include font_face('Roboto-#{$font}', '~assets/fonts/Roboto-#{$font}');
-}
-
-@each $font in $plist {
-  @include font_face('PlayfairDisplay-#{$font}', '~assets/fonts/PlayfairDisplay-#{$font}');
-}
+//@each $font in $plist {
+//  @include font_face('PlayfairDisplay-#{$font}', '~assets/fonts/PlayfairDisplay-#{$font}');
+//}
 
 @include font_face('Eina', '~assets/fonts/Eina');
 @include font_face('Eina-Regular', '~assets/fonts/Eina-Regular');
 
 .font-black {
-  font-family: var(--f-black) !important;
+  font-variation-settings: var(--f-black);
+  //font-family: var(--f-black) !important;
 }
 
 .font-medium {
-  font-family: var(--f-medium) !important;
+  font-variation-settings: var(--f-medium);
+  //font-family: var(--f-medium) !important;
 }
 
 .font-bold {
-  font-family: var(--f-bold) !important;
+  font-variation-settings: var(--f-bold);
+  //font-family: var(--f-bold) !important;
 }
 
 .text_uppercase {
@@ -60,23 +69,27 @@ body {
 }
 
 .font-size_12 {
-  font-size: 12px;
+  font-size: 12px!important;
 }
 
 .font-size_13 {
-  font-size: 13px;
+  font-size: 13px!important;
 }
 
 .font-size_14 {
-  font-size: 14px;
+  font-size: 14px!important;
+}
+
+.font-size_15 {
+  font-size: 15px!important;
 }
 
 .font-size_16 {
-  font-size: 16px;
+  font-size: 16px!important;
 }
 
 .font-size_18 {
-  font-size: 18px;
+  font-size: 18px!important;
 }
 
 .text-danger {

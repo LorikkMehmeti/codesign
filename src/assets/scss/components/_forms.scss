@@ -5,6 +5,7 @@
 .textarea_input {
   min-height: 200px;
   max-height: 200px;
+  font-family: var(--f-font);
 }
 
 textarea {
@@ -46,7 +47,7 @@ textarea {
 
   p {
     flex: 1;
-    font-family: var(--f-medium);
+    font-variation-settings: var(--f-medium);
   }
 }
 
@@ -62,8 +63,8 @@ textarea {
   border: none;
   color: var(--color-font);
   letter-spacing: -.41px;
-  font-family: var(--f-regular) !important;
-  //font-family: var(--f-light);var
+  font-family: var(--f-font);
+  font-variation-settings: var(--f-regular) !important;
   transition: box-shadow 200ms ease;
 
   &[disabled] {
@@ -80,7 +81,7 @@ textarea {
   }
 
   &::placeholder {
-    font-family: var(--f-regular);
+    font-variation-settings: var(--f-regular);
   }
 
   &.form-invalid {
@@ -97,8 +98,19 @@ textarea {
 }
 
 .form-grid {
-  grid-template-columns: 1.2fr 1fr;
-  grid-gap: 10px;
+  display: grid;
+  grid-template-columns: 2fr 450px;
+  grid-gap: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .form-grid {
+    display: block!important;
+  }
+
+  .footer-form_submit {
+    position: relative!important;
+  }
 }
 
 .footer-form_submit {
@@ -109,6 +121,7 @@ textarea {
   border-top: 1px solid var(--border-footer);
   background: var(--bg-page);
   padding: 0 10px;
+  z-index: 999;
 }
 
 .footer_content {

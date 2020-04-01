@@ -40,7 +40,7 @@
   }
 
   &-subtitle {
-    font-family: var(--f-light);
+    font-variation-settings: var(--f-light);
     color: rgba(var(--color-font-rgba), .7);
   }
 }
@@ -64,7 +64,7 @@
 
     .side-link {
       display: block;
-      font-size: 14px;
+      font-size: 13px;
       margin: 8px 0;
       color: rgba(var(--color-font-rgba), .7);
       padding: 8px 4px;
@@ -72,7 +72,7 @@
 
       &.side-link_active {
         color: var(--color-primary);
-        font-family: var(--f-medium);
+        font-variation-settings: var(--f-medium);
       }
 
       @media (hover: hover) {

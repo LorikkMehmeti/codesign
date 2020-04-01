@@ -30,7 +30,7 @@ const appRoutes: Routes = [
         runGuardsAndResolvers: 'always'
       },
       {
-        path: 'design',
+        path: 'design/:slug',
         component: DesignComponent
       },
       {

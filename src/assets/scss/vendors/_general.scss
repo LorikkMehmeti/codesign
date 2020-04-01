@@ -61,6 +61,15 @@ body {
   }
 }
 
+.ngx_dropzone {
+
+}
+
+.inputs-group {
+  width: 100%;
+  //width: calc(100% - 600px);
+}
+
 .dropzone_cover {
   height: 100% !important;
   background: var(--bg-page) !important;
@@ -78,13 +87,18 @@ body {
 }
 
 .files_drag {
-  max-width: 100% !important;
+  max-width: 200px;
+  overflow: hidden;
   width: 100% !important;
   height: auto !important;
   min-height: 60px !important;
   justify-content: flex-start !important;
   background: transparent !important;
   transition: background 400ms ease;
+
+  p {
+    word-break: break-all;
+  }
 
   @media (hover: hover) {
     &:hover {

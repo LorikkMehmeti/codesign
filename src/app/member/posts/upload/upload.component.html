@@ -1,36 +1,38 @@
 <!--<cd-header marginHeader="true"></cd-header>-->
-<div class="modal_fixed w-100" *ngIf="showModal" [ngClass]="showModal ? 'modal_showing': ''">
-  <h1 class="heading heading-sub">Drafts</h1>
-  <div class="items_container">
-    <a class="d-block modal_item" *ngFor="let g of drafts; let i = index" [ngClass]="{'modal_item-active': selectedItem === i}"
-       (click)="selectedItem = i">
-      {{g.title_project}}
-    </a>
-  </div>
-  <div class="">
-    <div class="display-grid footer_content text_center">
-      <button class="unset-css" (click)="showModal = false">
-        <cd-button [showIcon]="false" borderRadius="4" [text]="'Cancel'"
-                   [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'"></cd-button>
-      </button>
-      <cd-button
-        (click)="clickProject(selectedItem)"
-        [showIcon]="false"
-        [textBtn]="true"
-        [classNames]="'cd-btn-block font-medium cd-btn-tertiary  cd-btn-small'"
-        text="Continue" [maxWidth]="true" borderRadius="8">
-      </cd-button>
-    </div>
-  </div>
-</div>
+<!--<div class="modal_fixed w-100" *ngIf="showModal" [ngClass]="showModal ? 'modal_showing': ''">-->
+<!--  <h1 class="heading heading-sub">Drafts</h1>-->
+<!--  <div class="items_container">-->
+<!--    <a class="d-block modal_item" *ngFor="let g of drafts; let i = index" [ngClass]="{'modal_item-active': selectedItem === i}"-->
+<!--       (click)="selectedItem = i">-->
+<!--      {{g.title_project}}-->
+<!--    </a>-->
+<!--  </div>-->
+<!--  <div class="">-->
+<!--    <div class="display-grid footer_content text_center">-->
+<!--      <button class="unset-css" (click)="showModal = false">-->
+<!--        <cd-button [showIcon]="false" borderRadius="4" [text]="'Cancel'"-->
+<!--                   [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'"></cd-button>-->
+<!--      </button>-->
+<!--      <cd-button-->
+<!--        (click)="clickProject(selectedItem)"-->
+<!--        [showIcon]="false"-->
+<!--        [textBtn]="true"-->
+<!--        [classNames]="'cd-btn-block font-medium cd-btn-tertiary  cd-btn-small'"-->
+<!--        text="Continue" [maxWidth]="true" borderRadius="8">-->
+<!--      </cd-button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 <div class="container">
-  <form [formGroup]="createShot">
-    <div class="form-grid display-grid">
+  <form [formGroup]="createShot" enctype="multipart/form-data">
+    <div class="form-grid">
       <div class="image-preview">
-        <ngx-dropzone class="w-100 h-100 dropzone_cover" (change)="preview($event)" accept="image/*">
+        <ngx-dropzone class="w-100 h-100 dropzone_cover" (change)="previewCover($event)" accept="image/*">
           <ngx-dropzone-label>Upload your design cover!</ngx-dropzone-label>
-          <ngx-dropzone-image-preview class="ngx-image_preview" ngProjectAs="ngx-dropzone-preview"  [removable]="true"
-                                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+          <ngx-dropzone-image-preview *ngIf="imagePreview" class="ngx-image_preview" ngProjectAs="ngx-dropzone-preview"
+                                      (click)="this.imagePreview = null" (removed)="this.imagePreview = null"
+                                      [removable]="true"
+                                      [file]="imagePreview">
           </ngx-dropzone-image-preview>
         </ngx-dropzone>
       </div>
@@ -42,7 +44,8 @@
         </div>
         <label for="" class="d-inline-block mb-2 pointer_link font-size_14">Project Description</label>
         <div class="cd-form-group textarea_input">
-          <textarea class="cd__input input__small" placeholder="Type your project description" formControlName="desc_project"
+          <textarea class="cd__input input__small" placeholder="Type your project description"
+                    formControlName="desc_project"
           ></textarea>
         </div>
         <label for="">Select the tool</label>
@@ -57,16 +60,30 @@
           </ng-select>
         </div>
         <div class="cd-form-group">
-          <ngx-dropzone class="w-100 h-100 ngx_dropzone" (change)="preview($event)" id="files_zip">
+          <ngx-dropzone class="w-100 h-100 ngx_dropzone" multiple="true" (change)="preview($event)" id="files_zip"
+                        [accept]="'.xd, .sketch, .pdf, .psd, .ai'">
             <ngx-dropzone-label>Upload your folder file!</ngx-dropzone-label>
-            <ngx-dropzone-preview class="files_drag" *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-preview class="files_drag" *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)"
+                                  style="min-width:140px!important; max-width: 200px!important; ">
               <ngx-dropzone-label class="no-margin">
                 <div class="display-flex a-items-center text_left">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                       width="40px"
-                       viewBox="0 0 80 80"
-                       style=" fill:#000000;"><path fill="#dbb065" d="M2.5 71.5L2.5 8.5 23.793 8.5 29.793 14.5 77.5 14.5 77.5 71.5z"></path><path fill="#967a44" d="M23.586,9l5.707,5.707L29.586,15H30h47v56H3V9H23.586 M24,8H2v64h76V14H30L24,8L24,8z"></path><g><path fill="#f5ce85" d="M2.5 71.5L2.5 18.5 24.151 18.5 30.151 14.5 77.5 14.5 77.5 71.5z"></path><path fill="#967a44" d="M77,15v56H3V19h21h0.303l0.252-0.168L30.303,15H77 M78,14H30l-6,4H2v54h76V14L78,14z"></path></g></svg>
-                  <p class="ml-2">{{f.name}}</p>
+                  <svg-icon *ngIf="getExtension(f) === 'xd'" fileName="icons" [icon]="'file-xd'"
+                            size="35"></svg-icon>
+                  <svg-icon *ngIf="getExtension(f) === 'sketch'" fileName="icons" [icon]="'file-sketch'"
+                            size="35"></svg-icon>
+                  <svg-icon *ngIf="getExtension(f) === 'pdf'" fileName="icons" [icon]="'file-pdf'"
+                            size="35"></svg-icon>
+                  <svg-icon *ngIf="getExtension(f) === 'png'" fileName="icons" [icon]="'file-png'"
+                            size="35"></svg-icon>
+                  <svg-icon *ngIf="getExtension(f) === 'ai'" fileName="icons" [icon]="'file-ai'"
+                            size="35"></svg-icon>
+                  <svg-icon *ngIf="getExtension(f) === 'svg'" fileName="icons" [icon]="'file-svg'"
+                            size="35"></svg-icon>
+                  <svg-icon *ngIf="getExtension(f) === 'txt'" fileName="icons" [icon]="'file-txt'"
+                            size="35"></svg-icon>
+                  <svg-icon *ngIf="getExtension(f) === 'psd'" fileName="icons" [icon]="'file-psd'"
+                            size="35"></svg-icon>
+                  <p class="ml-2">{{getFileName(f) }}</p>
                 </div>
               </ngx-dropzone-label>
             </ngx-dropzone-preview>
@@ -77,6 +94,17 @@
   </form>
 </div>
 
+<div class="upload-progress">
+  <div class="position-relative display-flex a-items-center">
+    <div class="image-upload overflow-hidden">
+      <img [src]="imagetoPreview" width="40px" height="40px" class="object-cover" alt="">
+    </div>
+    <div>
+      <h1 class="heading font-size_18">Uploading {{uploadedProgress}}%</h1>
+    </div>
+  </div>
+</div>
+
 <div class="footer-form_submit">
   <div class="display-grid footer_content text_center">
     <cd-button [showIcon]="false" borderRadius="4" [text]="'Cancel'"
@@ -85,11 +113,13 @@
       <cd-button [showIcon]="false" borderRadius="4" [text]="'Save to draft'"
                  [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'"></cd-button>
     </button>
-    <cd-button
-      [showIcon]="false"
-      [textBtn]="true"
-      [classNames]="'cd-btn-block font-medium cd-btn-primary cd-btn-small'"
-      text="Create your project" [maxWidth]="true" borderRadius="8">
-    </cd-button>
+    <button class="unset-css" (click)="onSubmit()">
+      <cd-button
+        [showIcon]="false"
+        [textBtn]="true"
+        [classNames]="'cd-btn-block font-medium cd-btn-primary cd-btn-small'"
+        text="Create your project" [maxWidth]="true" borderRadius="8">
+      </cd-button>
+    </button>
   </div>
 </div>

@@ -14,8 +14,6 @@
               </div>
               <ul class="dropdown_menu_links">
                 <li class="filter-option">Recent</li>
-                <li class="filter-option">Not Recent</li>
-                <li class="filter-option">Popular</li>
               </ul>
             </div>
           </div>
@@ -23,47 +21,38 @@
             <p class="filter-label text_uppercase font-size_12">Sort By</p>
             <div class="position-relative" (click)="onToggleTable(2)" (mouseleave)="onToggleTable(-1)">
               <div tabindex="5" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 2}">
-                <span>Relevant</span>
+                <span>{{labels.sortBy || 'Relevant'}}</span>
               </div>
               <ul class="dropdown_menu_links" [ngClass]="{'d-block': toggleTable === 2 }">
-                <li class="filter-option">Relevant</li>
-                <li class="filter-option" [routerLink]="['./']"
-                    [queryParams]="{ sort: 'most_appreciated' }" queryParamsHandling="merge">Most appreciated</li>
-                <li class="filter-option">Most downloaded</li>
+                <li class="filter-option" *ngFor="let s of sortByArr; let i = index;"[routerLink]="['./']"
+                    [queryParams]="{ sort: s.query }" queryParamsHandling="merge"
+                    [ngClass]="{'filter-option-active': labels.sortBy === s.name}">
+                  {{s.name}}
+                </li>
               </ul>
             </div>
           </div>
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Made with</p>
             <div class="position-relative" (click)="onToggleTable(3)" (mouseleave)="onToggleTable(-1)">
-              <div tabindex="6" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 3}">
-                <span>All apps</span>
+              <div tabindex="6" class="dropdown-menu_neue grid__filter-item"
+                   [ngClass]="{'open focused': toggleTable === 3}">
+
+                <svg-icon fileName="icons" *ngIf="selected.made" [icon]="'icon-' + selected.made.icon" size="16"></svg-icon>
+                <span class="text_capitalize" [ngClass]="{'ml-2': selected.made}">
+                  {{labels.madeWith || 'All Apps'}}
+                </span>
+
               </div>
 
               <ul class="dropdown_menu_links">
-                <li class="filter-option display-flex a-items-center">
-                  <svg-icon fileName="icons" icon="icon-adobe-xd" size="16"></svg-icon>
-                  <span class="ml-2 font-size_13">Adobe XD</span>
-                </li>
-                <li class="filter-option display-flex a-items-center" [routerLink]="['./']"
-                    [queryParams]="{ filter: 'new' }"
-                    queryParamsHandling="merge">
-                  <svg-icon fileName="icons" icon="icon-figma" size="16"></svg-icon>
-                  <span class="ml-2 font-size_13">Figma</span>
-                </li>
-                <li class="filter-option display-flex a-items-center" [routerLink]="['./']"
-                    [queryParams]="{ filter: 'jobsesosjonnew' }"
-                    queryParamsHandling="merge">
-                  <svg-icon fileName="icons" icon="icon-sketch" size="16"></svg-icon>
-                  <span class="ml-2 font-size_13">Sketch</span>
-                </li>
-                <li class="filter-option display-flex a-items-center">
-                  <svg-icon fileName="icons" icon="icon-photoshop" size="16"></svg-icon>
-                  <span class="ml-2 font-size_13">Photoshop</span>
-                </li>
-                <li class="filter-option display-flex a-items-center">
-                  <svg-icon fileName="icons" icon="icon-rgb" size="16"></svg-icon>
-                  <span class="ml-2 font-size_13">Other tools</span>
+
+                <li class="filter-option display-flex a-items-center" *ngFor="let t of tools; let i = index;" [routerLink]="['./']"
+                    [queryParams]="{ made: t.query }"
+                    [ngClass]="{'filter-option-active': labels.madeWith === t.name}"
+                    queryParamsHandling="merge" (click)="labels.madeWith = t.name">
+                  <svg-icon fileName="icons" [icon]="'icon-' + t.icon" size="16"></svg-icon>
+                  <span class="ml-2 font-size_13">{{t.name}}</span>
                 </li>
               </ul>
             </div>
@@ -91,7 +80,8 @@
       </div>
     </div>
   </ng-template>
-  <div class="container">
+
+  <div class="container" *ngIf="moreItems">
     <div class="grid_posts" [ngClass]="{'grid-four-columns': classColumns}">
       <div class="grid-item grid_item_showed" *ngFor="let p of moreItems; let i = index">
         <div class="image-grid position-relative">
@@ -106,11 +96,10 @@
         </div>
         <div class="display-flex a-items-center j-space-between bottom_post">
           <div class="display-flex w-100">
-            <div class="avatar-image position-relative">
-              <img [src]="'http://source.unsplash.com/random/5' + i + 'x5' + i " width="100%" height="100%"
-                   style="object-fit: cover;" alt="">
+            <div class="avatar-image position-relative overflow-hidden">
+              <img [src]="'https://api.adorable.io/avatars/285/' + p?.name" class="object-cover" width="100%" height="100%" draggable="false" alt="">
             </div>
-            <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_16'">
+            <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_15'">
               <p class="position-relative cd-link card-title">
                 {{p.title}}
               </p>
@@ -121,8 +110,7 @@
           </div>
         </div>
       </div>
-
-      <ng-template [ngIf]="moreItems.length === 0">
+      <ng-template [ngIf]="moreItems && moreItems.length === 0">
         <div class="grid-item" *ngFor="let p of [0,1,2,3,4,5]">
           <div class="image-grid position-relative">
             <cd-skeleton></cd-skeleton>

@@ -47,8 +47,8 @@
               <img [src]="'https://api.adorable.io/avatars/285/' + user?.email" class="object-cover" width="100%" height="100%" draggable="false" alt="">
             </div>
             <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_16'">
-              <p class="cd-link card-title" style="font-family: var(--f-bold);">{{p.title}}</p>
-              <a class="cd-link" style="font-size: 12px;opacity: .7;">{{user?.username}}</a>
+              <p class="cd-link card-title">{{p.title}}</p>
+              <a class="cd-link font-size_12" style="opacity: .7;">{{user?.username}}</a>
             </div>
           </div>
         </div>

@@ -5,7 +5,11 @@ import {GuestGuard} from './shared/guards/guest.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'logout',
+    component: LogoutComponent
+  },
+  {
+    path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
@@ -17,10 +21,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./member/member.module').then(m => m.MemberModule),
     canActivate: [MemberGuard]
-  },
-  {
-    path: 'logout',
-    component: LogoutComponent
   },
   {
     path: 'not-found-page',

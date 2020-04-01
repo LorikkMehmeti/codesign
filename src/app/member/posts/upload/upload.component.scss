@@ -41,6 +41,18 @@
   }
 }
 
+.upload-progress {
+  position: fixed;
+  bottom: 40px;
+  padding: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1000;
+  background: red;
+  max-width: 400px;
+}
+
 .modal_fixed.modal_showing ~ .container, .modal_fixed.modal_showing ~ .footer-form_submit {
   //background: red!important;
   filter: blur(1px);

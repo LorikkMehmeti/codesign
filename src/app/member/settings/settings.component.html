@@ -1,9 +1,9 @@
 <!--<cd-header [marginHeader]="true"></cd-header>-->
-<div class="container">
+<div class="container" *ngIf="user">
   <div>
     <div class="top_bar">
       <div class="display-flex a-items-center">
-        <div class="settings_AVATAR display-flex text_center j-center a-items-center overflow-hidden" *ngIf="user">
+        <div class="settings_AVATAR display-flex text_center j-center a-items-center overflow-hidden">
           <img
             [src]="'https://api.adorable.io/avatars/285/' + user?.username"
             alt="" class="w-100 h-100 object-cover">

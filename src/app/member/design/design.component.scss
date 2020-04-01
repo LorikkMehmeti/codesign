@@ -3,15 +3,10 @@
   grid-gap: 10px;
 }
 
-::ng-deep cd-footer {
-  display: none;
-}
-
 .design__data-info {
   opacity: .7;
-  font-family: var(--f-bold);
-  font-weight: normal;
-
+  font-variation-settings: var(--f-medium);
+  font-style: normal;
   svg-icon {
     line-height: 12px;
   }

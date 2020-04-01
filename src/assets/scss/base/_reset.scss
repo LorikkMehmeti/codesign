@@ -22,12 +22,12 @@
 
   p {
     @include fluid('font-size', 320px, 1300px, 12px, 14px);
-    font-family: var(--f-bold);
+    font-variation-settings: var(--f-bold);
     font-weight: 100;
   }
 
   small {
-    font-family: var(--f-light);
+    font-variation-settings: var(--f-light);
     font-size: 12px;
   }
 }

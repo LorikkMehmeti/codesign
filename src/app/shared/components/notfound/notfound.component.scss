@@ -25,7 +25,8 @@
 
 .text_message-404 {
   margin-left: 35px;
-  font-family: var(--f-italic);
+  font-variation-settings: var(--f-italic);
+  font-style: italic;
 }
 
 .code_error {

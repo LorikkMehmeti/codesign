@@ -1,6 +1,7 @@
 .quote {
   max-width: 550px;
-  font-family: var(--f-p-bold);
+  font-family: var(--f-p-font);
+  font-variation-settings: var(--f-p-bold);
   -webkit-font-smoothing: antialiased;
 }
 

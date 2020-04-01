@@ -1,5 +1,5 @@
 .filter-label {
-  font-family: var(--f-bold);
+  font-variation-settings: var(--f-bold);
   margin: 5px 0;
 }
 
@@ -23,7 +23,7 @@
 .dropdown-menu_neue {
   letter-spacing: -.31px !important;
   padding: 10px;
-  font-family: var(--f-regular);
+  font-variation-settings: var(--f-regular);
   cursor: pointer;
   transition: border 200ms ease;
   background: var(--header-color);
@@ -88,6 +88,9 @@
 }
 
 .filter-option {
+  &-active {
+    background: var(--_hover);
+  }
   &:active {
     //background: var(--color-dark-shade) !important;
     background: var(--_hover);
@@ -131,7 +134,7 @@
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked
 .ng-option-label {
   font-weight: normal;
-  font-family: var(--f-regular);
+  font-variation-settings: var(--f-regular);
 }
 
 .ng-select_made .ng-option.ng-option-selected {
@@ -139,7 +142,7 @@
 }
 
 
-ng-select, .ng-select_made, .ng-dropdown-panel, .ng-dropdown-panel-items, .admin_SIDEMENU, .items_container {
+ng-select, .ng-select_made, .ng-dropdown-panel, .ng-dropdown-panel-items, .admin_SIDEMENU, .items_container, .ngx_dropzone {
   @include scrollbar;
 }
 

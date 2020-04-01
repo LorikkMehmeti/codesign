@@ -60,7 +60,7 @@
 .input_s {
   input {
     color: var(--color-font) !important;
-    font-family: var(--f-regular);
+    font-variation-settings: var(--f-regular);
     font-style: normal;
     width: 100%;
     background: transparent;

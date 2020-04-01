@@ -17,7 +17,8 @@
 }
 
 .logo_title_admin {
-  font-family: var(--f-p-bold);
+  font-family: var(--f-p-font);
+  font-variation-settings: var(--f-p-bold);
   padding: 6px;
 }
 
@@ -41,7 +42,7 @@
   ._nav-item {
     color: rgba(var(--color-font-rgba), .6);
     padding: 10px 0;
-    font-family: var(--f-medium);
+    font-variation-settings: var(--f-medium);
     cursor: pointer;
     transition: all 200ms ease;
 
@@ -86,7 +87,7 @@
     padding: 10px 15px;
     display: block;
     margin-top: 2px;
-    font-family: var(--f-medium);
+    font-variation-settings: var(--f-medium);
     font-size: 13px!important;
     @media (hover: hover) {
       &:hover {

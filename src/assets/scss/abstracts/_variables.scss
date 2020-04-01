@@ -74,22 +74,36 @@
   --input_color: #F1F0F5;
   --bg-social-btn: #1D1F31;
 
-  --f-black: 'Roboto-Blacki', sans-serif;
-  --f-black-italic: 'Roboto-BlackItalic', sans-serif;
-  --f-bold: 'Roboto-Bold', sans-serif;
-  --f-bold-italic: 'Roboto-BoldItalic', sans-serif;
-  --f-italic: 'Roboto-Italic', sans-serif;
-  --f-light: 'Roboto-Light', sans-serif;
-  --f-light-italic: 'Roboto-LightItalic', sans-serif;
-  --f-medium: 'Roboto-Medium', sans-serif;
-  --f-medium-italic: 'Roboto-MediumItalic', sans-serif;
-  --f-regular: 'Roboto-Regular', sans-serif;
-  --f-thin: 'Roboto-Thin', sans-serif;
-  --f-thin-italic: 'Roboto-ThinItalic', sans-serif;
+  //--f-black: 'Roboto-Blacki', sans-serif;
+  //--f-black-italic: 'Roboto-BlackItalic', sans-serif;
+  //--f-bold: 'Roboto-Bold', sans-serif;
+  //--f-bold-italic: 'Roboto-BoldItalic', sans-serif;
+  //--f-italic: 'Roboto-Italic', sans-serif;
+  //--f-light: 'Roboto-Light', sans-serif;
+  //--f-light-italic: 'Roboto-LightItalic', sans-serif;
+  //--f-medium: 'Roboto-Medium', sans-serif;
+  //--f-medium-italic: 'Roboto-MediumItalic', sans-serif;
+  //--f-regular: 'Roboto-Regular', sans-serif;
+  //--f-thin: 'Roboto-Thin', sans-serif;
+  //--f-thin-italic: 'Roboto-ThinItalic', sans-serif;
 
-  --f-p-black: 'PlayfairDisplay-Blacki', sans-serif;
-  --f-p-bold: 'PlayfairDisplay-Bold', sans-serif;
-  --f-p-regular: 'PlayfairDisplay-Regular', sans-serif;
+  --f-font: 'Inter', sans-serif;
+
+  --f-black: 'wght' 900;
+  --f-bold: 'wght' 700;
+  --f-medium: 'wght' 600;
+  --f-regular: 'wght' 400;
+  --f-light: 'wght' 300;
+  --f-thin: 'wght' 150;
+
+  //--f-p-black: 'PlayfairDisplay-Blacki', sans-serif;
+  //--f-p-bold: 'PlayfairDisplay-Bold', sans-serif;
+  //--f-p-regular: 'PlayfairDisplay-Regular', sans-serif;
+
+  --f-p-font: 'PlayfairDisplay', serif;
+  --f-p-black: 'wght' 900;
+  --f-p-bold: 'wght' 700;
+  --f-p-regular: 'wght' 400;
 
   --f-eina-regular: 'Eina-Regular', sans-serif;
   --f-eina-semibold: 'Eina', sans-serif;

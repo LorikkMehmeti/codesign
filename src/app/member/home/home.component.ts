@@ -3,6 +3,7 @@ import {AuthenticationService} from '../../shared/services/authentication.servic
 import {TitleService} from '../../shared/services/title.service';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {DesignService} from '../../shared/services/design/design.service';
 
 @Component({
   selector: 'app-home',
@@ -92,6 +93,7 @@ export class HomeComponent implements OnInit {
   ];
   toggleTable = -1;
   moreItems = [];
+  designs = [];
   auth = this.authenticationService.loggedIn();
   madeWith: string;
 
@@ -105,14 +107,19 @@ export class HomeComponent implements OnInit {
 
   labels: any = {};
 
-  sortByArr = [{name: 'Relevant', query: 'relevant'}, {name: 'Most Appreciated', query: 'most-appreciated'}, {name: 'Most Downloaded', query: 'most-downloaded'}];
+  sortByArr = [{name: 'Relevant', query: 'relevant'}, {name: 'Most Appreciated', query: 'most-appreciated'}, {
+    name: 'Most Downloaded',
+    query: 'most-downloaded'
+  }];
 
   selected: any = {};
+  dataAvailable = false;
 
 
   constructor(private activatedRoute: ActivatedRoute,
               private title: TitleService,
               private http: HttpClient,
+              private designService: DesignService,
               private authenticationService: AuthenticationService) {
   }
 
@@ -124,14 +131,11 @@ export class HomeComponent implements OnInit {
 
 
     this.activatedRoute.queryParamMap.subscribe((param: any) => {
-      this.moreItems = [];
+      this.dataAvailable = false;
+      this.designs = [];
       this.labels = {};
       this.selected = {};
-      console.log(param);
-      if (param.params.made) {
-        this.selected.made = this.tools.find(data => (data.query.toLowerCase() === param.params.made));
-        this.labels.madeWith = this.selected.made.name;
-      }
+
 
       if (param.params.sort) {
         this.selected.sort = this.sortByArr.find(data => data.query.toLowerCase() === param.params.sort);
@@ -140,18 +144,32 @@ export class HomeComponent implements OnInit {
 
       if (param.keys.length > 0 && param.params.made) {
         setTimeout(() => {
-          this.moreItems = this.items.filter(data => data.made === param.params.made);
+          this.getDesigns(param.params);
+          this.selected.made = this.tools.find(data => (data.query.toLowerCase() === param.params.made));
+          this.labels.madeWith = this.selected.made.name;
         }, 1000);
         return;
       }
 
       setTimeout(() => {
+        this.getDesigns();
         this.moreItems = this.items.sort(() => Math.random() - 0.5);
       }, 1000);
     });
+  }
 
-    // setTimeout(() => {
-    // }, 3000);
+  getDesigns(params?: any) {
+    this.designService.getListOfDesigns(params).subscribe((res: any) => {
+      if (res.success) {
+        this.designs = res.data;
+        if (res.data.length === 0) {
+          this.dataAvailable = true;
+        }
+        return;
+      }
+
+      this.dataAvailable = false;
+    });
   }
 
   toggleColumns(type) {

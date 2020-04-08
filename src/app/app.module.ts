@@ -14,6 +14,7 @@ import {ToastComponent, NotfoundComponent} from './shared/components';
 import {CookieService} from 'ngx-cookie-service';
 import {LogoutComponent} from './shared/components/logout/logout.component';
 import {HttpCacheInterceptorModule} from '@ngneat/cashew';
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -30,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    TooltipModule,
     HttpCacheInterceptorModule.forRoot({
       ttl: 15000
     }),
@@ -47,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         success: 'toast-success',
         warning: 'toast-warning',
       },
+      maxOpened: 1,
       preventDuplicates: true,
       timeOut: 5000,
       toastComponent: ToastComponent

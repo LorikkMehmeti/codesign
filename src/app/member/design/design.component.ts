@@ -38,15 +38,16 @@ export class DesignComponent implements OnInit {
   }
 
   downloadFiles() {
-    let toastConfirm = this.toast.show('Downloading now your files', 'Success');
-    toastConfirm.toastRef.componentInstance.type = 'success';
+    this.toast.show(`Downloading now your files`, 'Success', {
+      toastClass: 'warning-toast'
+    });
 
     this.designService.downloadDesign(this.slug).subscribe((res: any) => {
       // Show toast for after the download is completed
-      toastConfirm = this.toast.show(`Downloaded successfully, don't forget to like the design`, 'Success');
-      toastConfirm.toastRef.componentInstance.type = 'success';
-
-      const blob: any = new Blob([res], { type: 'octet/stream' });
+      this.toast.show(`Files downloaded successfully`, 'Success', {
+        toastClass: 'success-toast'
+      });
+      const blob: any = new Blob([res], {type: 'octet/stream'});
       fileSaver.saveAs(blob, `${this.slug}.zip`);
     });
   }

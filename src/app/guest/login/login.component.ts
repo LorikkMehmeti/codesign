@@ -84,30 +84,24 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe((response: any) => {
         // window.location.reload();
         if (!response.success) {
-          const activeToast = this.toast.error(`${response.error}`, 'Login error', {
-            toastClass: 'error_TOAST'
+          this.toast.show(`Login error`, 'Error', {
+            toastClass: 'error-toast'
           });
-          activeToast.toastRef.componentInstance.type = 'error';
-          activeToast.toastRef.componentInstance.toastActive = true;
 
           this.password.reset();
         }
 
         if (response.success) {
-          const activeToast = this.toast.show(`${response.data.message}`, 'Success', {
-            toastClass: 'success_TOAST'
+          this.toast.show(`${response.data.message}`, 'Success', {
+            toastClass: 'success-toast'
           });
-          activeToast.toastRef.componentInstance.type = 'success';
-          activeToast.toastRef.componentInstance.toastActive = true;
 
           this.router.navigate(['/home']);
         }
       }, (error) => {
-        const activeToast = this.toast.error(`Service unavailable`, 'Error 503', {
-          toastClass: 'error_TOAST'
+        this.toast.show(`Service unavailable`, 'Error 503', {
+          toastClass: 'error-toast'
         });
-        activeToast.toastRef.componentInstance.type = 'error';
-        activeToast.toastRef.componentInstance.toastActive = true;
       });
   }
 

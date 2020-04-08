@@ -27,6 +27,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import { WorkComponent } from './settings/work/work.component';
 import { AccountSettingsComponent } from './settings/account-settings/account-settings.component';
 import { PasswordComponent } from './settings/password/password.component';
+import {TooltipModule} from 'ng2-tooltip-directive';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { PasswordComponent } from './settings/password/password.component';
         NgSelectModule,
         ReactiveFormsModule,
         TranslateModule,
+        TooltipModule,
     ]
 })
 export class MemberModule {

@@ -97,19 +97,20 @@ export class SignupComponent implements OnInit {
       type: this.type.value
     };
 
+    this.toast.show(`Files downloaded successfully`, 'Success', {
+      toastClass: 'success-toast'
+    });
+
 
     this.activeToast = this.toast.show(`Connecting with the server to get you register`, 'Loading', {
-      toastClass: 'success_TOAST'
+      toastClass: 'warning-toast'
     });
-    this.activeToast.toastRef.componentInstance.type = 'warning';
-    this.activeToast.toastRef.componentInstance.toastActive = true;
+
     this.userService.registerUser(body).subscribe((res: any) => {
       if (res.success) {
         this.activeToast = this.toast.show(`Register is done`, 'Success', {
-          toastClass: 'success_TOAST'
+          toastClass: 'success-toast'
         });
-        this.activeToast.toastRef.componentInstance.type = 'success';
-        this.activeToast.toastRef.componentInstance.toastActive = true;
 
         this.registerForm.reset();
 

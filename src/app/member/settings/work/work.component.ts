@@ -82,17 +82,13 @@ export class WorkComponent implements OnInit {
     this.userService.updateWork(body).subscribe((res: any) => {
       if (res.success) {
         const activeToast = this.toast.show(`${res.message}`, 'Updated', {
-          toastClass: 'success_TOAST'
+          toastClass: 'success-toast'
         });
-        activeToast.toastRef.componentInstance.type = 'success';
-        activeToast.toastRef.componentInstance.toastActive = true;
       }
       if (!res.success) {
         const activeToast = this.toast.show(`Please verify your email before using our platform`, 'Verify email', {
-          toastClass: 'success_TOAST'
+          toastClass: 'error-toast'
         });
-        activeToast.toastRef.componentInstance.type = 'error';
-        activeToast.toastRef.componentInstance.toastActive = true;
 
       }
     });

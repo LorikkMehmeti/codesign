@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../shared/services/user/user.service';
 import {HttpClient} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
-import {isUndefined} from 'util';
+// import {isUndefined} from 'util';
 import {TitleService} from '../../../shared/services/title.service';
 
 @Component({
@@ -20,6 +20,8 @@ export class SettingsprofileComponent implements OnInit {
   }
 
   ngOnInit() {
+    // activeToast.toastRef.componentInstance.toastActive = true;
+
     this.initForm();
 
     this.getUser();
@@ -101,19 +103,14 @@ export class SettingsprofileComponent implements OnInit {
 
     this.userService.updateInfo(body).subscribe((res: any) => {
       if (res.success) {
-        const activeToast = this.toast.show(`${res.message}`, 'Updated', {
-          toastClass: 'success_TOAST'
+        this.toast.show(`${res.message}`, 'Updated', {
+          toastClass: 'success-toast'
         });
-        activeToast.toastRef.componentInstance.type = 'success';
-        activeToast.toastRef.componentInstance.toastActive = true;
       }
       if (!res.success) {
-        const activeToast = this.toast.show(`Please verify your email before using our platform`, 'Verify email', {
-          toastClass: 'success_TOAST'
+        this.toast.show(`${res.message}`, 'Error', {
+          toastClass: 'error-toast'
         });
-        activeToast.toastRef.componentInstance.type = 'error';
-        activeToast.toastRef.componentInstance.toastActive = true;
-
       }
     });
   }

@@ -56,16 +56,15 @@ export class PasswordComponent implements OnInit {
 
     this.userService.updatePassword(body).subscribe((res: any) => {
       if (res.success) {
-        this.activeToast = this.toast.show(`${res.message}`, 'Success');
+        this.activeToast = this.toast.show(`${res.message}`, 'Success', {
+          toastClass: 'success-toast'
+        });
 
-        this.activeToast.toastRef.componentInstance.type = 'success';
-        this.activeToast.toastRef.componentInstance.toastActive = true;
         this.passwordForm.reset();
       } else {
-        this.activeToast = this.toast.show(`${res.message}`, 'Password error');
-
-        this.activeToast.toastRef.componentInstance.type = 'error';
-        this.activeToast.toastRef.componentInstance.toastActive = true;
+        this.activeToast = this.toast.show(`${res.message}`, 'Password error', {
+          toastClass: 'error-toast'
+        });
       }
 
     });

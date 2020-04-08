@@ -134,6 +134,43 @@ body {
   visibility: hidden;
 }
 
+.tooltip-size {
+  font-size: 13px;
+}
+
+.label-selected {
+  padding: 1px 3px;
+  font-size: 10px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 4px;
+
+  &[data-label="sketch"] {
+    background: #FDAD00;
+    color: var(--color-dark);
+  }
+
+  &[data-label="adobe xd"] {
+    background: #FF26BE;
+    color: var(--color-light);
+  }
+
+  &[data-label="photoshop"] {
+    background: #26C9FF;
+    color: var(--color-dark);
+  }
+
+  &[data-label="other tools"] {
+    background: var(--color-tertiary);
+    color: var(--color-light);
+  }
+
+  &[data-label="figma"] {
+    background: #EB4B1C;
+    color: var(--color-light);
+  }
+}
+
 ._home-section {
   @include fluid('padding-right', 540px, 1400px, 10px, 80px);
 }

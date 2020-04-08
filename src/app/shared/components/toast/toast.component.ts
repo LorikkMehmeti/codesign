@@ -44,7 +44,7 @@ import {Toast, ToastrService, ToastPackage} from 'ngx-toastr';
   ]
 })
 export class ToastComponent extends Toast implements OnInit {
-  @Input() type: string;
+  @Input() type = 'success';
   @Input() toastActive = false;
 
   constructor(

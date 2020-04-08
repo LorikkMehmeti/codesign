@@ -55,9 +55,9 @@ export class UploadComponent implements OnInit {
 
   clickProject(i) {
     if (this.selectedItem === -1) {
-      this.activeToast = this.toast.show(`Please select a draft project`, 'Error');
-      this.activeToast.toastRef.componentInstance.type = 'error';
-      this.activeToast.toastRef.componentInstance.toastActive = true;
+      this.toast.show(`Please select a draft project`, 'Error', {
+        toastClass: 'error-toast'
+      });
     }
 
     // if (localStorage.getItem('draft_project')) {
@@ -135,10 +135,10 @@ export class UploadComponent implements OnInit {
 
   saveToDraft() {
     if (this.createShot.invalid) {
-      this.activeToast = this.toast.show(`Title, description and tool are required to save a project on draft`, 'Error');
-      this.activeToast.toastRef.componentInstance.type = 'error';
-      this.activeToast.toastRef.componentInstance.toastActive = true;
 
+      this.activeToast = this.toast.show(`Title, description and tool are required to save a project on draft`, 'Error', {
+        toastClass: 'error-toast'
+      });
       return;
     }
 
@@ -159,17 +159,16 @@ export class UploadComponent implements OnInit {
       localStorage.setItem('draft_project', JSON.stringify(arrayDraft));
     }
 
-    this.activeToast = this.toast.show(`Project is saved on draft`, 'Success');
-    this.activeToast.toastRef.componentInstance.type = 'success';
-    this.activeToast.toastRef.componentInstance.toastActive = true;
-
+    this.activeToast = this.toast.show(`Project is saved on draft`, 'Success', {
+      toastClass: 'success-toast'
+    });
   }
 
   onSubmit() {
     if (this.createShot.invalid || !this.imagePreview) {
-      this.activeToast = this.toast.show(`All fields are required to create a project`, 'Error');
-      this.activeToast.toastRef.componentInstance.type = 'error';
-      this.activeToast.toastRef.componentInstance.toastActive = true;
+      this.activeToast = this.toast.show(`All fields are required to create a project`, 'Error' , {
+        toastClass: 'error-toast'
+      });
       return;
     }
 
@@ -186,12 +185,6 @@ export class UploadComponent implements OnInit {
 
     this.design.createDesign(formData).subscribe((res: any) => {
       this.uploadedProgress = res.message;
-      // this.activeToast = this.toast.show(`We are uploading your design`, 'Uploading');
-      // this.activeToast.toastRef.componentInstance.type = 'warning';
-      // this.activeToast.toastRef.componentInstance.toastActive = true;
-      // this.activeToast = this.toast.show(`Projekti u krijua`, 'Success');
-      // this.activeToast.toastRef.componentInstance.type = 'success';
-      // this.activeToast.toastRef.componentInstance.toastActive = true;
 
     }, error => {
       console.log('idk');

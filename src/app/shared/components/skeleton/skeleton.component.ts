@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SkeletonComponent implements OnInit {
   @Input() height?: number;
+  @Input() width?: number;
   constructor() { }
 
   ngOnInit() {

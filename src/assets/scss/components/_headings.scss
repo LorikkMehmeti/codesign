@@ -10,7 +10,7 @@
   @include fluid('font-size', 320px, 1920px, 30px, 60px);
   @include fluid('line-height', 320px, 1920px, 31px, 61px);
 
-  &.font-roboto {
+  &.font-inter {
     font-variation-settings: var(--f-black);
   }
 }
@@ -20,7 +20,7 @@
   @include fluid('font-size', 320px, 1920px, 26px, 54px);
   @include fluid('line-height', 320px, 1920px, 31px, 61px);
 
-  &.font-roboto {
+  &.font-inter {
     font-variation-settings: var(--f-bold);
   }
 }
@@ -30,7 +30,7 @@
   @include fluid('font-size', 320px, 1920px, 22px, 48px);
   @include fluid('line-height', 320px, 1920px, 31px, 61px);
 
-  &.font-roboto {
+  &.font-inter {
     font-variation-settings: var(--f-medium);
   }
 }

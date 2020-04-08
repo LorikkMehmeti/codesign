@@ -1,0 +1,55 @@
+.success-toast {
+  > .toast_container {
+    .flash-info .message-toast {
+      color: var(--color-success);
+    }
+  }
+}
+
+.error-toast {
+  > .toast_container {
+    .flash-info .message-toast {
+      color: var(--color-danger);
+    }
+  }
+}
+
+.warning-toast {
+  > .toast_container {
+    .flash-info .message-toast {
+      color: var(--color-warning);
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .success-toast {
+    > .toast_container {
+      background: var(--color-success) !important;
+      color: var(--color-success-font) !important;
+      .flash-info .message-toast {
+        color: var(--color-success-font) !important;
+      }
+    }
+  }
+
+  .error-toast {
+    > .toast_container {
+      background: var(--color-danger) !important;
+      color: var(--color-danger-font) !important;
+      .flash-info .message-toast {
+        color: var(--color-danger-font) !important;
+      }
+    }
+  }
+
+  .warning-toast {
+    > .toast_container {
+      background: var(--color-danger) !important;
+      color: var(--color-danger-font) !important;
+      .flash-info .message-toast {
+        color: var(--color-danger-font) !important;
+      }
+    }
+  }
+}

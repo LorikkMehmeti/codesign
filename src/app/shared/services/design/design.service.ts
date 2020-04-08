@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpEventType} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {map} from 'rxjs/operators';
+import {withCache} from '@ngneat/cashew';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,11 @@ export class DesignService {
         }
       })
     );
+  }
+
+  getListOfDesigns(params?: any) {
+    const endpoint = `${this.endpoint}/get-all/designs`;
+    return this.http.get(endpoint, {params});
   }
 
   getDesign(slug) {

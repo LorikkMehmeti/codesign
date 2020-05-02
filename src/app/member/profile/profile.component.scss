@@ -39,13 +39,16 @@
   min-width: 180px;
   width: 180px;
   height: 180px;
-  background: white;
   border-radius: 50%;
   box-shadow: 0 0 0 1px #fff;
-  overflow: hidden
+  overflow: hidden;
+  &.no-shadow{
+    box-shadow: none;
+  }
 }
 
 .top_profile {
+  min-height: 200px;
   @media only screen and (max-width: 768px) {
     & {
       flex-direction: column;

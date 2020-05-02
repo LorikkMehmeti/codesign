@@ -36,8 +36,8 @@ export class DesignService {
     );
   }
 
-  getListOfDesigns(params?: any) {
-    const endpoint = `${this.endpoint}/get-all/designs`;
+  getListOfDesigns(params?: any, page = 1) {
+    const endpoint = `${this.endpoint}/get-all/designs?page=${page}`;
     return this.http.get(endpoint, {params});
   }
 

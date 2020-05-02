@@ -89,7 +89,11 @@
         {{labels.madeWith}}
       </small>
     </p>
-    <div class="grid_posts" [ngClass]="{'grid-four-columns': classColumns}">
+    <div class="grid_posts" [ngClass]="{'grid-four-columns': classColumns}"
+         infiniteScroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="50"
+         (scrolled)="infiniteScroll()">
       <div class="grid-item grid_item_showed" *ngFor="let p of designs; let i = index">
         <div class="image-grid position-relative">
           <img [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%" height="100%" alt="">
@@ -118,6 +122,7 @@
           </div>
         </div>
       </div>
+
       <ng-template [ngIf]="designs && designs.length === 0 && !dataAvailable">
         <div class="grid-item" *ngFor="let p of [0,1,2,3,4,5]">
           <div class="image-grid position-relative">
@@ -141,6 +146,19 @@
         </div>
       </ng-template>
 
+    </div>
+
+
+    <div class="text_center" *ngIf="_loaderShow">
+      <div class="d-inline-block">
+        <div class="la-ball-elastic-dots">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
     </div>
 
     <div class="text_center mb-2" *ngIf="designs && designs.length === 0 && dataAvailable">

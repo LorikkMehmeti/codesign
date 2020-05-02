@@ -28,6 +28,7 @@ import { WorkComponent } from './settings/work/work.component';
 import { AccountSettingsComponent } from './settings/account-settings/account-settings.component';
 import { PasswordComponent } from './settings/password/password.component';
 import {TooltipModule} from 'ng2-tooltip-directive';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {TooltipModule} from 'ng2-tooltip-directive';
         ReactiveFormsModule,
         TranslateModule,
         TooltipModule,
+        InfiniteScrollModule,
     ]
 })
 export class MemberModule {

@@ -115,6 +115,12 @@ export class HomeComponent implements OnInit {
   selected: any = {};
   dataAvailable = false;
 
+  currentPage = 1;
+  getPage = 1;
+  lastPage;
+  // tslint:disable-next-line:variable-name
+  _loaderShow = false;
+
 
   constructor(private activatedRoute: ActivatedRoute,
               private title: TitleService,
@@ -135,7 +141,7 @@ export class HomeComponent implements OnInit {
       this.designs = [];
       this.labels = {};
       this.selected = {};
-
+      this.getPage = 1;
 
       if (param.params.sort) {
         this.selected.sort = this.sortByArr.find(data => data.query.toLowerCase() === param.params.sort);
@@ -158,13 +164,27 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  infiniteScroll() {
+    if (this.currentPage < this.lastPage) {
+      this._loaderShow = true;
+      this.getDesigns();
+      this.currentPage++;
+    }
+  }
+
   getDesigns(params?: any) {
-    this.designService.getListOfDesigns(params).subscribe((res: any) => {
+    this.designService.getListOfDesigns(params, this.getPage).subscribe((res: any) => {
       if (res.success) {
-        this.designs = res.data;
-        if (res.data.length === 0) {
+        this._loaderShow = false;
+        this.currentPage = res.data.current_page;
+        this.lastPage = res.data.last_page;
+        for (const element of res.data.data) {
+          this.designs.push(element);
+        }
+        if (res.data.data.length === 0) {
           this.dataAvailable = true;
         }
+        this.getPage++;
         return;
       }
 
@@ -180,4 +200,7 @@ export class HomeComponent implements OnInit {
     this.toggleTable = this.toggleTable === index ? -1 : index;
   }
 
+  onScroll() {
+    console.log('scrolled');
+  }
 }

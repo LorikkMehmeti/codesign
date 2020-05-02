@@ -15,7 +15,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {LogoutComponent} from './shared/components/logout/logout.component';
 import {HttpCacheInterceptorModule} from '@ngneat/cashew';
 import { TooltipModule } from 'ng2-tooltip-directive';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -32,6 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     HttpClientModule,
     TooltipModule,
+    InfiniteScrollModule,
     HttpCacheInterceptorModule.forRoot({
       ttl: 15000
     }),

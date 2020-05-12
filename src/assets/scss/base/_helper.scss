@@ -17,4 +17,12 @@ body, html {
 .pointer_link {
   cursor: pointer;
 }
+.line-height-0 {line-height: 0!important;}
+
+.pointer-none { pointer-events: none!important; }
+
+.events-none {
+  overflow: hidden!important;
+  //pointer-events: none!important;
+}
 

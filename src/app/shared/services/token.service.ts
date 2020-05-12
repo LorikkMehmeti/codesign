@@ -49,7 +49,8 @@ export class TokenService {
     const getToken: any = this.jwtHelper.decodeToken(token);
     const expires = new Date().getDate();
     const expDate = new Date(getToken.exp).getDate();
-    this.cookieService.set('token', token);
+    // @ts-ignore
+    this.cookieService.set('token', token, '', '/', `${environment.whoIsHosting}`);
   }
 
   /**

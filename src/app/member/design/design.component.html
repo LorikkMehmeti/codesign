@@ -1,53 +1,79 @@
-<!--<cd-header></cd-header>-->
-<div class="container-fluid position-relative">
-  <div class="design-grid mt-2" *ngIf="design">
-    <div class="design-image">
-      <img
-        [src]="'http://localhost:8000/images/covers/' + design.cover_image"
-        width="100%" height="100%" alt="">
-    </div>
-    <div class="info-image">
-      <div>
-        <h1 class="heading heading-sub mt-2 mb-2">— {{design.title_project}}</h1>
-        <span class="cd-link font-size_12">Design by {{design.name}}</span>
-        <p class="font-size_14" style="margin-top: 30px;">{{design.desc_project}}</p>
-
-        <div class="buttons-design display-grid">
+<div *ngIf="design">
+  <!--<cd-header></cd-header>-->
+  <div class="" [ngClass]="{'events-none': lightBoxShowing}">
+    <div class="sticky-info" [ngClass]="{'sticky-header': isSticky}">
+      <div class="design-info">
+        <div>
+          <h4 class="heading heading-six">— {{design.title_project}}</h4>
+          <span class="cd-link font-size_12">Design by {{design.name}}</span>
+        </div>
+        <div class="buttons-design align-items-center display-grid">
           <cd-button
             [showIcon]="true"
             [textBtn]="true"
             borderRadius="6"
-            [classNames]="'cd-btn-block cd-btn-primary'"
+            [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary no-margin'"
             text="Download files" [maxWidth]="true" (click)="downloadFiles()">
           </cd-button>
           <cd-button
             [showIcon]="true"
             [textBtn]="false"
             [iconName]="!liked ? 'icon-heart': 'icon-heart-fill'"
-            [classNames]="'btn-svg-icon btn-small like-button'" (click)="liked = !liked"
-            [title]="!liked ? 'Like this design':'Unlike this design'">
+            [classNames]="'btn-svg-icon cd-btn-small btn-small like-button no-margin'" (click)="liked = !liked"
+            [tooltip]="!liked ? 'Like this design':'Unlike this design'"
+            tooltip-class="tooltip-size" hide-delay="50" placement="top" show-delay="100">
           </cd-button>
         </div>
-        <div class="design__data-info">
-          <div class="info_design display-flex a-items-center">
-            <svg-icon fileName="icons" icon="icon-heart" size="18" fillColor="var(--color-font)"></svg-icon>
-            <p class="font-size_12">716 likes</p>
+      </div>
+
+
+    </div>
+    <div class="container-fluid position-relative">
+      <div class="design-grid mt-2">
+        <div class="design-image mt-2" (click)="showLightBox()">
+          <img
+            [src]="'http://localhost:8000/images/covers/' + design.cover_image"
+            width="100%" height="100%" alt="">
+        </div>
+        <div class="info-image mt-2">
+          <div class="rich-text_desc" [innerHTML]="design.desc_project | safe: 'html'">
+
           </div>
-          <div class="info_design display-flex a-items-center">
-            <svg-icon fileName="icons" icon="icon-comment" size="18" fillColor="var(--color-font)"></svg-icon>
-            <p class="font-size_12">9 comments</p>
-          </div>
-          <div class="info_design display-flex a-items-center">
-            <svg-icon fileName="icons" icon="icon-download" size="18" fillColor="var(--color-font)"></svg-icon>
-            <p class="font-size_12">410 downloads</p>
-          </div>
-          <div class="info_design display-flex a-items-center">
-            <svg-icon fileName="icons" icon="icon-calendar" size="18" fillColor="var(--color-font)"></svg-icon>
-            <p class="font-size_12">12 June 2019</p>
-          </div>
+<!--          <div>-->
+
+<!--            <div class="design__data-info">-->
+<!--              <div class="info_design display-flex a-items-center">-->
+<!--                <svg-icon fileName="icons" icon="icon-heart" size="18" fillColor="var(&#45;&#45;color-font)"></svg-icon>-->
+<!--                <p class="font-size_12">716 likes</p>-->
+<!--              </div>-->
+<!--              <div class="info_design display-flex a-items-center">-->
+<!--                <svg-icon fileName="icons" icon="icon-comment" size="18" fillColor="var(&#45;&#45;color-font)"></svg-icon>-->
+<!--                <p class="font-size_12">9 comments</p>-->
+<!--              </div>-->
+<!--              <div class="info_design display-flex a-items-center">-->
+<!--                <svg-icon fileName="icons" icon="icon-download" size="18" fillColor="var(&#45;&#45;color-font)"></svg-icon>-->
+<!--                <p class="font-size_12">410 downloads</p>-->
+<!--              </div>-->
+<!--              <div class="info_design display-flex a-items-center">-->
+<!--                <svg-icon fileName="icons" icon="icon-calendar" size="18" fillColor="var(&#45;&#45;color-font)"></svg-icon>-->
+<!--                <p class="font-size_12">12 June 2019</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
     </div>
   </div>
-</div>
 
+  <div class="light_box-image" *ngIf="lightBoxShowing">
+    <div class="position-relative w-100 h-100">
+      <img class="pointer-none"
+           [src]="'http://localhost:8000/images/covers/' + design.cover_image" alt="">
+    </div>
+
+    <div class="close-image" (click)="showLightBox()">
+      <svg-icon fileName="icons" icon="icon-close" size="13" fillColor="#000"></svg-icon>
+    </div>
+
+  </div>
+</div>

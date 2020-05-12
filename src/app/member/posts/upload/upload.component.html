@@ -36,19 +36,22 @@
           </ngx-dropzone-image-preview>
         </ngx-dropzone>
       </div>
-      <div class="inputs-group">
+      <div class="inputs-group mt-2">
         <label for="project_name" class="d-inline-block mb-2 pointer_link font-size_14">Project Title</label>
         <div class="cd-form-group">
           <input type="text" autocomplete="off" class="cd__input input__small" id="project_name"
                  placeholder="Type your project title" formControlName="title_project">
         </div>
         <label for="" class="d-inline-block mb-2 pointer_link font-size_14">Project Description</label>
-        <div class="cd-form-group textarea_input">
-          <textarea class="cd__input input__small" placeholder="Type your project description"
-                    formControlName="desc_project"
-          ></textarea>
+        <div class="mb-2" style="height: 500px;">
+          <div class="cd-form-group textarea_input">
+            <editor
+              class="position-relative"
+              formControlName="desc_project"
+              [init]="init"></editor>
+          </div>
         </div>
-        <label for="">Select the tool</label>
+        <label class="mt-2">Select the tool</label>
         <div class="cd-form-group">
           <ng-select class="mt-2 mb-2 ng-select_made font-size_14"
                      [items]="tools"
@@ -94,16 +97,16 @@
   </form>
 </div>
 
-<div class="upload-progress">
-  <div class="position-relative display-flex a-items-center">
-    <div class="image-upload overflow-hidden">
-      <img [src]="imagetoPreview" width="40px" height="40px" class="object-cover" alt="">
-    </div>
-    <div>
-      <h1 class="heading font-size_18">Uploading {{uploadedProgress}}%</h1>
-    </div>
-  </div>
-</div>
+<!--<div class="upload-progress">-->
+<!--  <div class="position-relative display-flex a-items-center">-->
+<!--    <div class="image-upload overflow-hidden">-->
+<!--      <img [src]="imagetoPreview" width="40px" height="40px" class="object-cover" alt="">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <h1 class="heading font-size_18">Uploading {{uploadedProgress}}%</h1>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 <div class="footer-form_submit">
   <div class="display-grid footer_content text_center">

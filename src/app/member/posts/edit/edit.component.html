@@ -3,12 +3,7 @@
   <form [formGroup]="">
     <div class="form-grid display-grid">
       <div class="image-preview">
-        <ngx-dropzone class="w-100 h-100 dropzone_cover" (change)="preview($event)" accept="image/*">
-          <ngx-dropzone-label>Upload your design cover!</ngx-dropzone-label>
-          <ngx-dropzone-image-preview class="ngx-image_preview" ngProjectAs="ngx-dropzone-preview"  [removable]="true"
-                                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
-          </ngx-dropzone-image-preview>
-        </ngx-dropzone>
+        <img src="" alt="">
       </div>
       <div class="inputs-group">
         <label for="project_name" class="d-inline-block mb-2 pointer_link font-size_14">Project Title</label>

@@ -45,6 +45,15 @@
   }
 }
 
+.heading-six {
+  @include fluid('font-size', 320px, 1920px, 18px, 30px);
+  @include fluid('line-height', 320px, 1920px, 19px, 31px);
+
+  &.font-roboto {
+    font-variation-settings: var(--f-medium);
+  }
+}
+
 .login_headline-welcome {
   font-family: var(--f-eina-regular);
   letter-spacing: -2.4px;

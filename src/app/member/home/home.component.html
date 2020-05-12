@@ -8,8 +8,9 @@
         <div class="display-grid filters-shots grid__filter no-padding">
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Timeframe</p>
-            <div class="position-relative" (click)="onToggleTable(1)" (mouseleave)="onToggleTable(-1)">
-              <div tabindex="4" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 1}">
+            <div class="position-relative">
+              <div  dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(1)" (onClose)="onToggleTable(-1)"
+                    tabindex="4" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 1}">
                 <span>Recent</span>
               </div>
               <ul class="dropdown_menu_links">
@@ -19,8 +20,10 @@
           </div>
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Sort By</p>
-            <div class="position-relative" (click)="onToggleTable(2)" (mouseleave)="onToggleTable(-1)">
-              <div tabindex="5" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 2}">
+            <div class="position-relative">
+              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(2)" (onClose)="onToggleTable(-1)"
+                   tabindex="5" class="dropdown-menu_neue grid__filter-item"
+                   [ngClass]="{'open focused': toggleTable === 2}">
                 <span>{{labels.sortBy || 'Relevant'}}</span>
               </div>
               <ul class="dropdown_menu_links" [ngClass]="{'d-block': toggleTable === 2 }">
@@ -34,8 +37,9 @@
           </div>
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Made with</p>
-            <div class="position-relative" (click)="onToggleTable(3)" (mouseleave)="onToggleTable(-1)">
-              <div tabindex="6" class="dropdown-menu_neue grid__filter-item"
+            <div class="position-relative">
+              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(3)" (onClose)="onToggleTable(-1)"
+                   tabindex="6" class="dropdown-menu_neue grid__filter-item"
                    [ngClass]="{'open focused': toggleTable === 3}">
 
                 <svg-icon fileName="icons" *ngIf="selected.made" [icon]="'icon-' + selected.made.icon" size="16"></svg-icon>
@@ -59,8 +63,8 @@
           </div>
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Grid Columns</p>
-            <div class="position-relative d-block" (click)="onToggleTable(4)" (mouseleave)="onToggleTable(-1)">
-              <div tabindex="7" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 4}">
+            <div class="position-relative d-block">
+              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(4)" (onClose)="onToggleTable(-1)" tabindex="7" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 4}">
                 <span>Big column</span>
               </div>
               <ul class="dropdown_menu_links text_center overflow-hidden">
@@ -96,7 +100,8 @@
          (scrolled)="infiniteScroll()">
       <div class="grid-item grid_item_showed" *ngFor="let p of designs; let i = index">
         <div class="image-grid position-relative">
-          <img [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%" height="100%" alt="">
+          <img [routerLink]="['', 'design', p.slug]"
+            [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%" height="100%" alt="">
           <cd-button
             [showIcon]="true"
             [textBtn]="false"
@@ -112,10 +117,12 @@
               <img [src]="'https://api.adorable.io/avatars/285/' + p?.name" class="object-cover" width="100%" height="100%" draggable="false" alt="">
             </div>
             <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_15'">
-              <p class="position-relative cd-link card-title">
-                {{p.title_project}}
-              </p>
-              <a class="cd-link font-size_12 position-relative d-inline-block card-link">
+              <a [routerLink]="['', 'design', p.slug]">
+                <p class="position-relative cd-link card-title">
+                  {{p.title_project}}
+                </p>
+              </a>
+              <a class="cd-link font-size_12 position-relative d-inline-block card-link" [routerLink]="['../us/', p.username]">
                 {{p.name}}
               </a>
             </div>

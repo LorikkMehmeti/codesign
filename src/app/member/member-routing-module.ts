@@ -47,7 +47,7 @@ const appRoutes: Routes = [
         component: UploadComponent
       },
       {
-        path: 'post/edit',
+        path: 'post/edit/:slug',
         component: EditComponent
       },
       {

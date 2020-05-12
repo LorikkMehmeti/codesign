@@ -16,9 +16,9 @@ import { SearchComponent } from './search/search.component';
 import { UploadComponent } from './posts/upload/upload.component';
 import { EditComponent } from './posts/edit/edit.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-
 import { NgSelectModule } from '@ng-select/ng-select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import {SkeletonComponent} from '../shared/components';
 import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -29,6 +29,9 @@ import { AccountSettingsComponent } from './settings/account-settings/account-se
 import { PasswordComponent } from './settings/password/password.component';
 import {TooltipModule} from 'ng2-tooltip-directive';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {EditorModule, TINYMCE_SCRIPT_SRC} from '@tinymce/tinymce-angular';
+import {SafePipe} from '../shared/helpers/safe.pipe';
+import {DropdownModule} from 'ngx-dropdown';
 
 @NgModule({
   declarations: [
@@ -46,19 +49,25 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     WorkComponent,
     AccountSettingsComponent,
     PasswordComponent,
+    SafePipe,
   ],
-    imports: [
-        CommonModule,
-        MemberRoutingModule,
-        GuestModule,
-        NgxDropzoneModule,
-        FormsModule,
-        NgSelectModule,
-        ReactiveFormsModule,
-        TranslateModule,
-        TooltipModule,
-        InfiniteScrollModule,
-    ]
+  imports: [
+    CommonModule,
+    MemberRoutingModule,
+    GuestModule,
+    NgxDropzoneModule,
+    FormsModule,
+    NgSelectModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    TooltipModule,
+    InfiniteScrollModule,
+    EditorModule,
+    DropdownModule
+  ],
+  providers: [
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+  ]
 })
 export class MemberModule {
 }

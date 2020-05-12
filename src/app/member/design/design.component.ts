@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {DesignService} from '../../shared/services/design/design.service';
 import {ActivatedRoute} from '@angular/router';
@@ -15,6 +15,8 @@ export class DesignComponent implements OnInit {
   liked = false;
   slug: string;
   design: any;
+  isSticky = false;
+  lightBoxShowing = false;
 
   constructor(private activatedRoute: ActivatedRoute, private toast: ToastrService, private designService: DesignService) {
   }
@@ -30,6 +32,21 @@ export class DesignComponent implements OnInit {
     });
   }
 
+  showLightBox() {
+    this.lightBoxShowing = !this.lightBoxShowing;
+    if (this.lightBoxShowing) {
+      document.body.classList.add('events-none');
+    } else {
+      document.body.classList.remove('events-none');
+    }
+  }
+
+
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    this.isSticky = window.pageYOffset >= 60;
+  }
+
   getDesignInfo() {
     this.designService.getDesign(this.slug).subscribe((res: any) => {
       this.design = res.data;
@@ -39,17 +56,17 @@ export class DesignComponent implements OnInit {
 
   downloadFiles() {
     this.toast.show(`Downloading now your files`, 'Success', {
-      toastClass: 'warning-toast'
+      toastClass: 'warning-toast', timeOut: 50000000, extendedTimeOut: 500000000
     });
 
-    this.designService.downloadDesign(this.slug).subscribe((res: any) => {
-      // Show toast for after the download is completed
-      this.toast.show(`Files downloaded successfully`, 'Success', {
-        toastClass: 'success-toast'
-      });
-      const blob: any = new Blob([res], {type: 'octet/stream'});
-      fileSaver.saveAs(blob, `${this.slug}.zip`);
-    });
+    // this.designService.downloadDesign(this.slug).subscribe((res: any) => {
+    //   // Show toast for after the download is completed
+    //   this.toast.show(`Files downloaded successfully`, 'Success', {
+    //     toastClass: 'success-toast'
+    //   });
+    //   const blob: any = new Blob([res], {type: 'octet/stream'});
+    //   fileSaver.saveAs(blob, `${this.slug}.zip`);
+    // });
   }
 
 

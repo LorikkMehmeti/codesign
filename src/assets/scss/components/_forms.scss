@@ -98,8 +98,11 @@ textarea {
 }
 
 .form-grid {
+  max-width: 1000px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 450px;
+  grid-template-rows: 500px 1fr;
+  //grid-template-columns: 2fr 450px;
   grid-gap: 20px;
 }
 
@@ -114,7 +117,7 @@ textarea {
 }
 
 .footer-form_submit {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   right: 0;
   left: 0;

@@ -5,6 +5,8 @@ import {TitleService} from '../../../shared/services/title.service';
 import {DesignService} from '../../../shared/services/design/design.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
 
+declare var tinymce: any;
+
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -34,6 +36,27 @@ export class UploadComponent implements OnInit {
 
   uploadedProgress = 0;
 
+  init = {
+    base_url: '/tinymce',
+    suffix: '.min',
+    statusbar: false,
+    menubar: true,
+    resize: false,
+    height: 500,
+    plugins: [
+      'advlist autolink lists link image charmap preview anchor',
+      'searchreplace visualblocks',
+      'emoticons',
+      'codesample',
+      'insertdatetime media paste code help wordcount'
+    ],
+    toolbar:
+      'undo redo | formatselect | bold italic backcolor forecolor emoticons  | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | help',
+  };
+
+
   constructor(private design: DesignService, private title: TitleService, private toast: ToastrService) {
   }
 
@@ -51,6 +74,15 @@ export class UploadComponent implements OnInit {
         this.showModal = true;
       }, 1500);
     }
+
+    this.initTextArea();
+  }
+
+  initTextArea() {
+    tinymce.init({
+      selector: '#tinymce_textarea',  // change this value according to your HTML
+      resize: 'both'
+    });
   }
 
   clickProject(i) {
@@ -115,7 +147,6 @@ export class UploadComponent implements OnInit {
 
   previewCover(event) {
     if (this.imagePreview) {
-      console.log('e paske njo');
       this.imagePreview = null;
     }
 
@@ -166,7 +197,7 @@ export class UploadComponent implements OnInit {
 
   onSubmit() {
     if (this.createShot.invalid || !this.imagePreview) {
-      this.activeToast = this.toast.show(`All fields are required to create a project`, 'Error' , {
+      this.activeToast = this.toast.show(`All fields are required to create a project`, 'Error', {
         toastClass: 'error-toast'
       });
       return;
@@ -179,9 +210,11 @@ export class UploadComponent implements OnInit {
     formData.append('tool_project', this.selected_tool.value.name);
     formData.append('slug_tool', this.selected_tool.value.extension);
     formData.append('cover_image', this.imagePreview);
+    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.files.length; i++) {
       formData.append('files[]', this.files[i]);
     }
+
 
     this.design.createDesign(formData).subscribe((res: any) => {
       this.uploadedProgress = res.message;
@@ -191,7 +224,6 @@ export class UploadComponent implements OnInit {
     });
 
   }
-
 
 
   getExtension(f) {

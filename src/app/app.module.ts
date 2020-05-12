@@ -14,8 +14,9 @@ import {ToastComponent, NotfoundComponent} from './shared/components';
 import {CookieService} from 'ngx-cookie-service';
 import {LogoutComponent} from './shared/components/logout/logout.component';
 import {HttpCacheInterceptorModule} from '@ngneat/cashew';
-import { TooltipModule } from 'ng2-tooltip-directive';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import {TooltipModule} from 'ng2-tooltip-directive';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }

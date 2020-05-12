@@ -10,6 +10,8 @@ import {ConfirmRegistrationComponent} from './confirm-registration/confirm-regis
 import {CdbuttonComponent, SvgIconComponent, FooterComponent, HeaderComponent} from '../shared/components';
 import {TranslateModule} from '@ngx-translate/core';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {TooltipModule} from 'ng2-tooltip-directive';
+import {DropdownModule} from 'ngx-dropdown';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,16 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
     SvgIconComponent,
     GuestComponent
   ],
-    exports: [CdbuttonComponent, HeaderComponent, FooterComponent, SvgIconComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    GuestRoutingModule,
-    TranslateModule,
-  ]
+  exports: [CdbuttonComponent, HeaderComponent, FooterComponent, SvgIconComponent],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        FormsModule,
+        GuestRoutingModule,
+        TranslateModule,
+        TooltipModule,
+        DropdownModule,
+    ]
 })
 export class GuestModule {
 }

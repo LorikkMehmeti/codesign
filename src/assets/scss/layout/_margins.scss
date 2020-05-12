@@ -38,6 +38,11 @@
   margin-top: 10px;
 }
 
+.my-0 {
+  margin-top: 0!important;
+  margin-bottom: 0!important;
+}
+
 .mx-2 {
   margin-left: 10px;
   margin-right: 10px;
@@ -53,9 +58,9 @@
   margin: 0!important;
 }
 
-.buttons-design {
-  @include fluid('margin-top', 800px, 1300px, 20px, 30px);
-}
+//.buttons-design {
+//  @include fluid('margin-top', 800px, 1300px, 20px, 30px);
+//}
 
 .design__data-info {
   @include fluid('margin-top', 320px, 1200px, 20px, 40px);

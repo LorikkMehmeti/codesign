@@ -100,12 +100,16 @@
   height: 28px;
   background: var(--home-container);
 
+  &.open ~ .right_submenu {
+    display: block;
+  }
   img {
     width: 100%;
   }
 }
 
 .right_submenu {
+  display: none;
   &:after {
     content: '';
     position: absolute;

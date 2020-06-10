@@ -1,8 +1,9 @@
 <!--<cd-header marginHeader="true"></cd-header>-->
 <div class="container">
-  <div class="display-flex top_profile w-100" *ngIf="user; else skeleton">
+  <div class="display-flex top_profile w-100" *ngIf="user;">
     <div class="profile_image">
-      <img [src]="'https://api.adorable.io/avatars/285/' + user?.username" class="object-cover" width="100%" height="100%" draggable="false" alt="">
+      <img [src]="'https://api.adorable.io/avatars/285/' + user?.username" class="object-cover" width="100%"
+           height="100%" draggable="false" alt="">
     </div>
     <div class="profile_side flex-1">
       <div class="display-flex a-items-center j-space-between">
@@ -25,54 +26,123 @@
       </p>
     </div>
   </div>
-  <ng-template #skeleton>
+  <ng-template [ngIf]="userLoading">
     <div class="display-flex top_profile w-100">
       <div class="profile_image no-shadow position-relative">
         <cd-skeleton></cd-skeleton>
       </div>
       <div class="profile_side flex-1">
         <div class="">
-          <h4 class="profile_username position-relative">&nbsp;<cd-skeleton width="300" height="20"></cd-skeleton></h4>
-          <h5 class="font-size_16 position-relative">&nbsp;<cd-skeleton width="150" height="14"></cd-skeleton></h5>
+          <h4 class="profile_username position-relative">&nbsp;<cd-skeleton width="300" height="20"></cd-skeleton>
+          </h4>
+          <h5 class="font-size_16 position-relative">&nbsp;<cd-skeleton width="150" height="14"></cd-skeleton>
+          </h5>
         </div>
         <p class="profile_bio position-relative">
-          <b class="position-relative">&nbsp;<cd-skeleton width="280" height="14"></cd-skeleton></b>
+          <b class="position-relative">&nbsp;<cd-skeleton width="280" height="14"></cd-skeleton>
+          </b>
         </p>
         <p class="profile_bio position-relative">
-          <b class="position-relative">&nbsp;<cd-skeleton width="280" height="14"></cd-skeleton></b>
+          <b class="position-relative">&nbsp;<cd-skeleton width="280" height="14"></cd-skeleton>
+          </b>
         </p>
       </div>
     </div>
   </ng-template>
-  <div class="tabs-profile">
+
+
+  <div *ngIf="!userExists" class="text_center" style="margin: 15% 0;">
+    <div class="d-inline-block">
+      <div class="display-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="125.5" height="98.25" viewBox="0 0 125.5 98.25">
+          <g id="Error" transform="translate(1.25 1)">
+            <path id="Shape"
+                  d="M95,83H22A22.116,22.116,0,0,1,6.444,76.7a21.157,21.157,0,0,1,0-30.406A22.115,22.115,0,0,1,22,40c.506,0,1.023.018,1.537.052A34.319,34.319,0,0,1,23,34,34,34,0,0,1,77.045,6.534,34.077,34.077,0,0,1,89.239,23.17,31.377,31.377,0,0,1,92.5,23a30.747,30.747,0,0,1,11.872,2.357,30.432,30.432,0,0,1,9.695,6.429,29.877,29.877,0,0,1,6.537,9.536A29.39,29.39,0,0,1,123,53a29.758,29.758,0,0,1-8.122,20.422A30.536,30.536,0,0,1,95,82.978V83Z"
+                  transform="translate(0 13)" fill="transparent" stroke="rgba(var(--color-font-rgba), .2)"
+                  stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.5"/>
+            <circle id="Oval" cx="5.5" cy="5.5" r="5.5" transform="translate(52 71)" fill="none"
+                    stroke="rgba(var(--color-font-rgba), .2)" stroke-miterlimit="10" stroke-width="2.5"/>
+            <path id="Line" d="M0,10.722,7,5.229,0,0" transform="translate(42 54.278)" fill="none"
+                  stroke="rgba(var(--color-font-rgba), .2)" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-miterlimit="10" stroke-width="2.5"/>
+            <path id="Line-2" data-name="Line" d="M0,10.722-7,5.229,0,0" transform="translate(73 54.278)" fill="none"
+                  stroke="rgba(var(--color-font-rgba), .2)" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-miterlimit="10" stroke-width="2.5"/>
+            <path id="Oval-2" data-name="Oval" d="M-13.44,0A19.036,19.036,0,0,1,0,13.293"
+                  transform="translate(80.44 23)" fill="none" stroke="rgba(var(--color-font-rgba), .2)"
+                  stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.5"/>
+            <circle id="Oval-3" data-name="Oval" cx="3" cy="3" r="3" transform="translate(85)" fill="none"
+                    stroke="rgba(var(--color-font-rgba), .2)" stroke-miterlimit="10" stroke-width="2"/>
+            <circle id="Oval-4" data-name="Oval" cx="3" cy="3" r="3" transform="translate(116 16)"
+                    fill="rgba(var(--color-font-rgba), .2)"/>
+            <path id="Line_5" data-name="Line 5"
+                  d="M4.6,4.6.481,8.712,4.6,4.6.354.354,4.6,4.6,8.839.354,4.6,4.6,8.712,8.712Z"
+                  transform="translate(95.404 13.404)" fill="none" stroke="rgba(var(--color-font-rgba), .2)"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5"/>
+            <path id="Line_4" data-name="Line 4" d="M3,3,0,6,3,3,0,0,3,3,6,0,3,3,6,6Z"
+                  transform="translate(1.404 31.596)" fill="none" stroke="rgba(var(--color-font-rgba), .2)"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5"/>
+            <circle id="Oval-5" data-name="Oval" cx="3" cy="3" r="3" transform="translate(12 19)"
+                    fill="rgba(var(--color-font-rgba), .2)"/>
+          </g>
+        </svg>
+        <div class="ml-4 text_left" style="max-width: 300px;">
+          <p style="color: rgba(var(--color-font-rgba), .6)">
+            Sorry. Unless you’ve got a time machine, that content is unavailable
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="tabs-profile" *ngIf="designs && designs.length > 0; else nodesigns" >
     <div class="grid_posts">
-      <div class="grid-item" *ngFor="let p of items; let i = index">
+      <div class="grid-item" *ngFor="let p of designs; let i = index">
         <!--        <div style="background:purple;height:220px;">-->
 
         <!--        </div>-->
         <div class="image-grid">
-          <img [src]="p.img" width="100%" height="100%" style="object-position: top; object-fit: cover;" alt="">
+          <img [src]="'http://localhost:8000/images/covers/' + p.cover_image" width="100%" height="100%"
+               style="object-position: top; object-fit: cover;" alt="">
           <cd-button
+            *ngIf="user && user?.isMyProfile"
+            (click)="deleteDesign(p.id)"
             [showIcon]="true"
             [textBtn]="false"
             [iconSize]="16"
-            [iconName]="'icon-heart'"
-            [classNames]="'btn-svg-icon bookmark_button'">
+            [iconName]="'trash-bin'"
+            [classNames]="'btn-svg-icon bookmark_button delete-button'">
           </cd-button>
         </div>
         <div class="display-flex a-items-center j-space-between bottom_post">
           <div class="display-flex w-100">
             <div class="avatar-image">
-              <img [src]="'https://api.adorable.io/avatars/285/' + user?.email" class="object-cover" width="100%" height="100%" draggable="false" alt="">
+              <img [src]="'http://localhost:8000/images/covers/' + p.cover_image" width="100%" height="100%"
+                   draggable="false" alt="">
             </div>
             <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_16'">
-              <p class="cd-link card-title">{{p.title}}</p>
+              <p class="cd-link card-title">{{p.title_project}}</p>
               <a class="cd-link font-size_12" style="opacity: .7;">{{user?.username}}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
+  <ng-template #nodesigns>
+    <div class="text_center" *ngIf="!userLoading && userExists">
+      <div class="empty-state text_center">
+        <div class="d-inline-block">
+          <div class="empty-icon">
+            <svg-icon fileName="icons" icon="images-state" size="60" fillColor="var(--color-font)"></svg-icon>
+          </div>
+        </div>
+        <h1 class="heading text_none">Sorry no results</h1>
+        <p class="font-size_13 mt-2">This user hasn't uploaded any designs yet</p>
+      </div>
+    </div>
+  </ng-template>
 </div>
 <!--<cd-footer></cd-footer>-->

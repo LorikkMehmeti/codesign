@@ -25,9 +25,7 @@ export class UserService {
   getAuthUser(includeProfile?: boolean) {
     const endpoint = `${this.endpoint}/details` + (includeProfile ? '?profile=true' : '');
 
-    return this.http.get(endpoint, withCache({
-      strategy: 'implicit'
-    }));
+    return this.http.get(endpoint);
   }
 
   updateInfo(body) {

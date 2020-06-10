@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../shared/services/user/user.service';
 import {TitleService} from '../../shared/services/title.service';
+import {DesignService} from '../../shared/services/design/design.service';
 
 @Component({
   selector: 'app-profile',
@@ -80,11 +81,16 @@ export class ProfileComponent implements OnInit {
     },
   ];
 
+  designs: any;
+
   username: string;
   user: any;
+  userExists = true;
+  userLoading = true;
 
   constructor(private title: TitleService,
               private activatedRoute: ActivatedRoute,
+              private designService: DesignService,
               private userService: UserService,
               private router: Router) {
   }
@@ -92,6 +98,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(param => {
       this.user = undefined;
+      this.userLoading = true;
       this.username = param.username;
       if (this.username) {
         this.getUserFromUsername(this.username);
@@ -101,16 +108,48 @@ export class ProfileComponent implements OnInit {
 
   getUserFromUsername(username) {
     this.userService.getUserFromUsername(username).subscribe((res: any) => {
+      this.userLoading = false;
       if (res.success) {
         this.user = res.data;
         const user = this.user;
+        this.userExists = true;
+        this.designs = res.data.designs;
         this.title.setTitle(`${user.first_name} ${user.last_name} - Codesign`);
       }
 
       if (!res.success) {
-        this.router.navigate(['/not-found-page']);
+        this.userExists = false;
+        // this.router.navigate(['/not-found-page']);
       }
     });
   }
 
+  @Confirmable('Are you sure you want to delete')
+  deleteDesign(id) {
+    this.designService.deleteDesign(id).subscribe(() => {
+      console.log('U fshi');
+      this.designs = this.designs.filter(design => design.id !== id);
+    });
+  }
+
+}
+
+function Confirmable(message: string) {
+  // tslint:disable-next-line:only-arrow-functions
+  return function (target: Object, key: string | symbol, descriptor: PropertyDescriptor) {
+    const original = descriptor.value;
+
+    descriptor.value = function( ... args: any[]) {
+      const allow = confirm(message);
+
+      if (allow) {
+        const result = original.apply(this, args);
+        return result;
+      } else {
+        return null;
+      }
+    };
+
+    return descriptor;
+  };
 }

@@ -48,6 +48,13 @@ export class DesignService {
 
   }
 
+  deleteDesign(id) {
+    const endpoint = `${this.endpoint}/design/${id}`;
+
+    return this.http.delete(endpoint);
+
+  }
+
   downloadDesign(design: string) {
     const endpoint = `${this.endpoint}/download/${design}`;
 

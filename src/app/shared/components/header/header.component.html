@@ -48,8 +48,8 @@
                        routerLink="/post/create"></cd-button>
           </div>
         </div>
-        <div class="d-inline-block v-middle position-relative" *ngIf="user" >
-          <a class="font-size_12 profile_avatar display-flex a-items-center j-center"dropdown [dropdownToggle]="true" dropdown-open>
+        <div class="d-inline-block v-middle position-relative" *ngIf="user">
+          <a class="font-size_12 profile_avatar display-flex a-items-center j-center" dropdown [dropdownToggle]="true" dropdown-open>
             <img [src]="'https://api.adorable.io/avatars/285/' + user?.username" class="rounded object-cover" width="100%"
                  height="100%" draggable="false" alt="">
           </a>

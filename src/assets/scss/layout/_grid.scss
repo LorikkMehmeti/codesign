@@ -180,6 +180,10 @@
   width: calc(100% - 26px);
 }
 
+.image-grid {
+  background: var(--header-color);
+}
+
 .design-grid {
   max-width: 1000px;
   margin: 0 auto;
@@ -189,6 +193,10 @@
     width: 100%!important;
     cursor: zoom-in;
     transition: opacity 100ms ease;
+
+    img {
+      min-height: 500px;
+    }
     @media (hover: hover) {
       &:hover {
         opacity: .8;
@@ -200,4 +208,8 @@
       display: block !important;
     }
   }
+}
+
+.delete-button {
+  background: var(--color-danger)!important;
 }

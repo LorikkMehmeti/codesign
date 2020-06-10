@@ -176,3 +176,19 @@ body {
 ._home-section {
   @include fluid('padding-right', 540px, 1400px, 10px, 80px);
 }
+
+.empty-state {
+  display: inline-block;
+}
+
+.empty-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  background: var(--header-color);
+  display: flex;
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
+}
+

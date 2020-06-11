@@ -16,6 +16,7 @@ import {LogoutComponent} from './shared/components/logout/logout.component';
 import {HttpCacheInterceptorModule} from '@ngneat/cashew';
 import {TooltipModule} from 'ng2-tooltip-directive';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -56,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       timeOut: 5000,
       toastComponent: ToastComponent
     }),
+    NgxSmartModalModule.forRoot(),
     AppRoutingModule,
   ],
   entryComponents: [ToastComponent],

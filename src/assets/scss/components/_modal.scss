@@ -1,0 +1,45 @@
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--header-color);
+}
+
+.nsm-content {
+  padding: 0;
+  background: var(--header-color);
+}
+.modal-title{
+  padding: 8px 16px;
+}
+
+.modal-body {
+ padding: 16px;
+}
+
+.modal-buttons{
+  text-align: right;
+  padding: 0 16px 16px;
+}
+.modal-title {
+  background: var(--_hover);
+}
+
+.heading-modal {
+  @include fluid('font-size', 320px, 1920px, 18px, 26px);
+  font-variation-settings: var(--f-bold);
+  text-transform: uppercase;
+}
+
+.modal-message {
+  font-size: 14px;
+  font-variation-settings: var(--f-light);
+}
+
+
+.modal-container {
+}
+
+.nsm-dialog-btn-close {
+  display: none;
+}

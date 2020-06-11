@@ -12,6 +12,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {TooltipModule} from 'ng2-tooltip-directive';
 import {DropdownModule} from 'ngx-dropdown';
+import {NgxSmartModalModule} from 'ngx-smart-modal';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {DropdownModule} from 'ngx-dropdown';
         TranslateModule,
         TooltipModule,
         DropdownModule,
+        NgxSmartModalModule,
     ]
 })
 export class GuestModule {

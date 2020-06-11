@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../../shared/services/user/user.service';
 import {TitleService} from '../../shared/services/title.service';
 import {DesignService} from '../../shared/services/design/design.service';
+import {NgxSmartModalService} from 'ngx-smart-modal';
+import {ToastrService} from 'ngx-toastr';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
@@ -87,12 +90,15 @@ export class ProfileComponent implements OnInit {
   user: any;
   userExists = true;
   userLoading = true;
+  deleteId: any;
 
   constructor(private title: TitleService,
               private activatedRoute: ActivatedRoute,
+              private toast: ToastrService,
               private designService: DesignService,
-              private userService: UserService,
-              private router: Router) {
+              private translate: TranslateService,
+              public ngxSmartModalService: NgxSmartModalService,
+              private userService: UserService) {
   }
 
   ngOnInit() {
@@ -124,32 +130,19 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  @Confirmable('Are you sure you want to delete')
   deleteDesign(id) {
+    this.ngxSmartModalService.getModal('myModal').close();
     this.designService.deleteDesign(id).subscribe(() => {
-      console.log('U fshi');
+      this.toast.show(`${this.translate.instant('messages.deletedProject')}`, 'Success', {
+        toastClass: 'success-toast'
+      });
       this.designs = this.designs.filter(design => design.id !== id);
     });
   }
 
-}
+  openDeleteModal(id) {
+    this.deleteId = id;
+    this.ngxSmartModalService.getModal('myModal').open();
+  }
 
-function Confirmable(message: string) {
-  // tslint:disable-next-line:only-arrow-functions
-  return function (target: Object, key: string | symbol, descriptor: PropertyDescriptor) {
-    const original = descriptor.value;
-
-    descriptor.value = function( ... args: any[]) {
-      const allow = confirm(message);
-
-      if (allow) {
-        const result = original.apply(this, args);
-        return result;
-      } else {
-        return null;
-      }
-    };
-
-    return descriptor;
-  };
 }

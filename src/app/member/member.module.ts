@@ -32,6 +32,7 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {EditorModule, TINYMCE_SCRIPT_SRC} from '@tinymce/tinymce-angular';
 import {SafePipe} from '../shared/helpers/safe.pipe';
 import {DropdownModule} from 'ngx-dropdown';
+import {NgxSmartModalModule} from 'ngx-smart-modal';
 
 @NgModule({
   declarations: [
@@ -51,20 +52,21 @@ import {DropdownModule} from 'ngx-dropdown';
     PasswordComponent,
     SafePipe,
   ],
-  imports: [
-    CommonModule,
-    MemberRoutingModule,
-    GuestModule,
-    NgxDropzoneModule,
-    FormsModule,
-    NgSelectModule,
-    ReactiveFormsModule,
-    TranslateModule,
-    TooltipModule,
-    InfiniteScrollModule,
-    EditorModule,
-    DropdownModule
-  ],
+    imports: [
+        CommonModule,
+        MemberRoutingModule,
+        GuestModule,
+        NgxDropzoneModule,
+        FormsModule,
+        NgSelectModule,
+        ReactiveFormsModule,
+        TranslateModule,
+        TooltipModule,
+        InfiniteScrollModule,
+        EditorModule,
+        DropdownModule,
+        NgxSmartModalModule
+    ],
   providers: [
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
   ]

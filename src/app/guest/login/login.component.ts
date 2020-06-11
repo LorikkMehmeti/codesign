@@ -6,6 +6,7 @@ import {AuthenticationService} from '../../shared/services/authentication.servic
 import {TokenService} from '../../shared/services/token.service';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
+import {NgxSmartModalService} from 'ngx-smart-modal';
 
 
 const emailUsernamePattern = /(?:[A-Z\d][A-Z\d_-]{5,10}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})/;

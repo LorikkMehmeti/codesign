@@ -54,5 +54,15 @@
       "userGuide": "User Guide",
       "terms": "Terms & Conditions"
     }
+  },
+  "confirmAction": "Confirm your action",
+  "messages": {
+    "deleteProject": "Are you sure you want to delete your masterpiece. You will not be able to recover this project or its contents. This operation cannot be undone",
+    "deletedProject": "Project was deleted successfully"
+  },
+  "buttons": {
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "deleteProject": "Delete project"
   }
 }

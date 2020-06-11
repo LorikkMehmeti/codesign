@@ -51,5 +51,15 @@
       "userGuide": "Benutzerhandbuch",
       "terms": "Geschäftsbedingungen"
     }
+  },
+  "confirmAction": "Bestätigen Sie Ihre Aktion",
+  "messages": {
+    "deleteProject": "Sind Sie sicher, dass Sie Ihr Meisterwerk löschen möchten? Sie können dieses Projekt oder seinen Inhalt nicht wiederherstellen. Dieser Vorgang kann nicht rückgängig gemacht werden",
+    "deletedProject": "Projekt wurde erfolgreich gelöscht"
+  },
+  "buttons": {
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "deleteProject": "Projekt löschen"
   }
 }

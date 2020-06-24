@@ -1,7 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {DesignService} from '../../shared/services/design/design.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import * as fileSaver from 'file-saver';
 
@@ -18,7 +18,10 @@ export class DesignComponent implements OnInit {
   isSticky = false;
   lightBoxShowing = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private toast: ToastrService, private designService: DesignService) {
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private toast: ToastrService,
+              private designService: DesignService) {
   }
 
   ngOnInit() {
@@ -51,6 +54,8 @@ export class DesignComponent implements OnInit {
     this.designService.getDesign(this.slug).subscribe((res: any) => {
       this.design = res.data;
       console.log(this.design);
+    }, error => {
+      this.router.navigate(['not-found-page']);
     });
   }
 

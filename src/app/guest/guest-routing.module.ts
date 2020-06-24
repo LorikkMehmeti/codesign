@@ -34,7 +34,7 @@ const appRoutes: Routes = [
         component: ResetPasswordComponent
       },
       {
-        path: 'confirm-registration',
+        path: 'confirm-registration/:code',
         component: ConfirmRegistrationComponent
       }
     ]

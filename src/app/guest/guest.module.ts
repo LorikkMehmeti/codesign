@@ -13,6 +13,7 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {TooltipModule} from 'ng2-tooltip-directive';
 import {DropdownModule} from 'ngx-dropdown';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
+import { ResendComponent } from './resend/resend.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {NgxSmartModalModule} from 'ngx-smart-modal';
     FooterComponent,
     HeaderComponent,
     SvgIconComponent,
-    GuestComponent
+    GuestComponent,
+    ResendComponent
   ],
   exports: [CdbuttonComponent, HeaderComponent, FooterComponent, SvgIconComponent],
     imports: [

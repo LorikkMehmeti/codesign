@@ -1,0 +1,29 @@
+<cd-header [marginHeader]="true"></cd-header>
+<div class="container login-container">
+  <div class="grid-login">
+    <div class="resend_container text_center">
+      <h1 class="heading heading-title font-roboto text_uppercase">Resend Link</h1>
+      <p class="mt-2">Enter your <span class="font-black">Codesign</span> email that you used to register. We'll send you an email with the verify link</p>
+
+      <form [formGroup]="resend" (ngSubmit)="onSubmit()">
+        <div class="cd-form-group mt-2">
+          <input type="text" class="cd__input input__small"
+                 formControlName="email"
+                 [placeholder]="'Placeholders.Register.email' | translate">
+        </div>
+
+        <button class="unset-css" type="submit">
+          <cd-button
+            [showIcon]="false"
+            [textBtn]="true"
+            [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"
+            borderRadius="4"
+            [text]="'Resend link'" [maxWidth]="true">
+          </cd-button>
+        </button>
+      </form>
+      <p class="font-family-eina">If you still need help, contact <a class="cd-link">Codesign Support.</a></p>
+    </div>
+  </div>
+</div>
+<cd-footer></cd-footer>

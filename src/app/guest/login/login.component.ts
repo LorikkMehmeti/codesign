@@ -100,6 +100,11 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigate(['/home']);
         }
       }, (error) => {
+        if (error.error.status === 401) {
+          this.router.navigate(['/resend'], {queryParams: {username: this.username.value}});
+          return;
+        }
+
         this.toast.show(`Service unavailable`, 'Error 503', {
           toastClass: 'error-toast'
         });

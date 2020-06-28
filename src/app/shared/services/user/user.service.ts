@@ -51,6 +51,12 @@ export class UserService {
     return this.http.get(endpoint);
   }
 
+  resend(body) {
+    const endpoint = `${this.endpoint}/resend-verify`;
+
+    return this.http.post(endpoint, body);
+  }
+
   isVerified() {
     const endpoint = `${this.endpoint}/details`;
     this.getAuthUser().subscribe((res: any) => {

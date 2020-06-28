@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {ConfirmRegistrationComponent} from './confirm-registration/confirm-registration.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {ResendComponent} from './resend/resend.component';
 
 const appRoutes: Routes = [
   {
@@ -36,6 +37,10 @@ const appRoutes: Routes = [
       {
         path: 'confirm-registration/:code',
         component: ConfirmRegistrationComponent
+      },
+      {
+        path: 'resend',
+        component: ResendComponent
       }
     ]
   }

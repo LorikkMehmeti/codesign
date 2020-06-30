@@ -18,6 +18,10 @@
     "Login": {
       "usernameOrEmail": "Benutzername oder E-Mail-Adresse",
       "Password": "Passwort"
+    },
+    "forgot": {
+      "password": "Password",
+      "newPassword": "New password",
     }
   },
   "reCAPTCHA": {

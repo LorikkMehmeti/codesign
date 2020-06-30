@@ -21,6 +21,10 @@
     },
     "Register": {
       "email": "Email address"
+    },
+    "forgot": {
+      "password": "Password",
+      "newPassword": "New password"
     }
   },
   "reCAPTCHA": {

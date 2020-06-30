@@ -57,6 +57,18 @@ export class UserService {
     return this.http.post(endpoint, body);
   }
 
+  forgot(body) {
+    const endpoint = `${this.endpoint}/forgot-password`;
+
+    return this.http.post(endpoint, body);
+  }
+
+  resetPassword(body) {
+    const endpoint = `${this.endpoint}/reset-password`;
+
+    return this.http.post(endpoint, body);
+  }
+
   isVerified() {
     const endpoint = `${this.endpoint}/details`;
     this.getAuthUser().subscribe((res: any) => {

@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {SafeHtml, DomSanitizer} from '@angular/platform-browser';
 import {withCache} from '@ngneat/cashew';
+import {ThemeService} from './shared/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +18,24 @@ export class AppComponent implements OnInit {
   getInlineSVG: SafeHtml;
 
   /**
-   * @param multiLang as MultiLangService.
+   * @param themeService;
+   * @param multiLang as MultiLangService.;
+   * @param http;
+   * @param sanitizer;
    */
-  constructor(private multiLang: MultiLangService, private http: HttpClient, private sanitizer: DomSanitizer) {
+  constructor(private themeService: ThemeService, private multiLang: MultiLangService, private http: HttpClient, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
     this.multiLang.initLanguage();
     this.getLang();
+
+    const theme = this.themeService.getTheme();
+
+    if (theme) {
+      document.body.setAttribute('data-theme', theme);
+    }
+
 
     this.http.get('./assets/images/icons/icons.html', {responseType: 'text'}).pipe(map((res: any) => {
       localStorage.setItem('inline_svg', res);
@@ -35,14 +46,5 @@ export class AppComponent implements OnInit {
 
   getLang() {
     this.getLanguage = this.multiLang.getLanguage().toLowerCase();
-  }
-
-  toggleLang() {
-    this.dropdownlang = !this.dropdownlang;
-  }
-
-  setLanguage(lang) {
-    this.multiLang.setLanguage(lang);
-    this.toggleLang();
   }
 }

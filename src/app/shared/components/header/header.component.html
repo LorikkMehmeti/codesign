@@ -48,6 +48,24 @@
                        routerLink="/post/create"></cd-button>
           </div>
         </div>
+
+        <div class="d-inline-block v-middle position-relative mx-2">
+          <a class="font-size_12 profile_avatar display-flex a-items-center j-center" dropdown [dropdownToggle]="true" dropdown-open>
+            <svg-icon fileName="icons" icon="globe" size="28" fillColor="var(--color-font)"></svg-icon>
+          </a>
+          <div class="right_submenu position-relative dropdown-menu"tabindex="3">
+            <div class="sub_menu-header position-absolute overflow-hidden">
+              <a class="text_left font-size_14 sub_menu-header-link" (click)="setLanguage('en')">
+                <svg-icon fileName="icons" icon="english" size="20" class="line-height-0 v-middle"></svg-icon>
+                <span class="ml-2">English</span>
+              </a>
+              <a class="text_left font-size_14 sub_menu-header-link" (click)="setLanguage('de')">
+                <svg-icon fileName="icons" icon="german" size="20" class="line-height-0 v-middle"></svg-icon>
+                <span class="ml-2">German</span>
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="d-inline-block v-middle position-relative" *ngIf="user">
           <a class="font-size_12 profile_avatar display-flex a-items-center j-center" dropdown [dropdownToggle]="true" dropdown-open>
             <img [src]="'https://api.adorable.io/avatars/285/' + user?.username" class="rounded object-cover" width="100%"
@@ -62,6 +80,15 @@
               <a class="text_left font-size_14 sub_menu-header-link" routerLink="/settings/account">
                 <svg-icon fileName="icons" icon="cog" size="20" fillColor="var(--color-font)"></svg-icon>
                 <span class="ml-2">Account Settings</span>
+              </a>
+              <a class="text_left font-size_14 sub_menu-header-link" (click)="switchMode()">
+                <div class="d-inline-block">
+                  <div class="theme-switch">
+                    <svg-icon fileName="icons" *ngIf="theme && theme.toLowerCase() === 'dark'" icon="moon-filled" size="16" className="line-height-0" class="line-height-0" fillColor="var(--color-font)"></svg-icon>
+                    <svg-icon fileName="icons" *ngIf="theme && theme.toLowerCase() === 'light'" icon="moon-outline" size="16" className="line-height-0" class="line-height-0" fillColor="var(--color-font)"></svg-icon>
+                  </div>
+                </div>
+                <span class="ml-2">Switch theme</span>
               </a>
               <a class="text_left font-size_14 sub_menu-header-link">
                 <svg-icon fileName="icons" icon="help-circle" size="20" fillColor="var(--color-font)"></svg-icon>

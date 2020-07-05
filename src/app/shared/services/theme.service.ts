@@ -8,16 +8,22 @@ export class ThemeService {
   /**
    * Default theme.
    */
-  private defaultTheme = 'dark';
-
   constructor() {
+    this.initTheme();
   }
 
   /**
    * Init default theme.
    */
-  public initLanguage() {
+  public initTheme() {
+    const currentTheme = localStorage.getItem('theme');
 
+    if (currentTheme) {
+      this.setTheme(currentTheme);
+      return;
+    }
+
+    this.setTheme(this.detectTheme());
   }
 
   /**
@@ -25,14 +31,24 @@ export class ThemeService {
    *
    * @param theme as string.
    */
-  public setLanguage(theme: string): void {
+  public setTheme(theme: string): void {
+    localStorage.setItem('theme', theme);
+    document.body.setAttribute('data-theme', theme);
+  }
 
+  public detectTheme(): string {
+    const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (darkMode) {
+      return 'dark';
+    }
+
+    return 'light';
   }
 
   /**
    * @return Selected language or default language.
    */
-  // public getLanguage(): string {
-  //
-  // }
+  public getTheme(): string {
+    return localStorage.getItem('theme') || this.detectTheme();
+  }
 }

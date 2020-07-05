@@ -48,9 +48,9 @@ export class SignupComponent implements OnInit {
         Validators.maxLength(20)
         // Validators.pattern
       ]),
-      type: new FormControl(1, [
-        Validators.required
-      ])
+      // type: new FormControl(1, [
+      //   Validators.required
+      // ])
     }, {updateOn: 'blur'});
   }
 
@@ -89,12 +89,12 @@ export class SignupComponent implements OnInit {
     }
 
     const body = {
-      first_name: this.capitalize(this.firstName.value),
-      last_name: this.capitalize(this.lastName.value),
-      username: this.username.value.toLowerCase(),
-      email: this.email.value.toLowerCase(),
-      password: this.password.value,
-      type: this.type.value
+      first_name: this.capitalize(this.firstName.value.trim()),
+      last_name: this.capitalize(this.lastName.value.trim()),
+      username: this.username.value.toLowerCase().trim(),
+      email: this.email.value.toLowerCase().trim(),
+      password: this.password.value.trim(),
+      // type: this.type.value
     };
 
     this.activeToast = this.toast.show(`Connecting with the server to get you register`, 'Loading', {

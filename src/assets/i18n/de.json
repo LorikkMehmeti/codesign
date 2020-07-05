@@ -21,7 +21,7 @@
     },
     "forgot": {
       "password": "Password",
-      "newPassword": "New password",
+      "newPassword": "New password"
     }
   },
   "reCAPTCHA": {

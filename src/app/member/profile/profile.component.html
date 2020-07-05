@@ -7,7 +7,9 @@
     </div>
     <div class="profile_side flex-1">
       <div class="display-flex a-items-center j-space-between">
-        <h4 class="profile_username">{{user?.username}}</h4>
+        <h4 class="profile_username display-flex align-items-center">
+          {{user?.username}}
+        </h4>
 
         <div class="" *ngIf="user?.isMyProfile">
           <cd-button [showIcon]="true"
@@ -24,6 +26,14 @@
           {{user?.profile?.biography ? user?.profile?.biography : 'No bio available at this moment 🤷‍♀️🤷‍♂️'}}
         </span>
       </p>
+
+     <div class="d-inline-block position-relative" *ngIf="user.profile.work_availability">
+       <div class="status-work" [class]="user.profile.work_availability.toLowerCase()" >
+         Available for work💻
+       </div>
+       <div *ngIf="user.profile.work_availability.toLowerCase() === 'available'" class="tooltip-abs" [tooltip]="'Contact: ' + user.email"
+            tooltip-class="tooltip-size" hide-delay="50" placement="bottom" show-delay="100"></div>
+     </div>
     </div>
   </div>
   <ng-template [ngIf]="userLoading">

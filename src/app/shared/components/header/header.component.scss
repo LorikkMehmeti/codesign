@@ -136,6 +136,17 @@
     padding: 12px 25px;
     display: block;
     vertical-align: middle;
+
+    .theme-switch {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--_hover);
+      border-radius: 6px;
+    }
+
     @media (hover: hover) {
       &:hover {
         background: var(--bg-page);

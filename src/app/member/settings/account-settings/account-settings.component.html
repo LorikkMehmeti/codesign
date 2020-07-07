@@ -11,5 +11,32 @@
       <input type="text" id="email" class="cd__input input__small"
              [placeholder]="'Email'" autocomplete="off" formControlName="email" readonly>
     </div>
+
+    <p class="my-2 font-size_13">Delete your account and account data</p>
+    <cd-button [showIcon]="false" [text]="'Delete your account' | translate"
+               borderRadius="4"
+               (click)="openDeleteModal()"
+               [classNames]="'cd-btn-inline cd-btn-small cd-btn-danger font-medium mr-2 my-0'"></cd-button>
   </ng-template>
 </form>
+
+
+<ngx-smart-modal #myModal identifier="myModal" [autostart]="false" [hideDelay]="100">
+  <div class="modal-container">
+    <div class="modal-title">
+      <h6 class="heading-modal">{{'confirmAction' | translate}}</h6>
+    </div>
+    <div class="modal-body">
+      <p class="modal-message">{{'messages.deleteUser' | translate}}.</p>
+    </div>
+
+    <div class="modal-buttons">
+      <cd-button [showIcon]="false" borderRadius="4" [text]="'buttons.cancel' | translate"
+                 (click)="myModal.close()"
+                 [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'"></cd-button>
+      <cd-button [showIcon]="false" [text]="'buttons.deleteUser' | translate"
+                 (click)="deleteDesign()"
+                 [classNames]="'cd-btn-inline cd-btn-small cd-btn-danger font-medium ml-2'"></cd-button>
+    </div>
+  </div>
+</ngx-smart-modal>

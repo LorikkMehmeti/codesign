@@ -62,11 +62,13 @@
   "confirmAction": "Confirm your action",
   "messages": {
     "deleteProject": "Are you sure you want to delete your masterpiece. You will not be able to recover this project or its contents. This operation cannot be undone",
-    "deletedProject": "Project was deleted successfully"
+    "deletedProject": "Project was deleted successfully",
+    "deleteUser": "Be advised, account deletion is final. There will be no way to restore your account."
   },
   "buttons": {
     "cancel": "Cancel",
     "delete": "Delete",
-    "deleteProject": "Delete project"
+    "deleteProject": "Delete project",
+    "deleteUser": "Delete account"
   }
 }

@@ -59,11 +59,13 @@
   "confirmAction": "Bestätigen Sie Ihre Aktion",
   "messages": {
     "deleteProject": "Sind Sie sicher, dass Sie Ihr Meisterwerk löschen möchten? Sie können dieses Projekt oder seinen Inhalt nicht wiederherstellen. Dieser Vorgang kann nicht rückgängig gemacht werden",
-    "deletedProject": "Projekt wurde erfolgreich gelöscht"
+    "deletedProject": "Projekt wurde erfolgreich gelöscht",
+    "deleteUser": "Bitte beachten Sie, dass das Löschen des Kontos endgültig ist. Es gibt keine Möglichkeit, Ihr Konto wiederherzustellen."
   },
   "buttons": {
     "cancel": "Abbrechen",
     "delete": "Löschen",
-    "deleteProject": "Projekt löschen"
+    "deleteProject": "Projekt löschen",
+    "deleteUser": "Konto löschen"
   }
 }

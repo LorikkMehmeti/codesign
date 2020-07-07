@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../shared/services/user/user.service';
 import {TitleService} from '../../../shared/services/title.service';
+import {NgxSmartModalService} from 'ngx-smart-modal';
+import {Router} from '@angular/router';
+import {TokenService} from '../../../shared/services/token.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -13,7 +16,7 @@ export class AccountSettingsComponent implements OnInit {
 
   user: any;
 
-  constructor(private title: TitleService, private userService: UserService) {
+  constructor(private tokenService: TokenService, private router: Router, public ngxSmartModalService: NgxSmartModalService, private title: TitleService, private userService: UserService) {
   }
 
   ngOnInit() {
@@ -53,4 +56,16 @@ export class AccountSettingsComponent implements OnInit {
     }
   }
 
+  openDeleteModal() {
+    this.ngxSmartModalService.getModal('myModal').open();
+  }
+
+  deleteDesign() {
+    this.userService.deleteUser().subscribe((res: any) => {
+      this.tokenService.deleteToken();
+      if (res.success) {
+        this.router.navigate(['/home']);
+      }
+    });
+  }
 }

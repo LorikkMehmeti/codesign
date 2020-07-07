@@ -37,7 +37,7 @@
       <!--        <cd-button [showIcon]="false" borderRadius="4" [text]="'Logout'"-->
       <!--                   [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'" routerLink="/logout"></cd-button>-->
       <!--      </ng-template>-->
-      <ng-template [ngIf]="authenticationService.loggedIn()">
+      <ng-template [ngIf]="authenticationService.loggedIn() && user">
         <div class="position-relative line-height-0 d-inline-block">
           <div [tooltip]="'Upload project'" tooltip-class="tooltip-size" hide-delay="50"placement="bottom" show-delay="100">
             <cd-button [showIcon]="true"
@@ -66,7 +66,7 @@
             </div>
           </div>
         </div>
-        <div class="d-inline-block v-middle position-relative" *ngIf="user">
+        <div class="d-inline-block v-middle position-relative">
           <a class="font-size_12 profile_avatar display-flex a-items-center j-center" dropdown [dropdownToggle]="true" dropdown-open>
             <img [src]="'https://api.adorable.io/avatars/285/' + user?.username" class="rounded object-cover" width="100%"
                  height="100%" draggable="false" alt="">

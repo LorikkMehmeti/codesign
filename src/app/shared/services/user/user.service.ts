@@ -76,4 +76,10 @@ export class UserService {
       return email;
     });
   }
+
+  deleteUser() {
+    const endpoint = `${this.endpoint}/user/delete`;
+
+    return this.http.delete(endpoint);
+  }
 }

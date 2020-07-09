@@ -109,7 +109,7 @@
                    [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium ml-2'"
                    routerLink="/register"></cd-button>
         <cd-button [showIcon]="true" borderRadius="4" [textBtn]="false"
-                   [iconName]="switch ? 'icon-moon-fill':'icon-moon-outline'" fillColor="var(--color-primary)"
+                   [iconName]="theme && theme.toLowerCase() === 'dark' ? 'icon-moon-fill':'icon-moon-outline'" fillColor="var(--color-primary)"
                    [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium ml-2'"
                    (click)="switchMode()"></cd-button>
       </ng-template>

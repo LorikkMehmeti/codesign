@@ -4,6 +4,7 @@ import {ToastrService} from 'ngx-toastr';
 import {TitleService} from '../../../shared/services/title.service';
 import {DesignService} from '../../../shared/services/design/design.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 declare var tinymce: any;
 
@@ -57,7 +58,7 @@ export class UploadComponent implements OnInit {
   };
 
 
-  constructor(private design: DesignService, private title: TitleService, private toast: ToastrService) {
+  constructor(private router: Router, private design: DesignService, private title: TitleService, private toast: ToastrService) {
   }
 
   ngOnInit() {
@@ -217,8 +218,10 @@ export class UploadComponent implements OnInit {
 
 
     this.design.createDesign(formData).subscribe((res: any) => {
-      this.uploadedProgress = res.message;
-
+      this.activeToast = this.toast.show(`${res.data}`, 'Error', {
+        toastClass: 'success-toast'
+      });
+      this.router.navigate(['/home']);
     }, error => {
       console.log('idk');
     });

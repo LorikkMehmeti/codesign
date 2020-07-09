@@ -3,6 +3,7 @@ import {HttpClient, HttpEventType} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {map} from 'rxjs/operators';
 import {withCache} from '@ngneat/cashew';
+import {forkJoin} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,29 +17,22 @@ export class DesignService {
 
   createDesign(body) {
     const endpoint = `${this.endpoint}/design/create`;
-    return this.http.post(endpoint, body, {
-      reportProgress: true,
-      observe: 'events'
-    }).pipe(map((event) => {
-
-        switch (event.type) {
-
-          case HttpEventType.UploadProgress:
-            const progress = Math.round(100 * event.loaded / event.total);
-            return {status: 'progress', message: progress};
-
-          case HttpEventType.Response:
-            return event.body;
-          default:
-            return `Unhandled event: ${event.type}`;
-        }
-      })
-    );
+    return this.http.post(endpoint, body);
   }
 
   getListOfDesigns(params?: any, page = 1) {
     const endpoint = `${this.endpoint}/get-all/designs?page=${page}`;
     return this.http.get(endpoint, {params});
+  }
+
+  getGuestDesigns() {
+    const endpoint = `${this.endpoint}/designs/`;
+
+    const response1 = this.http.get(endpoint + 'new');
+    const response2 = this.http.get(endpoint + 'random');
+    // const response3 = this.http.get(endpoint + '/new');
+
+    return forkJoin([response1, response2]);
   }
 
   getDesign(slug) {
@@ -52,7 +46,6 @@ export class DesignService {
     const endpoint = `${this.endpoint}/design/${id}`;
 
     return this.http.delete(endpoint);
-
   }
 
   downloadDesign(design: string) {

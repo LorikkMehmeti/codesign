@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   designs = [];
   auth = this.authenticationService.loggedIn();
   madeWith: string;
+  newDesigns: any;
 
   tools = [
     {name: 'Adobe XD', query: 'adobe-xd', icon: 'adobe-xd'},
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit {
   lastPage;
   // tslint:disable-next-line:variable-name
   _loaderShow = false;
+  randomDesigns: any;
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -53,6 +55,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle(`Home - Codesign`);
     if (!this.auth) {
+      this.getGuestDesigns();
       return;
     }
 
@@ -86,6 +89,13 @@ export class HomeComponent implements OnInit {
       this.getDesigns();
       this.currentPage++;
     }
+  }
+
+  getGuestDesigns() {
+    this.designService.getGuestDesigns().subscribe((res: any) => {
+      this.newDesigns = res[0].data;
+      this.randomDesigns = res[1].data;
+    });
   }
 
   getDesigns(params?: any) {

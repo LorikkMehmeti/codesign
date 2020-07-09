@@ -26,10 +26,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getTheme();
     if (this.authenticationService.loggedIn()) {
       this.getLang();
       this.getUser();
-      this.getTheme();
     }
   }
 

@@ -9,8 +9,10 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Timeframe</p>
             <div class="position-relative">
-              <div  dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(1)" (onClose)="onToggleTable(-1)"
-                    tabindex="4" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 1}">
+              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(1)"
+                   (onClose)="onToggleTable(-1)"
+                   tabindex="4" class="dropdown-menu_neue grid__filter-item"
+                   [ngClass]="{'open focused': toggleTable === 1}">
                 <span>Recent</span>
               </div>
               <ul class="dropdown_menu_links">
@@ -21,13 +23,14 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Sort By</p>
             <div class="position-relative">
-              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(2)" (onClose)="onToggleTable(-1)"
+              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(2)"
+                   (onClose)="onToggleTable(-1)"
                    tabindex="5" class="dropdown-menu_neue grid__filter-item"
                    [ngClass]="{'open focused': toggleTable === 2}">
                 <span>{{labels.sortBy || 'Relevant'}}</span>
               </div>
               <ul class="dropdown_menu_links" [ngClass]="{'d-block': toggleTable === 2 }">
-                <li class="filter-option" *ngFor="let s of sortByArr; let i = index;"[routerLink]="['./']"
+                <li class="filter-option" *ngFor="let s of sortByArr; let i = index;" [routerLink]="['./']"
                     [queryParams]="{ sort: s.query }" queryParamsHandling="merge"
                     [ngClass]="{'filter-option-active': labels.sortBy === s.name}">
                   {{s.name}}
@@ -38,11 +41,13 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Made with</p>
             <div class="position-relative">
-              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(3)" (onClose)="onToggleTable(-1)"
+              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(3)"
+                   (onClose)="onToggleTable(-1)"
                    tabindex="6" class="dropdown-menu_neue grid__filter-item"
                    [ngClass]="{'open focused': toggleTable === 3}">
 
-                <svg-icon fileName="icons" *ngIf="selected.made" [icon]="'icon-' + selected.made.icon" size="16"></svg-icon>
+                <svg-icon fileName="icons" *ngIf="selected.made" [icon]="'icon-' + selected.made.icon"
+                          size="16"></svg-icon>
                 <span class="text_capitalize" [ngClass]="{'ml-2': selected.made}">
                   {{labels.madeWith || 'All Apps'}}
                 </span>
@@ -51,7 +56,8 @@
 
               <ul class="dropdown_menu_links">
 
-                <li class="filter-option display-flex a-items-center" *ngFor="let t of tools; let i = index;" [routerLink]="['./']"
+                <li class="filter-option display-flex a-items-center" *ngFor="let t of tools; let i = index;"
+                    [routerLink]="['./']"
                     [queryParams]="{ made: t.query }"
                     [ngClass]="{'filter-option-active': labels.madeWith === t.name}"
                     queryParamsHandling="merge" (click)="labels.madeWith = t.name">
@@ -64,15 +70,19 @@
           <div class="position-relative">
             <p class="filter-label text_uppercase font-size_12">Grid Columns</p>
             <div class="position-relative d-block">
-              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(4)" (onClose)="onToggleTable(-1)" tabindex="7" class="dropdown-menu_neue grid__filter-item" [ngClass]="{'open focused': toggleTable === 4}">
+              <div dropdown dropdown-open [dropdownToggle]="true" (onOpen)="onToggleTable(4)"
+                   (onClose)="onToggleTable(-1)" tabindex="7" class="dropdown-menu_neue grid__filter-item"
+                   [ngClass]="{'open focused': toggleTable === 4}">
                 <span>Big column</span>
               </div>
               <ul class="dropdown_menu_links text_center overflow-hidden">
                 <div class="display-flex a-items-center grid__columns">
                   <li class="filter-option flex-1 filter_grid-option" (click)="toggleColumns(false)">
-                    <svg-icon fileName="icons" [icon]="'three-layout'" size="24" fillColor="var(--color-font)"></svg-icon>
+                    <svg-icon fileName="icons" [icon]="'three-layout'" size="24"
+                              fillColor="var(--color-font)"></svg-icon>
                   </li>
-                  <li class="filter-option flex-1 text_center d-inline-block filter_grid-option" (click)="toggleColumns(true)">
+                  <li class="filter-option flex-1 text_center d-inline-block filter_grid-option"
+                      (click)="toggleColumns(true)">
                     <svg-icon fileName="icons" [icon]="'four-layout'" [size]="'24'" fillColor="var(--color-font)"
                               className="d-inline-block"></svg-icon>
                   </li>
@@ -101,7 +111,8 @@
       <div class="grid-item grid_item_showed" *ngFor="let p of designs; let i = index">
         <div class="image-grid position-relative">
           <img [routerLink]="['', 'design', p.slug]"
-            [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%" height="100%" alt="">
+               [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%"
+               height="100%" alt="">
           <cd-button
             [showIcon]="true"
             [textBtn]="false"
@@ -114,7 +125,9 @@
           <div class="display-flex w-100">
             <div class="avatar-image position-relative overflow-hidden"
                  tooltip-class="tooltip-size" hide-delay="50" [tooltip]="p.name" placement="bottom" show-delay="100">
-              <img [src]="'https://api.adorable.io/avatars/285/' + p?.name" class="object-cover" width="100%" height="100%" draggable="false" alt="">
+              <img [src]="'http://localhost:8000/images/avatars/' + p.username + p.profile_pic" class="object-cover"
+                   width="100%"
+                   height="100%" draggable="false" alt="">
             </div>
             <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_15'">
               <a [routerLink]="['', 'design', p.slug]">
@@ -122,7 +135,8 @@
                   {{p.title_project}}
                 </p>
               </a>
-              <a class="cd-link font-size_12 position-relative d-inline-block card-link" [routerLink]="['../us/', p.username]">
+              <a class="cd-link font-size_12 position-relative d-inline-block card-link"
+                 [routerLink]="['../us/', p.username]">
                 {{p.name}}
               </a>
             </div>
@@ -191,8 +205,8 @@
           <ng-container *ngIf="newDesigns; else noDesigns">
             <div class="grid-item grid_item_showed" *ngFor="let p of newDesigns; let i = index">
               <div class="image-grid position-relative">
-                <img [routerLink]="['', 'design', p.slug]"
-                     [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%" height="100%" alt="">
+                <img [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%"
+                     height="100%" alt="">
                 <cd-button
                   [showIcon]="true"
                   [textBtn]="false"
@@ -204,16 +218,19 @@
               <div class="display-flex a-items-center j-space-between bottom_post">
                 <div class="display-flex w-100">
                   <div class="avatar-image position-relative overflow-hidden"
-                       tooltip-class="tooltip-size" hide-delay="50" [tooltip]="p.name" placement="bottom" show-delay="100">
-                    <img [src]="'https://api.adorable.io/avatars/285/' + p?.name" class="object-cover" width="100%" height="100%" draggable="false" alt="">
+                       tooltip-class="tooltip-size" hide-delay="50" [tooltip]="p.name" placement="bottom"
+                       show-delay="100">
+                    <img [src]="'http://localhost:8000/images/avatars/' + p.username + p.profile_pic"
+                         class="object-cover" width="100%"
+                         height="100%" draggable="false" alt="">
                   </div>
                   <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_15'">
-                    <a [routerLink]="['', 'design', p.slug]">
+                    <a>
                       <p class="position-relative cd-link card-title">
                         {{p.title_project}}
                       </p>
                     </a>
-                    <a class="cd-link font-size_12 position-relative d-inline-block card-link" [routerLink]="['../us/', p.username]">
+                    <a class="cd-link font-size_12 position-relative d-inline-block card-link">
                       {{p.name}}
                     </a>
                   </div>
@@ -257,40 +274,11 @@
                        [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium mt-4'"
                        routerLink="/login"></cd-button>
           </div>
-          <div class="grid_posts grid-four-columns mt-2 mb-2 flex-1">
-            <div class="grid-item" *ngFor="let p of [0,1,2]">
+          <div class="grid_posts grid-four-columns mt-2 flex-1" *ngIf="mostViewedDesigns; else noMost">
+            <div class="grid-item grid_item_showed" *ngFor="let p of mostViewedDesigns; let i = index">
               <div class="image-grid position-relative">
-                <cd-skeleton></cd-skeleton>
-              </div>
-              <div class="display-flex a-items-center j-space-between bottom_post">
-                <div class="display-flex w-100">
-                  <div class="avatar-image position-relative">
-                    <cd-skeleton></cd-skeleton>
-                  </div>
-                  <div class="ml-2 flex-1 text_card">
-                    <p class="position-relative cd-link card-title card-title_skeleton">
-                      <cd-skeleton></cd-skeleton>
-                    </p>
-                    <a class="cd-link font-size_12 position-relative d-inline-block card-link card-link_skeleton">
-                      <cd-skeleton></cd-skeleton>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="home_container">
-      <div class="container">
-        <div class="heading heading-title">Featured shots</div>
-        <div class="grid_posts grid-four-columns mt-2 mb-2">
-          <ng-container *ngIf="randomDesigns; else noRand">
-            <div class="grid-item grid_item_showed" *ngFor="let p of randomDesigns; let i = index">
-              <div class="image-grid position-relative">
-                <img [routerLink]="['', 'design', p.slug]"
-                     [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%" height="100%" alt="">
+                <img [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%"
+                     height="100%" alt="">
                 <cd-button
                   [showIcon]="true"
                   [textBtn]="false"
@@ -302,16 +290,87 @@
               <div class="display-flex a-items-center j-space-between bottom_post">
                 <div class="display-flex w-100">
                   <div class="avatar-image position-relative overflow-hidden"
-                       tooltip-class="tooltip-size" hide-delay="50" [tooltip]="p.name" placement="bottom" show-delay="100">
-                    <img [src]="'https://api.adorable.io/avatars/285/' + p?.name" class="object-cover" width="100%" height="100%" draggable="false" alt="">
+                       tooltip-class="tooltip-size" hide-delay="50" [tooltip]="p.name" placement="bottom"
+                       show-delay="100">
+                    <img [src]="'http://localhost:8000/images/avatars/' + p.username + p.profile_pic"
+                         class="object-cover" width="100%"
+                         height="100%" draggable="false" alt="">
                   </div>
                   <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_15'">
-                    <a [routerLink]="['', 'design', p.slug]">
+                    <a>
                       <p class="position-relative cd-link card-title">
                         {{p.title_project}}
                       </p>
                     </a>
-                    <a class="cd-link font-size_12 position-relative d-inline-block card-link" [routerLink]="['../us/', p.username]">
+                    <a class="cd-link font-size_12 position-relative d-inline-block card-link">
+                      {{p.name}}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noMost>
+            <div class="grid_posts grid-four-columns mt-2 mb-2 flex-1">
+              <div class="grid-item" *ngFor="let p of [0,1,2]">
+                <div class="image-grid position-relative">
+                  <cd-skeleton></cd-skeleton>
+                </div>
+                <div class="display-flex a-items-center j-space-between bottom_post">
+                  <div class="display-flex w-100">
+                    <div class="avatar-image position-relative">
+                      <cd-skeleton></cd-skeleton>
+                    </div>
+                    <div class="ml-2 flex-1 text_card">
+                      <p class="position-relative cd-link card-title card-title_skeleton">
+                        <cd-skeleton></cd-skeleton>
+                      </p>
+                      <a class="cd-link font-size_12 position-relative d-inline-block card-link card-link_skeleton">
+                        <cd-skeleton></cd-skeleton>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="home_container">
+      <div class="container">
+        <div class="heading heading-title">Featured shots</div>
+        <div class="grid_posts grid-four-columns mt-2 mb-2">
+          <ng-container *ngIf="randomDesigns; else noRand">
+            <div class="grid-item grid_item_showed" *ngFor="let p of randomDesigns; let i = index">
+              <div class="image-grid position-relative">
+                <img [routerLink]="['', 'design', p.slug]"
+                     [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%"
+                     height="100%" alt="">
+                <cd-button
+                  [showIcon]="true"
+                  [textBtn]="false"
+                  [iconSize]="16"
+                  [iconName]="'icon-heart'"
+                  [classNames]="'btn-svg-icon bookmark_button'">
+                </cd-button>
+              </div>
+              <div class="display-flex a-items-center j-space-between bottom_post">
+                <div class="display-flex w-100">
+                  <div class="avatar-image position-relative overflow-hidden"
+                       tooltip-class="tooltip-size" hide-delay="50" [tooltip]="p.name" placement="bottom"
+                       show-delay="100">
+                    <img [src]="'http://localhost:8000/images/avatars/' + p.username + p.profile_pic"
+                         class="object-cover" width="100%"
+                         height="100%" draggable="false" alt="">
+                  </div>
+                  <div class="ml-2 flex-1 text_card" [ngClass]="classColumns ? 'font-size_14': 'font-size_15'">
+                    <a>
+                      <p class="position-relative cd-link card-title">
+                        {{p.title_project}}
+                      </p>
+                    </a>
+                    <a class="cd-link font-size_12 position-relative d-inline-block card-link">
                       {{p.name}}
                     </a>
                   </div>

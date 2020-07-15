@@ -30,9 +30,9 @@ export class DesignService {
 
     const response1 = this.http.get(endpoint + 'new');
     const response2 = this.http.get(endpoint + 'random');
-    // const response3 = this.http.get(endpoint + '/new');
+    const response3 = this.http.get(endpoint + 'most-viewed');
 
-    return forkJoin([response1, response2]);
+    return forkJoin([response1, response2, response3]);
   }
 
   getDesign(slug) {

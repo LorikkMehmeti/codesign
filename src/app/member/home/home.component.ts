@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   _loaderShow = false;
   randomDesigns: any;
+  mostViewedDesigns: any;
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -93,8 +94,10 @@ export class HomeComponent implements OnInit {
 
   getGuestDesigns() {
     this.designService.getGuestDesigns().subscribe((res: any) => {
+
       this.newDesigns = res[0].data;
       this.randomDesigns = res[1].data;
+      this.mostViewedDesigns = res[2].data;
     });
   }
 

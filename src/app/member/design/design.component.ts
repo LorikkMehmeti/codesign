@@ -61,17 +61,17 @@ export class DesignComponent implements OnInit {
 
   downloadFiles() {
     this.toast.show(`Downloading now your files`, 'Success', {
-      toastClass: 'warning-toast', timeOut: 50000000, extendedTimeOut: 500000000
+      toastClass: 'warning-toast', timeOut: 1000, extendedTimeOut: 1000
     });
 
-    // this.designService.downloadDesign(this.slug).subscribe((res: any) => {
-    //   // Show toast for after the download is completed
-    //   this.toast.show(`Files downloaded successfully`, 'Success', {
-    //     toastClass: 'success-toast'
-    //   });
-    //   const blob: any = new Blob([res], {type: 'octet/stream'});
-    //   fileSaver.saveAs(blob, `${this.slug}.zip`);
-    // });
+    this.designService.downloadDesign(this.slug).subscribe((res: any) => {
+      // Show toast for after the download is completed
+      this.toast.show(`Files downloaded successfully`, 'Success', {
+        toastClass: 'success-toast'
+      });
+      const blob: any = new Blob([res], {type: 'octet/stream'});
+      fileSaver.saveAs(blob, `${this.slug}.zip`);
+    });
   }
 
 

@@ -46,7 +46,7 @@ export class ThemeService {
   }
 
   /**
-   * @return Selected language or default language.
+   * @return Selected theme or default theme.
    */
   public getTheme(): string {
     return localStorage.getItem('theme') || this.detectTheme();

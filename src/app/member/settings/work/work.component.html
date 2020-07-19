@@ -3,45 +3,45 @@
     <div class="cd-form-group">
       <label for="" class="filter-label font-size_14 mb-2 d-inline-block">Preferred Job</label>
 
-      <ng-template [ngIf]="user.type === 1">
-        <ng-select class="mb-2 ng-select_made font-size_12"
-                   placeholder="Select preferred job"
-                   [items]="developer"
-                   bindLabel="name"
-                   formControlName="preferred_job"
-                   [searchable]="false">
-        </ng-select>
-      </ng-template>
+      <ng-select class="mb-2 ng-select_made font-size_12"
+                 placeholder="Select preferred job"
+                 [items]="developer"
+                 bindLabel="name"
+                 formControlName="preferred_job"
+                 [searchable]="false">
+      </ng-select>
+<!--      <ng-template [ngIf]="user.type === 1">-->
+<!--      </ng-template>-->
 
     </div>
 
     <div class="cd-form-group">
       <label for="" class="filter-label font-size_14 mb-2 d-inline-block">Work Status</label>
 
-      <ng-template [ngIf]="user.type === 1">
-        <ng-select class="mb-2 ng-select_made font-size_12"
-                   placeholder="What is your work status"
-                   [items]="workStatus"
-                   bindLabel="name"
-                   formControlName="work_status"
-                   [searchable]="false">
-        </ng-select>
-      </ng-template>
+      <ng-select class="mb-2 ng-select_made font-size_12"
+                 placeholder="What is your work status"
+                 [items]="workStatus"
+                 bindLabel="name"
+                 formControlName="work_status"
+                 [searchable]="false">
+      </ng-select>
+<!--      <ng-template [ngIf]="user.type === 1">-->
+<!--      </ng-template>-->
 
     </div>
 
     <div class="cd-form-group">
       <label for="" class="filter-label font-size_14 mb-2 d-inline-block">Work Availability</label>
 
-      <ng-template [ngIf]="user.type === 1">
-        <ng-select class="mb-2 ng-select_made font-size_12"
-                   placeholder="Are you available for work"
-                   [items]="['Available', 'Unavailable']"
-                   bindLabel="id"
-                   formControlName="work_availability"
-                   [searchable]="false">
-        </ng-select>
-      </ng-template>
+      <ng-select class="mb-2 ng-select_made font-size_12"
+                 placeholder="Are you available for work"
+                 [items]="['Available', 'Unavailable']"
+                 bindLabel="id"
+                 formControlName="work_availability"
+                 [searchable]="false">
+      </ng-select>
+<!--      <ng-template [ngIf]="user.type === 1">-->
+<!--      </ng-template>-->
 
     </div>
 

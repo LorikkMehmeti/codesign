@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../shared/services/authentication.service';
 import {TitleService} from '../../shared/services/title.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {DesignService} from '../../shared/services/design/design.service';
 
@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private title: TitleService,
               private http: HttpClient,
+              private router: Router,
               private designService: DesignService,
               private authenticationService: AuthenticationService) {
   }
@@ -81,6 +82,20 @@ export class HomeComponent implements OnInit {
       }
 
       this.getDesigns();
+    });
+  }
+
+  trackByFn(index) {
+    return index;
+  }
+
+  removeParam(yourParamName) {
+    this.router.navigate(['./'], {
+      queryParams: {
+        yourParamName: null,
+        youCanRemoveMultiple: null,
+      },
+      queryParamsHandling: 'merge'
     });
   }
 

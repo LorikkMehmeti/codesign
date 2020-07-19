@@ -1,7 +1,7 @@
 <div class="cd-header" [ngClass]="{'header_margin': marginHeader, 'border_bottom': borderBottom}">
   <div class="container header__guest display-flex a-items-center j-space-between">
     <div class="logo">
-      <a class="logo_h display-flex a-items-center j-center" tabindex="1"routerLink="/home">
+      <a class="logo_h display-flex a-items-center j-center" routerLink="/home">
         <div class="logo__header pointer_link">
           <svg xmlns="http://www.w3.org/2000/svg" fill="var(--color-primary)" viewBox="0 0 90 90">
             <path id="Path_1"
@@ -12,7 +12,7 @@
       </a>
     </div>
     <div class="search-bar">
-      <div class="search__input position-relative" tabindex="2">
+      <div class="search__input position-relative">
         <div class="display-flex a-items-center j-space-between">
           <div class="input_s">
             <input type="text" [placeholder]="'Search' | translate">
@@ -53,7 +53,7 @@
           <a class="font-size_12 profile_avatar display-flex a-items-center j-center" dropdown [dropdownToggle]="true" dropdown-open>
             <svg-icon fileName="icons" icon="globe" size="28" fillColor="var(--color-font)"></svg-icon>
           </a>
-          <div class="right_submenu position-relative dropdown-menu"tabindex="3">
+          <div class="right_submenu position-relative dropdown-menu">
             <div class="sub_menu-header position-absolute overflow-hidden">
               <a class="text_left font-size_14 sub_menu-header-link" (click)="setLanguage('en')">
                 <svg-icon fileName="icons" icon="english" size="20" class="line-height-0 v-middle"></svg-icon>
@@ -71,7 +71,7 @@
             <img [src]="'https://api.adorable.io/avatars/285/' + user?.username" class="rounded object-cover" width="100%"
                  height="100%" draggable="false" alt="">
           </a>
-          <div class="right_submenu position-relative dropdown-menu"tabindex="3">
+          <div class="right_submenu position-relative dropdown-menu">
             <div class="sub_menu-header position-absolute overflow-hidden">
               <a class="text_left font-size_14 sub_menu-header-link" [routerLink]="['','us', user.username]">
                 <svg-icon fileName="icons" icon="person-circle" size="20" fillColor="var(--color-font)"></svg-icon>
@@ -84,8 +84,8 @@
               <a class="text_left font-size_14 sub_menu-header-link" (click)="switchMode()">
                 <div class="d-inline-block">
                   <div class="theme-switch">
-                    <svg-icon fileName="icons" *ngIf="theme && theme.toLowerCase() === 'dark'" icon="moon-filled" size="16" className="line-height-0" class="line-height-0" fillColor="var(--color-font)"></svg-icon>
-                    <svg-icon fileName="icons" *ngIf="theme && theme.toLowerCase() === 'light'" icon="moon-outline" size="16" className="line-height-0" class="line-height-0" fillColor="var(--color-font)"></svg-icon>
+                    <svg-icon fileName="icons" *ngIf="theme && theme.toLowerCase() === 'dark'" icon="sun" size="16" className="line-height-0" class="line-height-0" fillColor="var(--color-font)"></svg-icon>
+                    <svg-icon fileName="icons" *ngIf="theme && theme.toLowerCase() === 'light'" icon="icon-moon-fill" size="16" className="line-height-0" class="line-height-0" fillColor="var(--color-font)"></svg-icon>
                   </div>
                 </div>
                 <span class="ml-2">Switch theme</span>
@@ -109,7 +109,7 @@
                    [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium ml-2'"
                    routerLink="/register"></cd-button>
         <cd-button [showIcon]="true" borderRadius="4" [textBtn]="false"
-                   [iconName]="theme && theme.toLowerCase() === 'dark' ? 'icon-moon-fill':'icon-moon-outline'" fillColor="var(--color-primary)"
+                   [iconName]="theme && theme.toLowerCase() === 'dark' ? 'sun':'icon-moon-fill'" fillColor="var(--color-primary)"
                    [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium ml-2'"
                    (click)="switchMode()"></cd-button>
       </ng-template>

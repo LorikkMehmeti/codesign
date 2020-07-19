@@ -108,7 +108,7 @@
          [infiniteScrollDistance]="2"
          [infiniteScrollThrottle]="50"
          (scrolled)="infiniteScroll()">
-      <div class="grid-item grid_item_showed" *ngFor="let p of designs; let i = index">
+      <div class="grid-item grid_item_showed" *ngFor="let p of designs; let i = index; trackBy: trackByFn">
         <div class="image-grid position-relative">
           <img [routerLink]="['', 'design', p.slug]"
                [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%"

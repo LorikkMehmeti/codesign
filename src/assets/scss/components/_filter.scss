@@ -1,6 +1,12 @@
 .filter-label {
   font-variation-settings: var(--f-bold);
   margin: 5px 0;
+
+  &.clear {
+    color: var(--color-danger)!important;
+    font-variation-settings: var(--f-regular);
+    text-transform: none;
+  }
 }
 
 .filters-shots.grid__filter {

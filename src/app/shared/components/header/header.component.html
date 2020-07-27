@@ -42,7 +42,7 @@
           <div [tooltip]="'Upload project'" tooltip-class="tooltip-size" hide-delay="50"placement="bottom" show-delay="100">
             <cd-button [showIcon]="true"
                        iconName="icon-upload"
-                       [text]="'Upload' | translate"
+                       [text]="'upload' | translate"
                        borderRadius="4"
                        [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium mr-2 my-0'"
                        routerLink="/post/create"></cd-button>
@@ -75,11 +75,11 @@
             <div class="sub_menu-header position-absolute overflow-hidden">
               <a class="text_left font-size_14 sub_menu-header-link" [routerLink]="['','us', user.username]">
                 <svg-icon fileName="icons" icon="person-circle" size="20" fillColor="var(--color-font)"></svg-icon>
-                <span class="ml-2">Profile</span>
+                <span class="ml-2">{{'dropdownUser.profile' | translate}}</span>
               </a>
               <a class="text_left font-size_14 sub_menu-header-link" routerLink="/settings/account">
                 <svg-icon fileName="icons" icon="cog" size="20" fillColor="var(--color-font)"></svg-icon>
-                <span class="ml-2">Account Settings</span>
+                <span class="ml-2">{{'dropdownUser.accountSettings' | translate}}</span>
               </a>
               <a class="text_left font-size_14 sub_menu-header-link" (click)="switchMode()">
                 <div class="d-inline-block">
@@ -88,15 +88,15 @@
                     <svg-icon fileName="icons" *ngIf="theme && theme.toLowerCase() === 'light'" icon="icon-moon-fill" size="16" className="line-height-0" class="line-height-0" fillColor="var(--color-font)"></svg-icon>
                   </div>
                 </div>
-                <span class="ml-2">Switch theme</span>
+                <span class="ml-2">{{'dropdownUser.switchTheme' | translate}}</span>
               </a>
-              <a class="text_left font-size_14 sub_menu-header-link">
-                <svg-icon fileName="icons" icon="help-circle" size="20" fillColor="var(--color-font)"></svg-icon>
-                <span class="ml-2">Help Center</span>
-              </a>
+<!--              <a class="text_left font-size_14 sub_menu-header-link">-->
+<!--                <svg-icon fileName="icons" icon="help-circle" size="20" fillColor="var(&#45;&#45;color-font)"></svg-icon>-->
+<!--                <span class="ml-2">Help Center</span>-->
+<!--              </a>-->
               <a class="text_left font-size_14 sub_menu-header-link" routerLink="/logout">
                 <svg-icon fileName="icons" icon="logout" size="20" fillColor="var(--color-font)"></svg-icon>
-                <span class="ml-2">Sign out</span>
+                <span class="ml-2">{{'dropdownUser.signOut' | translate}}</span>
               </a>
             </div>
           </div>

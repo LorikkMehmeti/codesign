@@ -75,11 +75,11 @@ export class SettingsprofileComponent implements OnInit {
     const user = this.user;
     if (this.user) {
       this.account.patchValue({
-        first_name: user.first_name,
-        last_name: user.last_name,
-        username: user.username,
-        biography: user.profile.biography,
-        skills: user.profile.skills
+        first_name: user?.first_name,
+        last_name: user?.last_name,
+        username: user?.username,
+        biography: user?.profile?.biography,
+        skills: user?.profile?.skills
       });
     }
   }

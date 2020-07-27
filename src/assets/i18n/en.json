@@ -69,6 +69,55 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "deleteProject": "Delete project",
-    "deleteUser": "Delete account"
+    "deleteUser": "Delete account",
+    "upload": "Upload",
+    "editProfile": "Edit your profile",
+    "saveChanges": "Save changes"
+  },
+  "filters": {
+    "timeframe": {
+      "name": "Timeframe",
+      "recent": "Recent"
+    },
+    "sortBy": {
+      "name": "Sort By",
+      "relevant": "Relevant",
+      "mostViewed": "Most Viewed"
+    },
+    "madeWith": "Made With",
+    "allApps": "All apps",
+    "columns": "Columns",
+    "gridColumns": "Grid Columns"
+  },
+  "titleHome": "Trending projects by creative people",
+  "upload": "Upload",
+  "dropdownUser": {
+    "profile": "Profile",
+    "accountSettings": "Account Settings",
+    "switchTheme": "Switch theme",
+    "signOut": "Sign Out"
+  },
+  "publicProfile": {
+    "firstName": {
+      "name": "First Name",
+      "placeholder": "First Name"
+    },
+    "lastName": {
+      "name": "Last Name",
+      "placeholder": "Last Name"
+    },
+    "bio": {
+      "name": "Biography",
+      "placeholder": "A short bio about yourself"
+    },
+    "skills": {
+      "name": "Skills",
+      "placeholder": "What tools or languages are you most experienced with? Are you specialized or more of a generalist"
+    }
+  },
+  "work": {
+    "preferredJob": "Preferred Job",
+    "workStatus": "Work Status",
+    "availability": "Work Availability"
   }
 }

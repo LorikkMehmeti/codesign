@@ -14,7 +14,7 @@
         <div class="" *ngIf="user?.isMyProfile">
           <cd-button [showIcon]="true"
                      iconName="edit"
-                     [text]="'Edit your profile' | translate"
+                     [text]="('buttons.editProfile' | translate)"
                      borderRadius="4"
                      [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"
                      routerLink="/settings/account"></cd-button>
@@ -27,13 +27,19 @@
         </span>
       </p>
 
-     <div class="d-inline-block position-relative" *ngIf="user.profile.work_availability">
-       <div class="status-work" [class]="user.profile.work_availability.toLowerCase()" >
+    <div class="d-inline-block position-relative" *ngIf="user?.profile?.preferred_job">
+      <div class="status-work">
+        {{user.profile.preferred_job}}
+      </div>
+    </div>
+     <div class="d-inline-block position-relative" *ngIf="user?.profile?.work_availability">
+       <div class="status-work" [class]="user.profile?.work_availability.toLowerCase()" >
          Available for work💻
        </div>
        <div *ngIf="user.profile.work_availability.toLowerCase() === 'available'" class="tooltip-abs" [tooltip]="'Contact: ' + user.email"
             tooltip-class="tooltip-size" hide-delay="50" placement="bottom" show-delay="100"></div>
      </div>
+
     </div>
   </div>
   <ng-template [ngIf]="userLoading">

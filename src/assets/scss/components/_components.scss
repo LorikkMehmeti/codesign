@@ -129,12 +129,17 @@
   font-size: 12px;
   vertical-align: middle;
   margin-top: 10px;
+  margin-right: 5px;
   color: var(--color-font);
   letter-spacing: .4px;
 
   &.unavailable {
     text-decoration: line-through;
     color: rgba(var(--color-font-rgba), .5);
+  }
+
+  &::after {
+    background: var(--color-primary);
   }
 
   &.unavailable::after {

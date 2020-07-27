@@ -1,7 +1,7 @@
 <ng-template [ngIf]="user">
   <form action="" [formGroup]="work" (ngSubmit)="onSubmit()">
     <div class="cd-form-group">
-      <label for="" class="filter-label font-size_14 mb-2 d-inline-block">Preferred Job</label>
+      <label for="" class="filter-label font-size_14 mb-2 d-inline-block">{{'work.preferredJob' | translate}}</label>
 
       <ng-select class="mb-2 ng-select_made font-size_12"
                  placeholder="Select preferred job"
@@ -16,7 +16,7 @@
     </div>
 
     <div class="cd-form-group">
-      <label for="" class="filter-label font-size_14 mb-2 d-inline-block">Work Status</label>
+      <label for="" class="filter-label font-size_14 mb-2 d-inline-block">{{'work.workStatus' | translate}}</label>
 
       <ng-select class="mb-2 ng-select_made font-size_12"
                  placeholder="What is your work status"
@@ -31,7 +31,7 @@
     </div>
 
     <div class="cd-form-group">
-      <label for="" class="filter-label font-size_14 mb-2 d-inline-block">Work Availability</label>
+      <label for="" class="filter-label font-size_14 mb-2 d-inline-block">{{'work.availability' | translate}}</label>
 
       <ng-select class="mb-2 ng-select_made font-size_12"
                  placeholder="Are you available for work"
@@ -47,7 +47,7 @@
 
     <div class="text_left">
       <button type="submit" class="unset-css">
-        <cd-button [showIcon]="false" [text]="'Save changes'"
+        <cd-button [showIcon]="false" [text]="('buttons.saveChanges' | translate)"
                    [classNames]="'cd-btn-inline cd-btn-small cd-btn-primary font-medium'"></cd-button>
       </button>
     </div>

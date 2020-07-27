@@ -39,7 +39,12 @@ export class DesignService {
     const endpoint = `${this.endpoint}/design/${slug}`;
 
     return this.http.get(endpoint);
+  }
 
+  seen(slug) {
+    const endpoint = `${this.endpoint}/seen/${slug}`;
+
+    return this.http.get(endpoint);
   }
 
   deleteDesign(id) {

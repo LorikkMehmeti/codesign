@@ -25,23 +25,19 @@ export class ThemeService {
 
     this.setTheme(this.detectTheme());
   }
-
   /**
-   * Set default theme.
-   *
    * @param theme as string.
    */
   public setTheme(theme: string): void {
     localStorage.setItem('theme', theme);
     document.body.setAttribute('data-theme', theme);
   }
-
+  /**
+   * @return Detected theme.
+   */
   public detectTheme(): string {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (darkMode) {
-      return 'dark';
-    }
-
+    if (darkMode) { return 'dark'; }
     return 'light';
   }
 

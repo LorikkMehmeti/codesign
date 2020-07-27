@@ -53,7 +53,10 @@ export class DesignComponent implements OnInit {
   getDesignInfo() {
     this.designService.getDesign(this.slug).subscribe((res: any) => {
       this.design = res.data;
-      console.log(this.design);
+
+      if (!this.design.isMyDesign) {
+        this.designService.seen(this.slug).subscribe();
+      }
     }, error => {
       this.router.navigate(['not-found-page']);
     });

@@ -27,13 +27,9 @@ export class MultiLangService {
       this.translate.use(currentLanguage);
       return;
     }
-
     this.setLanguage(this.getLanguage());
   }
-
   /**
-   * Set default language.
-   *
    * @param language as string.
    */
   public setLanguage(language: string): void {

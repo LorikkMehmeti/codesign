@@ -66,6 +66,55 @@
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "deleteProject": "Projekt löschen",
-    "deleteUser": "Konto löschen"
+    "deleteUser": "Konto löschen",
+    "upload": "Hochladen",
+    "editProfile": "Bearbeite dein Profil",
+    "saveChanges": "Änderungen speichern"
+  },
+  "filters": {
+    "timeframe": {
+      "name": "Zeitfenster",
+      "recent": "Kürzlich"
+    },
+    "sortBy": {
+      "name": "Sortiere nach",
+      "relevant": "Relevant",
+      "mostViewed": "Am häufigsten gesehen"
+    },
+    "madeWith": "Gemacht mit",
+    "allApps": "Alle apps",
+    "columns": "Säulen",
+    "gridColumns": "Rasterspalten"
+  },
+  "titleHome": "Trendprojekte von Kreativen",
+  "upload": "Hochladen",
+  "dropdownUser": {
+    "profile": "Profil",
+    "accountSettings": "Kontoeinstellungen",
+    "switchTheme": "Thema ändern",
+    "signOut": "Ausloggen"
+  },
+  "publicProfile": {
+    "firstName": {
+      "name": "Vorname",
+      "placeholder": "Vorname"
+    },
+    "lastName": {
+      "name": "Nachname",
+      "placeholder": "Nachname"
+    },
+    "bio": {
+      "name": "Biografie",
+      "placeholder": "Eine kurze Biografie über dich"
+    },
+    "skills": {
+      "name": "Kompetenzen",
+      "placeholder": "Mit welchen Tools oder Sprachen haben Sie am meisten Erfahrung? Sind Sie spezialisiert oder eher ein Generalist?"
+    }
+  },
+  "work": {
+    "preferredJob": "Bevorzugter Job",
+    "workStatus": "Arbeitsstatus",
+    "availability": "Arbeitsverfügbarkeit"
   }
 }

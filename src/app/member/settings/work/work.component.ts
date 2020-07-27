@@ -49,9 +49,9 @@ export class WorkComponent implements OnInit {
     const user = this.user;
     if (this.user) {
       this.work.patchValue({
-        preferred_job: user.profile.preferred_job,
-        work_status: user.profile.work_status,
-        work_availability: user.profile.work_availability,
+        preferred_job: user?.profile?.preferred_job,
+        work_status: user?.profile?.work_status,
+        work_availability: user?.profile?.work_availability,
       });
     }
   }

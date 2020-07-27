@@ -29,10 +29,10 @@ export class HomeComponent implements OnInit {
 
   labels: any = {};
 
-  sortByArr = [{name: 'Relevant', query: 'relevant'}, {name: 'Most Appreciated', query: 'most-appreciated'}, {
-    name: 'Most Downloaded',
-    query: 'most-downloaded'
-  }];
+  sortByArr = [
+    {name: 'Relevant', query: 'asc', translate: 'filters.sortBy.relevant'},
+    {name: 'Most Viewed', query: 'desc', translate: 'filters.sortBy.mostViewed'},
+  ];
 
   selected: any = {};
   dataAvailable = false;
@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
   _loaderShow = false;
   randomDesigns: any;
   mostViewedDesigns: any;
+  params: any;
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -68,16 +69,20 @@ export class HomeComponent implements OnInit {
       this.labels = {};
       this.selected = {};
       this.getPage = 1;
+      this.params = param.params;
 
-      if (param.params.sort) {
-        this.selected.sort = this.sortByArr.find(data => data.query.toLowerCase() === param.params.sort);
-        this.labels.sortBy = this.selected.sort.name;
-      }
+      if (param.params) {
+        if (param.params.sortBy) {
+          this.selected.sortBy = this.sortByArr.find(data => data.query.toLowerCase() === param.params.sortBy);
+          this.labels.sortBy = this.selected.sortBy.translate;
+        }
 
-      if (param.keys.length > 0 && param.params.made) {
+        if (param.keys.length > 0 && param.params.made) {
+          this.selected.made = this.tools.find(data => (data.query.toLowerCase() === param.params.made));
+          this.labels.madeWith = this.selected.made.name;
+        }
+
         this.getDesigns(param.params);
-        this.selected.made = this.tools.find(data => (data.query.toLowerCase() === param.params.made));
-        this.labels.madeWith = this.selected.made.name;
         return;
       }
 
@@ -89,14 +94,24 @@ export class HomeComponent implements OnInit {
     return index;
   }
 
-  removeParam(yourParamName) {
-    this.router.navigate(['./'], {
-      queryParams: {
-        yourParamName: null,
-        youCanRemoveMultiple: null,
-      },
-      queryParamsHandling: 'merge'
-    });
+  removeParam(yourParamName?: string) {
+    switch (yourParamName) {
+      case 'made':
+        this.router.navigate(['.'], {
+          relativeTo: this.activatedRoute,
+          queryParams: { made: null, youCanRemoveMultiple: null },
+          queryParamsHandling: 'merge'
+        });
+        break;
+      case 'sortBy':
+        this.router.navigate(['.'], {
+          relativeTo: this.activatedRoute,
+          queryParams: { sortBy: null, youCanRemoveMultiple: null },
+          queryParamsHandling: 'merge'
+        });
+        break;
+    }
+
   }
 
   infiniteScroll() {

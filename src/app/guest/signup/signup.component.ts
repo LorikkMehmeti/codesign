@@ -84,17 +84,13 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.registerForm.invalid) {
-      return;
-    }
-
+    if (this.registerForm.invalid) { return; }
     const body = {
       first_name: this.capitalize(this.firstName.value.trim()),
       last_name: this.capitalize(this.lastName.value.trim()),
       username: this.username.value.toLowerCase().trim(),
       email: this.email.value.toLowerCase().trim(),
-      password: this.password.value.trim(),
-      // type: this.type.value
+      password: this.password.value.trim()
     };
 
     this.activeToast = this.toast.show(`Connecting with the server to get you register`, 'Loading', {
@@ -106,14 +102,8 @@ export class SignupComponent implements OnInit {
         this.activeToast = this.toast.show(`Register is done`, 'Success', {
           toastClass: 'success-toast'
         });
-
         this.registerForm.reset();
-
         this.router.navigate(['/login']);
-      }
-
-      if (!res.success) {
-
       }
     });
 

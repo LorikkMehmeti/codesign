@@ -16,7 +16,6 @@ export class AuthenticationService {
 
   login(userName: string, pass: string) {
     const authorizationData = 'Basic ' + btoa('first-client' + ':' + 'first-secret');
-
     const headerOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -24,26 +23,15 @@ export class AuthenticationService {
       })
     };
 
-    const body = {
-      username: userName,
-      password: pass
-    };
-
-
-    // const body = new HttpParams()
-    //   .set('username', userName)
-    //   .set('password', pass);
-
-    console.log(body);
+    const body = { username: userName, password: pass };
     const url = `${environment.url}/login`;
+
     return this.http.post<any>(url, body, headerOptions)
       .pipe(map((res: any) => {
         if (res.success === false) {
           return res;
         }
-
         this.tokenService.setToken(res.access_token);
-
         return res;
       }));
   }

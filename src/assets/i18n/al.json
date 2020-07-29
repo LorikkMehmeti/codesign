@@ -1,0 +1,123 @@
+{
+  "HELLO": "Përshëndetje",
+  "Login": "Kyçu",
+  "Register": "Regjistrohu",
+  "Search": "Kërko për dizajne",
+  "ForgotPassword": "Keni harruar fjalëkalimin",
+  "SignIn": {
+    "signIn": "Kyçu",
+    "facebook": "Kyçu nëpërmjet Facebook",
+    "google": "Kyçu nëpërmjet Google"
+  },
+  "SignUp": {
+    "signUp": "Regjistrohu",
+    "now": "Regjistrohu tani"
+  },
+  "or": "ose",
+  "Placeholders": {
+    "Login": {
+      "usernameOrEmail": "Emri i përdoruesit",
+      "Password": "Fjalëkalimi"
+    },
+    "Register": {
+      "email": "E-mail adresa"
+    },
+    "forgot": {
+      "password": "Fjalëkalimi",
+      "newPassword": "Fjalëkalimi i ri"
+    }
+  },
+  "reCAPTCHA": {
+    "main": "This page is protected by reCAPTCHA and subject to the",
+    "googlePrivacy": "Google Privacy Policy",
+    "and": "and",
+    "terms": "Terms of service"
+  },
+  "footer": {
+    "mainPages": {
+      "title": "Main Pages",
+      "home": "Home",
+      "login": "Login",
+      "signUp": "Sign Up",
+      "forgotPassword": "Forgot Password"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About company",
+      "team": "Team",
+      "careers": "Careers",
+      "companyShop": "Company Shop"
+    },
+    "follow": {
+      "title": "Follow"
+    },
+    "policies": {
+      "title": "Policies",
+      "privacy": "Privacy policy",
+      "safe": "Safe policy",
+      "userGuide": "User Guide",
+      "terms": "Terms & Conditions"
+    }
+  },
+  "confirmAction": "Konfirmo",
+  "messages": {
+    "deleteProject": "Are you sure you want to delete your masterpiece. You will not be able to recover this project or its contents. This operation cannot be undone",
+    "deletedProject": "Project was deleted successfully",
+    "deleteUser": "Be advised, account deletion is final. There will be no way to restore your account."
+  },
+  "buttons": {
+    "cancel": "Anulo",
+    "delete": "Fshij",
+    "deleteProject": "Fshij projektin",
+    "deleteUser": "Mbyll llogarinë",
+    "upload": "Ngarko",
+    "editProfile": "Ndrysho të dhënat",
+    "saveChanges": "Ruaj ndryshimet"
+  },
+  "filters": {
+    "timeframe": {
+      "name": "Koha",
+      "recent": "Më të fundit"
+    },
+    "sortBy": {
+      "name": "Rendit sipas",
+      "relevant": "Relevante",
+      "mostViewed": "Më të shikuarat"
+    },
+    "madeWith": "Krijuar me",
+    "allApps": "Të gjitha aplikacionet",
+    "columns": "Kolonat",
+    "gridColumns": "Kolonat"
+  },
+  "titleHome": "Projektet në trend nga njerëz kreativë",
+  "upload": "Ngarko",
+  "dropdownUser": {
+    "profile": "Profili",
+    "accountSettings": "Llogaria",
+    "switchTheme": "Ndërro skemën",
+    "signOut": "Dil"
+  },
+  "publicProfile": {
+    "firstName": {
+      "name": "Emri",
+      "placeholder": "Emri"
+    },
+    "lastName": {
+      "name": "Mbiemri",
+      "placeholder": "Mbiemri"
+    },
+    "bio": {
+      "name": "Biografia",
+      "placeholder": "Një biografi e shkurtër rreth teje"
+    },
+    "skills": {
+      "name": "Aftësitë",
+      "placeholder": "Çfarë software përdorni ose në cilat fusha jeni me më shumë eksperiencë"
+    }
+  },
+  "work": {
+    "preferredJob": "Puna e preferuar",
+    "workStatus": "Statusi i punës",
+    "availability": "Disponueshmëria për punë"
+  }
+}

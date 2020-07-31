@@ -116,5 +116,26 @@
     "preferredJob": "Bevorzugter Job",
     "workStatus": "Arbeitsstatus",
     "availability": "Arbeitsverfügbarkeit"
-  }
+  },
+  "home": {
+    "newest": "Neueste Designs",
+    "viewed": "Am häufigsten gesehen",
+    "watch": "Watch most popular shots on this web application",
+    "featured": "Vorgestellt",
+    "button": "Mehr sehen"
+  },
+  "register": {
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "username": "Nutzername",
+    "email": "Email",
+    "password": "Passwort",
+    "already": "Hast du bereits einen Account? Logge dich ein"
+  },
+  "forgot": {
+    "get_back": "Holen Sie sich Ihr Konto zurück",
+    "tell": "Teilen Sie uns einige Informationen zu Ihrem Konto mit.",
+    "button": "Fortsetzen"
+  },
+  "needHelp": "Wenn Sie weiterhin Hilfe benötigen, wenden Sie sich bitte an"
 }

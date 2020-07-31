@@ -35,35 +35,35 @@
   },
   "footer": {
     "mainPages": {
-      "title": "Main Pages",
-      "home": "Home",
-      "login": "Login",
-      "signUp": "Sign Up",
-      "forgotPassword": "Forgot Password"
+      "title": "Faqet kryesor",
+      "home": "Kryefaqja",
+      "login": "Kyçu",
+      "signUp": "Regjistrimi",
+      "forgotPassword": "Keni harruar fjalëkalimin"
     },
     "company": {
-      "title": "Company",
-      "about": "About company",
-      "team": "Team",
-      "careers": "Careers",
-      "companyShop": "Company Shop"
+      "title": "Kompania",
+      "about": "Rreth kompanise",
+      "team": "Ekipi",
+      "careers": "Karriera",
+      "companyShop": "Dyçani i kompanisë"
     },
     "follow": {
       "title": "Follow"
     },
     "policies": {
-      "title": "Policies",
-      "privacy": "Privacy policy",
-      "safe": "Safe policy",
-      "userGuide": "User Guide",
-      "terms": "Terms & Conditions"
+      "title": "Politikat",
+      "privacy": "Politika e privatësisë",
+      "safe": "Siguri",
+      "userGuide": "Udhëzuesi i përdorimit",
+      "terms": "Kushtet e përdorimit"
     }
   },
   "confirmAction": "Konfirmo",
   "messages": {
-    "deleteProject": "Are you sure you want to delete your masterpiece. You will not be able to recover this project or its contents. This operation cannot be undone",
-    "deletedProject": "Project was deleted successfully",
-    "deleteUser": "Be advised, account deletion is final. There will be no way to restore your account."
+    "deleteProject": "A jeni i sigurt që dëshironi të heqni këtë kryevepër. Ju nuk do të jeni në gjendje ta riktheni këtë projekt apo resurset e tij",
+    "deletedProject": "Projekti u fshi me sukses",
+    "deleteUser": "Keni kujdes. Nuk mund ta riktheni llogarinë pas fshirjes."
   },
   "buttons": {
     "cancel": "Anulo",
@@ -119,5 +119,26 @@
     "preferredJob": "Puna e preferuar",
     "workStatus": "Statusi i punës",
     "availability": "Disponueshmëria për punë"
-  }
+  },
+  "home": {
+    "newest": "Më të rejat",
+    "viewed": "Më të shikuarat",
+    "watch": "Shiko dizajnet më të vizituara në platformë",
+    "featured": "Të rekomonaduara",
+    "button": "Shiko më shumë"
+  },
+  "register": {
+    "first_name": "Emri",
+    "last_name": "Mbiemri",
+    "username": "Emri i userit",
+    "email": "E-Maili",
+    "password": "Fjalëkalimi",
+    "already": "Keni një llogari, Kyçuni në platformë"
+  },
+  "forgot": {
+    "get_back": "Riktheni llogarinë tuaj",
+    "tell": "Na tregoni diçka më shumë rreth llogarisë tuaj.",
+    "button": "Vazhdo"
+  },
+  "needHelp": "Nëse ende keni probleme kontaktoni"
 }

@@ -37,7 +37,7 @@
     <div class="form-container text_center">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="First name" formControlName="firstName"
+          <input type="text" class="cd__input input__small" [placeholder]="('register.first_name' | translate)" formControlName="firstName"
                  [ngClass]="{
       'form-valid': firstName.valid && firstName.dirty && firstName.touched,
       'form-invalid': firstName.invalid && firstName.touched && firstName.dirty}">
@@ -47,25 +47,26 @@
           </p>
         </div>
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="Last name" formControlName="lastName"
+          <input type="text" class="cd__input input__small" [placeholder]="('register.last_name' | translate)" formControlName="lastName"
                  [ngClass]="{
       'form-valid': lastName.valid && (lastName.dirty && lastName.touched),
       'form-invalid': lastName.invalid && lastName.touched && lastName.dirty}">
         </div>
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="Username" formControlName="username"
+          <input type="text" class="cd__input input__small" [placeholder]="('register.username' | translate)" formControlName="username"
                  [ngClass]="{
       'form-valid': username.valid && (username.dirty && username.touched),
       'form-invalid': username.invalid && username.touched && username.dirty}">
         </div>
         <div class="cd-form-group">
-          <input type="text" class="cd__input input__small" placeholder="Email" formControlName="email"
+          <input type="text" class="cd__input input__small" [placeholder]="('register.email' | translate)" formControlName="email"
                  [ngClass]="{
       'form-valid': email.valid && (email.touched && email.dirty),
       'form-invalid': email.invalid && email.touched && email.dirty}">
         </div>
         <div class="cd-form-group">
-          <input type="password" class="cd__input input__small" placeholder="Password" formControlName="password"
+          <input type="password" class="cd__input input__small"
+                 [placeholder]="('register.password' | translate)" formControlName="password"
                  [ngClass]="{
       'form-valid': password.valid && password?.value?.length >= 10 && (password.touched && password.dirty),
       'form-invalid': password.invalid && password.touched && password.dirty,
@@ -107,7 +108,7 @@
           [showIcon]="false"
           [textBtn]="true"
           [classNames]="'cd-btn-block cd-btn-small btn-clear'"
-          text="Already have an account, Login" [maxWidth]="true" routerLink="/login">
+          [text]="('register.already' | translate)" [maxWidth]="true" routerLink="/login">
         </cd-button>
 
         <p class="text_left font-size_12 mt-2 mb-2">This page is protected by reCAPTCHA and subject to the

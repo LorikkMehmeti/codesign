@@ -119,5 +119,26 @@
     "preferredJob": "Preferred Job",
     "workStatus": "Work Status",
     "availability": "Work Availability"
-  }
+  },
+  "home": {
+    "newest": "Newest Releases",
+    "viewed": "Most Viewed",
+    "watch": "Watch most popular shots on this web application\n\n\n",
+    "featured": "Featured",
+    "button": "See more"
+  },
+  "register": {
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "already": "Already have an account, Login"
+  },
+  "forgot": {
+    "get_back": "Getting back into your account",
+    "tell": "Tell us some information about your account.",
+    "button": "Continue"
+  },
+  "needHelp": "If you still need help, contact"
 }

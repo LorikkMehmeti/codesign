@@ -1,26 +1,107 @@
 <!--<cd-header marginHeader="true"></cd-header>-->
 <div class="container">
-  <p class="font-size_18 results-text">Results for <span class="font-bold">Snapchat</span></p>
+  <p class="font-size_18 results-text">
+    Results for <span class="font-bold">{{query}}</span>
+  </p>
 
-  <div class="tabs-segment-search display-grid no-touch">
-    <div class="tab-segment-button tab-segment-button_active pointer_link">Projects</div>
-    <div class="tab-segment-button ml-2 link pointer_link">Users</div>
+  <div>
+    <div class="tab-segment-button link pointer_link">Users</div>
   </div>
-
-  <div class="grid_posts grid-four-columns mt-2">
-    <div class="grid-item" *ngFor="let p of [0,1,2,3,4,5,6,7,8,9,10,11,12]; let i = index">
-      <div class="image-grid position-relative">
-        <cd-skeleton></cd-skeleton>
+  <div class="grid-users grid-four-columns" *ngIf="data && data.users; else noUsers">
+    <div class="user-search" *ngFor="let user of data.users">
+      <div class="image" [routerLink]="['../us', user.username]">
+        <img [src]="'http://localhost:8000/images/avatars/' + user.username + user.profile_pic" class="object-cover" width="100%"
+             height="100%" draggable="false" alt="">
       </div>
-      <div class="mt-2 flex-1 text_card font-size_14">
-        <p class="cd-link card-title card-title_skeleton position-relative">
-          <cd-skeleton></cd-skeleton>
-        </p>
-        <a class="cd-link card-link card-link_skeleton font-size_12 position-relative">
-          <cd-skeleton></cd-skeleton>
-        </a>
+      <div class="info text_center" [routerLink]="['../us', user.username]">
+        <p class="font-bold font-size_13">{{user.first_name + ' ' + user.last_name}}</p>
       </div>
     </div>
+  </div>
+  <div class="text_center mb-2" *ngIf="data && data.users.length === 0">
+    <div class="empty-state text_center">
+      <div class="d-inline-block">
+        <div class="empty-icon">
+          <span>👥️</span>
+        </div>
+      </div>
+      <h1 class="heading text_none">Sorry no users with "{{query}}"</h1>
+    </div>
+  </div>
+
+  <ng-template #noUsers>
+    <div class="grid-users grid-four-columns">
+      <div class="user-search" *ngFor="let u of [0,1,2,3]">
+        <div class="image">
+          <cd-skeleton></cd-skeleton>
+        </div>
+        <div class="info">
+          <p class="position-relative">&nbsp;<cd-skeleton></cd-skeleton></p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <div>
+    <div class="tab-segment-button tab-segment-button_active pointer_link">Projects</div>
+  </div>
+
+
+  <div class="text_center mb-2" *ngIf="data && data.designs.length === 0">
+    <div class="empty-state text_center">
+      <div class="d-inline-block">
+        <div class="empty-icon">
+          <span>🎨</span>
+        </div>
+      </div>
+      <h1 class="heading text_none">Sorry no designs with "{{query}}"</h1>
+    </div>
+  </div>
+  <div class="grid_posts grid-four-columns mt-2">
+    <ng-container *ngIf="data && data.designs; else noDesigns">
+      <div class="grid-item" *ngFor="let p of data.designs; let i = index">
+        <div class="image-grid position-relative">
+          <img [src]="'http://localhost:8000/images/covers/' + p.cover_image" class="object-cover" width="100%"
+               height="100%" alt="">
+        </div>
+        <div class="display-flex a-items-center j-space-between bottom_post">
+          <div class="display-flex w-100" [routerLink]="['../design', p.slug]">
+            <div class="avatar-image position-relative overflow-hidden"
+                 tooltip-class="tooltip-size" hide-delay="50" [tooltip]="p.name" placement="bottom"
+                 show-delay="100">
+              <img [src]="'http://localhost:8000/images/avatars/' + p.username + p.profile_pic"
+                   class="object-cover" width="100%"
+                   height="100%" draggable="false" alt="">
+            </div>
+            <div class="ml-2 flex-1 text_card font-size_14">
+              <a>
+                <p class="position-relative cd-link card-title" [routerLink]="['../design', p.slug]">
+                  {{p.title_project}}
+                </p>
+              </a>
+              <a class="cd-link font-size_12 position-relative d-inline-block card-link">
+                {{p.name}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noDesigns>
+      <div class="grid-item" *ngFor="let p of [0,1,2,3,4,5,6,7,8,9,10,11,12]; let i = index">
+        <div class="image-grid position-relative">
+          <cd-skeleton></cd-skeleton>
+        </div>
+        <div class="mt-2 flex-1 text_card font-size_14">
+          <p class="cd-link card-title card-title_skeleton position-relative">
+            <cd-skeleton></cd-skeleton>
+          </p>
+          <a class="cd-link card-link card-link_skeleton font-size_12 position-relative">
+            <cd-skeleton></cd-skeleton>
+          </a>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </div>
 <!--<cd-footer></cd-footer>-->

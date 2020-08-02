@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   isOpen = false;
   registerForm: FormGroup;
   activeToast: any;
+  errors: any;
 
 
   constructor(private router: Router, private userService: UserService, private toast: ToastrService) {
@@ -25,25 +26,29 @@ export class SignupComponent implements OnInit {
   private initForm(): void {
     this.registerForm = new FormGroup({
       firstName: new FormControl(null, [
+        Validators.required,
         Validators.minLength(2),
         Validators.maxLength(20),
         Validators.pattern(`^[A-Za-z]+((\\s)?((\\'|\\-|\\.)?([A-Za-z])+))*$`)
       ]),
       lastName: new FormControl(null, [
+        Validators.required,
         Validators.minLength(2),
         Validators.maxLength(20),
         // Validators.pattern('^[A-Za-z][A-Za-z0-9]*$')
       ]),
       username: new FormControl(null, [
+        Validators.required,
         Validators.minLength(5),
         Validators.maxLength(15)
         // Validators.pattern
       ]),
       email: new FormControl(null, [
-        Validators.minLength(2),
-        // Validators.pattern
+        Validators.required,
+        Validators.pattern('^((?!\\.)[\\w-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$')
       ]),
       password: new FormControl(null, [
+        Validators.required,
         Validators.minLength(8),
         Validators.maxLength(20)
         // Validators.pattern
@@ -105,6 +110,8 @@ export class SignupComponent implements OnInit {
         this.registerForm.reset();
         this.router.navigate(['/login']);
       }
+    }, error => {
+      this.errors = error.error.errors;
     });
 
   }

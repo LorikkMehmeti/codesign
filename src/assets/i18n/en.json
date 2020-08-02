@@ -122,9 +122,9 @@
   },
   "home": {
     "newest": "Newest Releases",
-    "viewed": "Most Viewed",
+    "viewed": "Most Popular",
     "watch": "Watch most popular shots on this web application\n\n\n",
-    "featured": "Featured",
+    "featured": "Featured shots",
     "button": "See more"
   },
   "register": {
@@ -140,5 +140,26 @@
     "tell": "Tell us some information about your account.",
     "button": "Continue"
   },
-  "needHelp": "If you still need help, contact"
+  "needHelp": "If you still need help, contact",
+  "uploadPage": {
+    "label": "Upload your design cover",
+    "labelTitle": "Project Title",
+    "placeholderTitle": "Type your project title",
+    "labelDescription": "Project Description",
+    "tool": "Select the tool",
+    "uploadFiles": "Upload your folder file!",
+    "footer": {
+      "draft": "Save to draft",
+      "create": "Create your project"
+    }
+  },
+  "settings": {
+    "edit": {
+      "name": "Edit Profile",
+      "public": "Public Profile",
+      "work": "Work Availability"
+    },
+    "account": "Account Settings",
+    "password": "Password"
+  }
 }

@@ -4,6 +4,7 @@ import {UserService} from '../../services/user/user.service';
 import {Subscription} from 'rxjs';
 import {ThemeService} from '../../services/theme.service';
 import {MultiLangService} from '../../services/multi-lang.service';
+import {Router} from '@angular/router';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -20,8 +21,9 @@ export class HeaderComponent implements OnInit {
   user: any;
   theme: string;
   getLanguage;
+  term: any;
 
-  constructor(private multiLang: MultiLangService, private themeService: ThemeService, public authenticationService: AuthenticationService,
+  constructor(private router: Router, private multiLang: MultiLangService, private themeService: ThemeService, public authenticationService: AuthenticationService,
               private userService: UserService) {
   }
 
@@ -31,6 +33,10 @@ export class HeaderComponent implements OnInit {
       this.getLang();
       this.getUser();
     }
+  }
+
+  search(term) {
+    this.router.navigate(['search'], {queryParams: {q: term}});
   }
 
   getTheme() {

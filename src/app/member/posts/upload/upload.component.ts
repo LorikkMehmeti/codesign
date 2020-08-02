@@ -218,7 +218,7 @@ export class UploadComponent implements OnInit {
 
 
     this.design.createDesign(formData).subscribe((res: any) => {
-      this.activeToast = this.toast.show(`${res.data}`, 'Error', {
+      this.activeToast = this.toast.show(`${res.data}`, 'Success', {
         toastClass: 'success-toast'
       });
       this.router.navigate(['/home']);

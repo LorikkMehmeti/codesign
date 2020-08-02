@@ -140,5 +140,26 @@
     "tell": "Na tregoni diçka më shumë rreth llogarisë tuaj.",
     "button": "Vazhdo"
   },
+  "uploadPage": {
+    "label": "Zgjedh foton",
+    "labelTitle": "Titulli i projektit",
+    "placeholderTitle": "Shëno titullin e projektit",
+    "labelDescription": "Përshkrimi i projektit",
+    "tool": "Zgjedh softuerin",
+    "uploadFiles": "Zgjedh filet e projektit",
+    "footer": {
+      "draft": "Ruaje në draft",
+      "create": "Krijo projektin"
+    }
+  },
+  "settings": {
+    "edit": {
+      "name": "Ndrysho profilin",
+      "public": "Profili publik",
+      "work": "Puna"
+    },
+    "account": "Llogaria",
+    "password": "Fjalëkalimi"
+  },
   "needHelp": "Nëse ende keni probleme kontaktoni"
 }

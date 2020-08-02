@@ -137,5 +137,26 @@
     "tell": "Teilen Sie uns einige Informationen zu Ihrem Konto mit.",
     "button": "Fortsetzen"
   },
+  "uploadPage": {
+    "label": "Laden Sie Ihre Designabdeckung hoch",
+    "labelTitle": "Projekttitel",
+    "placeholderTitle": "Geben Sie Ihren Projekttitel ein",
+    "labelDescription": "Projektbeschreibung",
+    "tool": "Wählen Sie das Werkzeug aus",
+    "uploadFiles": "Laden Sie Ihre Ordnerdatei hoch!",
+    "footer": {
+      "draft": "Zum Entwurf speichern",
+      "create": "Erstellen Sie Ihr Projekt"
+    }
+  },
+  "settings": {
+    "edit": {
+      "name": "Profil bearbeiten",
+      "public": "Öffentliches Profil",
+      "work": "Arbeit"
+    },
+    "account": "Kontoeinstellungen",
+    "password": "Passwort"
+  },
   "needHelp": "Wenn Sie weiterhin Hilfe benötigen, wenden Sie sich bitte an"
 }

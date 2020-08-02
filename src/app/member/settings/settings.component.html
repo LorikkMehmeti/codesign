@@ -20,14 +20,14 @@
         <div class="side_menu-BAR">
           <ul class="side_menu-items">
             <li class="">
-              <a class="side-link" [routerLink]="['account']" routerLinkActive="side-link_active">Edit Profile</a>
+              <a class="side-link" [routerLink]="['account']" routerLinkActive="side-link_active">{{'settings.edit.name' | translate}}</a>
               <ul class="nested_links">
-                <li><a [routerLink]="['account']" class="side-link inside_link" routerLinkActive="side-link_active">Public Profile</a></li>
-                <li><a [routerLink]="['work']" class="side-link inside_link" routerLinkActive="side-link_active">Work Availability</a></li>
+                <li><a [routerLink]="['account']" class="side-link inside_link" routerLinkActive="side-link_active">{{'settings.edit.public' | translate}}</a></li>
+                <li><a [routerLink]="['work']" class="side-link inside_link" routerLinkActive="side-link_active">{{'settings.edit.work' | translate}}</a></li>
               </ul>
             </li>
-            <li class=""><a class="side-link" [routerLink]="['account-settings']" routerLinkActive="side-link_active">Account Settings</a></li>
-            <li class=""><a class="side-link" [routerLink]="['password']" routerLinkActive="side-link_active">Password</a></li>
+            <li class=""><a class="side-link" [routerLink]="['account-settings']" routerLinkActive="side-link_active">{{'settings.account' | translate}}</a></li>
+            <li class=""><a class="side-link" [routerLink]="['password']" routerLinkActive="side-link_active">{{'settings.password' | translate}}</a></li>
           </ul>
         </div>
         <div class="inputs_settings">

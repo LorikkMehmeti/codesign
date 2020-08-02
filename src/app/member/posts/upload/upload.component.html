@@ -28,7 +28,7 @@
     <div class="form-grid">
       <div class="image-preview">
         <ngx-dropzone class="w-100 h-100 dropzone_cover" (change)="previewCover($event)" accept="image/*">
-          <ngx-dropzone-label>Upload your design cover!</ngx-dropzone-label>
+          <ngx-dropzone-label>{{('uploadPage.label' | translate)}}</ngx-dropzone-label>
           <ngx-dropzone-image-preview *ngIf="imagePreview" class="ngx-image_preview" ngProjectAs="ngx-dropzone-preview"
                                       (click)="this.imagePreview = null" (removed)="this.imagePreview = null"
                                       [removable]="true"
@@ -37,12 +37,12 @@
         </ngx-dropzone>
       </div>
       <div class="inputs-group mt-2">
-        <label for="project_name" class="d-inline-block mb-2 pointer_link font-size_14">Project Title</label>
+        <label for="project_name" class="d-inline-block mb-2 pointer_link font-size_14">{{('uploadPage.labelTitle' | translate)}}</label>
         <div class="cd-form-group">
           <input type="text" autocomplete="off" class="cd__input input__small" id="project_name"
-                 placeholder="Type your project title" formControlName="title_project">
+                 [placeholder]="('uploadPage.placeholderTitle' | translate)" formControlName="title_project">
         </div>
-        <label for="" class="d-inline-block mb-2 pointer_link font-size_14">Project Description</label>
+        <label for="" class="d-inline-block mb-2 pointer_link font-size_14">{{('uploadPage.labelDescription' | translate)}}</label>
         <div class="mb-2" style="height: 500px;">
           <div class="cd-form-group textarea_input">
             <editor
@@ -51,12 +51,12 @@
               [init]="init"></editor>
           </div>
         </div>
-        <label class="mt-2">Select the tool</label>
+        <label class="mt-2">{{('uploadPage.tool' | translate)}}</label>
         <div class="cd-form-group">
           <ng-select class="mt-2 mb-2 ng-select_made font-size_14"
                      [items]="tools"
                      bindLabel="name"
-                     placeholder="Select a tool"
+                     [placeholder]="('uploadPage.tool' | translate)"
                      formControlName="selected_tool"
                      [searchable]="false"
                      [loading]="peopleLoading">
@@ -65,7 +65,7 @@
         <div class="cd-form-group">
           <ngx-dropzone class="w-100 h-100 ngx_dropzone" multiple="true" (change)="preview($event)" id="files_zip"
                         [accept]="'.xd, .sketch, .pdf, .psd, .ai'">
-            <ngx-dropzone-label>Upload your folder file!</ngx-dropzone-label>
+            <ngx-dropzone-label>{{('uploadPage.uploadFiles' | translate)}}</ngx-dropzone-label>
             <ngx-dropzone-preview class="files_drag" *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)"
                                   style="min-width:140px!important; max-width: 200px!important; ">
               <ngx-dropzone-label class="no-margin">
@@ -110,10 +110,10 @@
 
 <div class="footer-form_submit">
   <div class="display-grid footer_content text_center">
-    <cd-button [showIcon]="false" borderRadius="4" [text]="'Cancel'"
+    <cd-button [showIcon]="false" borderRadius="4" [text]="('buttons.cancel' | translate)"
                [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'"></cd-button>
     <button class="unset-css" (click)="saveToDraft()">
-      <cd-button [showIcon]="false" borderRadius="4" [text]="'Save to draft'"
+      <cd-button [showIcon]="false" borderRadius="4" [text]="('uploadPage.footer.draft' | translate)"
                  [classNames]="'cd-btn-inline cd-btn-small btn-clear font-medium'"></cd-button>
     </button>
     <button class="unset-css" (click)="onSubmit()">
@@ -121,7 +121,7 @@
         [showIcon]="false"
         [textBtn]="true"
         [classNames]="'cd-btn-block font-medium cd-btn-primary cd-btn-small'"
-        text="Create your project" [maxWidth]="true" borderRadius="8">
+        [text]="('uploadPage.footer.create' | translate)" [maxWidth]="true" borderRadius="8">
       </cd-button>
     </button>
   </div>

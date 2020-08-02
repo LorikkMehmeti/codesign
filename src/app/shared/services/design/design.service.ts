@@ -58,4 +58,10 @@ export class DesignService {
 
     return this.http.get(endpoint, {responseType: 'blob'});
   }
+
+  search(query: string | number) {
+    const endpoint = `${this.endpoint}/search?q=${query}`;
+
+    return this.http.get(endpoint);
+  }
 }

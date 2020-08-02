@@ -192,3 +192,11 @@ body {
   justify-content: center;
 }
 
+.error-message {
+  color: var(--color-danger);
+  font-style: italic;
+  text-align: left;
+  margin: 8px 0;
+  font-size: 13px;
+}
+
